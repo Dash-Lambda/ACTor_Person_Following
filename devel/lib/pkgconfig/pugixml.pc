@@ -1,0 +1,8 @@
+prefix=/home/mpleune/catkin_ws/devel
+
+Name: pugixml
+Description: Description of pugixml
+Version: 1.7.1
+Cflags: -I/home/mpleune/catkin_ws/src/pugixml/src/include
+Libs: -L${prefix}/lib -lpugixml
+Requires: 

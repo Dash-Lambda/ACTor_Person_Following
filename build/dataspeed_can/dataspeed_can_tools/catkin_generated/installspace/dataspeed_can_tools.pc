@@ -1,0 +1,8 @@
+prefix=/home/mpleune/catkin_ws/install
+
+Name: dataspeed_can_tools
+Description: Description of dataspeed_can_tools
+Version: 1.0.16
+Cflags: 
+Libs: -L${prefix}/lib -ldataspeed_can_tools
+Requires: 

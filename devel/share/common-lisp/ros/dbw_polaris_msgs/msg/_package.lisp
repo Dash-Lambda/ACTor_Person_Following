@@ -1,0 +1,27 @@
+(cl:defpackage dbw_polaris_msgs-msg
+  (:use )
+  (:export
+   "<BRAKECMD>"
+   "BRAKECMD"
+   "<BRAKEREPORT>"
+   "BRAKEREPORT"
+   "<GEAR>"
+   "GEAR"
+   "<GEARCMD>"
+   "GEARCMD"
+   "<GEARREJECT>"
+   "GEARREJECT"
+   "<GEARREPORT>"
+   "GEARREPORT"
+   "<STEERINGCMD>"
+   "STEERINGCMD"
+   "<STEERINGREPORT>"
+   "STEERINGREPORT"
+   "<THROTTLECMD>"
+   "THROTTLECMD"
+   "<THROTTLEREPORT>"
+   "THROTTLEREPORT"
+   "<WATCHDOGCOUNTER>"
+   "WATCHDOGCOUNTER"
+  ))
+

@@ -1,0 +1,8 @@
+prefix=/home/mpleune/catkin_ws/install
+
+Name: perception_msgs
+Description: Description of perception_msgs
+Version: 1.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime std_msgs sensor_msgs geometry_msgs

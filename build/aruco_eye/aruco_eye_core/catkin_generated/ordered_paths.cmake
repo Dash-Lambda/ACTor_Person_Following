@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/home/mpleune/catkin_ws/src/pugixml/src/include;/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include;/opt/ros/kinetic/include/opencv-3.3.1-dev;/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv")

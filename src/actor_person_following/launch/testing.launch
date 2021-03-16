@@ -1,0 +1,15 @@
+<launch>
+	<!-- CAMERA PUBLISHER -->
+
+  <!-- launch the node 
+  <node name="cam_pub" pkg="simple_camera_publisher" type="cam_pub" respawn="true" respawn_delay="10" output="screen">
+      <param name="source" type="string" value="" />
+      <param name="res_wid" type="int" value="640" />
+      <param name="res_hgt" type="int" value="480" />
+  </node>-->
+
+	<!--TEST-->
+  <node pkg="actor_person_following" type="aruco_tracker_node" name="aruco_tracker_node">
+      
+  </node>
+</launch>
