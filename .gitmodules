@@ -13,3 +13,6 @@
 [submodule "src/robot_component_srvs"]
 	path = src/robot_component_srvs
 	url = https://github.com/joselusl/robot_component_srvs.git
+[submodule "src/simple_camera_publisher"]
+	path = src/simple_camera_publisher
+	url = https://github.com/ltu-ros/simple_camera_publisher.git
