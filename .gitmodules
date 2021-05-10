@@ -22,3 +22,6 @@
 [submodule "src/dataspeed_can"]
 	path = src/dataspeed_can
 	url = https://bitbucket.org/DataspeedInc/dataspeed_can.git
+[submodule "src/dbw_polaris_ros"]
+	path = src/dbw_polaris_ros
+	url = https://bitbucket.org/DataspeedInc/dbw_polaris_ros.git
