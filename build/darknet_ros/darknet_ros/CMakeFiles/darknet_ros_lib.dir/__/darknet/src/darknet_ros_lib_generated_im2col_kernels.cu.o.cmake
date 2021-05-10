@@ -56,18 +56,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "/usr/bin/cmake") # path
-set(source_file "/home/mpleune/catkin_ws/src/darknet_ros/darknet/src/im2col_kernels.cu") # path
-set(NVCC_generated_dependency_file "/home/mpleune/catkin_ws/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/darknet_ros_lib_generated_im2col_kernels.cu.o.NVCC-depend") # path
-set(cmake_dependency_file "/home/mpleune/catkin_ws/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/darknet_ros_lib_generated_im2col_kernels.cu.o.depend") # path
+set(source_file "/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet/src/im2col_kernels.cu") # path
+set(NVCC_generated_dependency_file "/home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/darknet_ros_lib_generated_im2col_kernels.cu.o.NVCC-depend") # path
+set(cmake_dependency_file "/home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/darknet_ros_lib_generated_im2col_kernels.cu.o.depend") # path
 set(CUDA_make2cmake "/usr/share/cmake-3.5/Modules/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "/usr/share/cmake-3.5/Modules/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "/usr/bin/cc") # path
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "/home/mpleune/catkin_ws/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/.") # path
-set(generated_file_internal "/home/mpleune/catkin_ws/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/./darknet_ros_lib_generated_im2col_kernels.cu.o") # path
-set(generated_cubin_file_internal "/home/mpleune/catkin_ws/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/./darknet_ros_lib_generated_im2col_kernels.cu.o.cubin.txt") # path
+set(generated_file_path "/home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/.") # path
+set(generated_file_internal "/home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/./darknet_ros_lib_generated_im2col_kernels.cu.o") # path
+set(generated_cubin_file_internal "/home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros/CMakeFiles/darknet_ros_lib.dir/__/darknet/src/./darknet_ros_lib_generated_im2col_kernels.cu.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS -O3;-gencode;arch=compute_30,code=sm_30;-gencode;arch=compute_35,code=sm_35;-gencode;arch=compute_50,code=[sm_50,compute_50];-gencode;arch=compute_52,code=[sm_52,compute_52];-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_62,code=sm_62 ;; ) # list
@@ -76,8 +76,8 @@ set(CUDA_NVCC_FLAGS_DEBUG  ; )
 set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
-set(nvcc_flags -m64;--std;c++11;-DROS_BUILD_SHARED_LIBS=1;-DROS_BUILD_SHARED_LIBS=1;-DDARKNET_FILE_PATH="/home/mpleune/catkin_ws/src/darknet_ros/darknet";-DGPU;-DROS_PACKAGE_NAME="darknet_ros";-DROSCONSOLE_BACKEND_LOG4CXX;-DOPENCV;-Ddarknet_ros_lib_EXPORTS) # list
-set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda/include;-I/usr/include;-I/opt/ros/kinetic/include/opencv-3.3.1-dev;-I/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv;-I/home/mpleune/catkin_ws/src/darknet_ros/darknet/src;-I/home/mpleune/catkin_ws/src/darknet_ros/darknet/include;-I/home/mpleune/catkin_ws/src/darknet_ros/darknet_ros/include;-I/home/mpleune/catkin_ws/devel/include;-I/opt/ros/kinetic/include;-I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp;-I/usr/local/cuda/include") # list (needs to be in quotes to handle spaces properly).
+set(nvcc_flags -m64;--std;c++11;-DROS_BUILD_SHARED_LIBS=1;-DROS_BUILD_SHARED_LIBS=1;-DDARKNET_FILE_PATH="/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet";-DGPU;-DROS_PACKAGE_NAME="darknet_ros";-DROSCONSOLE_BACKEND_LOG4CXX;-DOPENCV;-Ddarknet_ros_lib_EXPORTS) # list
+set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda/include;-I/usr/include;-I/opt/ros/kinetic/include/opencv-3.3.1-dev;-I/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv;-I/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet/src;-I/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet/include;-I/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros/include;-I/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include;-I/opt/ros/kinetic/include;-I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp;-I/usr/local/cuda/include") # list (needs to be in quotes to handle spaces properly).
 set(format_flag "-c") # string
 set(cuda_language_flag ) # list
 

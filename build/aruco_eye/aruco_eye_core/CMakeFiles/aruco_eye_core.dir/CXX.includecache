@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_core/src/include/aruco_eye_core/arucoEye.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_core/src/include/aruco_eye_core/arucoEye.h
 iostream
 -
 string
@@ -22,39 +22,39 @@ cmath
 opencv2/opencv.hpp
 -
 aruco_lib/aruco.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_core/src/include/aruco_eye_core/aruco_lib/aruco.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_core/src/include/aruco_eye_core/aruco_lib/aruco.h
 pugixml/pugixml.hpp
 -
 boost/filesystem.hpp
 -
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_core/src/source/arucoEye.cpp
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_core/src/source/arucoEye.cpp
 aruco_eye_core/arucoEye.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_core/src/source/aruco_eye_core/arucoEye.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_core/src/source/aruco_eye_core/arucoEye.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/aruco.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/aruco.h
 markerdetector.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerdetector.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerdetector.h
 posetracker.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/posetracker.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/posetracker.h
 cvdrawingutils.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/cvdrawingutils.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/cvdrawingutils.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/cameraparameters.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/cameraparameters.h
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 opencv2/core/core.hpp
 -
 string
 -
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/cvdrawingutils.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/cvdrawingutils.h
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 aruco.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/aruco.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/aruco.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/dictionary.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/dictionary.h
 map
 -
 string
@@ -66,15 +66,15 @@ vector
 stdint.h
 -
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 opencv2/core/core.hpp
 -
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 vector
 -
 iostream
@@ -84,9 +84,9 @@ cstdint
 opencv2/core/core.hpp
 -
 cameraparameters.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/cameraparameters.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/cameraparameters.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerdetector.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerdetector.h
 opencv2/core/core.hpp
 -
 cstdio
@@ -94,23 +94,23 @@ cstdio
 iostream
 -
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 dictionary.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/dictionary.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/dictionary.h
 marker.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
 markerlabeler.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerlabeler.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerlabeler.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerlabeler.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/markerlabeler.h
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 opencv2/core/core.hpp
 -
 dictionary.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/dictionary.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/dictionary.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/markermap.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/markermap.h
 opencv2/core/core.hpp
 -
 string
@@ -118,29 +118,29 @@ string
 vector
 -
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 marker.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
 
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/posetracker.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/posetracker.h
 exports.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/exports.h
 opencv2/core/core.hpp
 -
 marker.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/marker.h
 markermap.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/markermap.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/markermap.h
 cameraparameters.h
-/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include/aruco_lib/cameraparameters.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include/aruco_lib/cameraparameters.h
 map
 -
 
-/home/mpleune/catkin_ws/src/pugixml/src/include/pugixml/pugiconfig.hpp
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugiconfig.hpp
 
-/home/mpleune/catkin_ws/src/pugixml/src/include/pugixml/pugixml.hpp
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugixml.hpp
 pugiconfig.hpp
-/home/mpleune/catkin_ws/src/pugixml/src/include/pugixml/pugiconfig.hpp
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugiconfig.hpp
 stddef.h
 -
 exception

@@ -11,6 +11,7 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let darknet_ros_msgs = _finder('darknet_ros_msgs');
 
 //-----------------------------------------------------------
 
@@ -21,9 +22,15 @@ class Detection {
       this.width = null;
       this.height = null;
       this.center = null;
+      this.close_overlap = null;
+      this.aruco_overlap = null;
+      this.close_dist = null;
+      this.aruco_dist = null;
+      this.aruco_strength = null;
       this.r = null;
       this.g = null;
       this.b = null;
+      this.box = null;
     }
     else {
       if (initObj.hasOwnProperty('width')) {
@@ -44,6 +51,36 @@ class Detection {
       else {
         this.center = 0.0;
       }
+      if (initObj.hasOwnProperty('close_overlap')) {
+        this.close_overlap = initObj.close_overlap
+      }
+      else {
+        this.close_overlap = 0.0;
+      }
+      if (initObj.hasOwnProperty('aruco_overlap')) {
+        this.aruco_overlap = initObj.aruco_overlap
+      }
+      else {
+        this.aruco_overlap = 0.0;
+      }
+      if (initObj.hasOwnProperty('close_dist')) {
+        this.close_dist = initObj.close_dist
+      }
+      else {
+        this.close_dist = 0.0;
+      }
+      if (initObj.hasOwnProperty('aruco_dist')) {
+        this.aruco_dist = initObj.aruco_dist
+      }
+      else {
+        this.aruco_dist = 0.0;
+      }
+      if (initObj.hasOwnProperty('aruco_strength')) {
+        this.aruco_strength = initObj.aruco_strength
+      }
+      else {
+        this.aruco_strength = 0.0;
+      }
       if (initObj.hasOwnProperty('r')) {
         this.r = initObj.r
       }
@@ -62,6 +99,12 @@ class Detection {
       else {
         this.b = 0.0;
       }
+      if (initObj.hasOwnProperty('box')) {
+        this.box = initObj.box
+      }
+      else {
+        this.box = new darknet_ros_msgs.msg.BoundingBox();
+      }
     }
   }
 
@@ -73,12 +116,24 @@ class Detection {
     bufferOffset = _serializer.float64(obj.height, buffer, bufferOffset);
     // Serialize message field [center]
     bufferOffset = _serializer.float64(obj.center, buffer, bufferOffset);
+    // Serialize message field [close_overlap]
+    bufferOffset = _serializer.float64(obj.close_overlap, buffer, bufferOffset);
+    // Serialize message field [aruco_overlap]
+    bufferOffset = _serializer.float64(obj.aruco_overlap, buffer, bufferOffset);
+    // Serialize message field [close_dist]
+    bufferOffset = _serializer.float64(obj.close_dist, buffer, bufferOffset);
+    // Serialize message field [aruco_dist]
+    bufferOffset = _serializer.float64(obj.aruco_dist, buffer, bufferOffset);
+    // Serialize message field [aruco_strength]
+    bufferOffset = _serializer.float64(obj.aruco_strength, buffer, bufferOffset);
     // Serialize message field [r]
     bufferOffset = _serializer.float32(obj.r, buffer, bufferOffset);
     // Serialize message field [g]
     bufferOffset = _serializer.float32(obj.g, buffer, bufferOffset);
     // Serialize message field [b]
     bufferOffset = _serializer.float32(obj.b, buffer, bufferOffset);
+    // Serialize message field [box]
+    bufferOffset = darknet_ros_msgs.msg.BoundingBox.serialize(obj.box, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -92,17 +147,31 @@ class Detection {
     data.height = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [center]
     data.center = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [close_overlap]
+    data.close_overlap = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [aruco_overlap]
+    data.aruco_overlap = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [close_dist]
+    data.close_dist = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [aruco_dist]
+    data.aruco_dist = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [aruco_strength]
+    data.aruco_strength = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [r]
     data.r = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [g]
     data.g = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [b]
     data.b = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [box]
+    data.box = darknet_ros_msgs.msg.BoundingBox.deserialize(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 36;
+    let length = 0;
+    length += darknet_ros_msgs.msg.BoundingBox.getMessageSize(object.box);
+    return length + 76;
   }
 
   static datatype() {
@@ -112,7 +181,7 @@ class Detection {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'f7a1a34da77d93e8a72f096cb0e7875c';
+    return 'd6fc16488a4bcd596d1574f8093b6d85';
   }
 
   static messageDefinition() {
@@ -122,10 +191,29 @@ class Detection {
     float64 height
     float64 center
     
+    float64 close_overlap
+    float64 aruco_overlap
+    
+    float64 close_dist
+    float64 aruco_dist
+    
+    float64 aruco_strength
+    
     float32 r
     float32 g
     float32 b
     
+    darknet_ros_msgs/BoundingBox box
+    
+    ================================================================================
+    MSG: darknet_ros_msgs/BoundingBox
+    float64 probability
+    int64 xmin
+    int64 ymin
+    int64 xmax
+    int64 ymax
+    int16 id
+    string Class
     
     `;
   }
@@ -157,6 +245,41 @@ class Detection {
       resolved.center = 0.0
     }
 
+    if (msg.close_overlap !== undefined) {
+      resolved.close_overlap = msg.close_overlap;
+    }
+    else {
+      resolved.close_overlap = 0.0
+    }
+
+    if (msg.aruco_overlap !== undefined) {
+      resolved.aruco_overlap = msg.aruco_overlap;
+    }
+    else {
+      resolved.aruco_overlap = 0.0
+    }
+
+    if (msg.close_dist !== undefined) {
+      resolved.close_dist = msg.close_dist;
+    }
+    else {
+      resolved.close_dist = 0.0
+    }
+
+    if (msg.aruco_dist !== undefined) {
+      resolved.aruco_dist = msg.aruco_dist;
+    }
+    else {
+      resolved.aruco_dist = 0.0
+    }
+
+    if (msg.aruco_strength !== undefined) {
+      resolved.aruco_strength = msg.aruco_strength;
+    }
+    else {
+      resolved.aruco_strength = 0.0
+    }
+
     if (msg.r !== undefined) {
       resolved.r = msg.r;
     }
@@ -176,6 +299,13 @@ class Detection {
     }
     else {
       resolved.b = 0.0
+    }
+
+    if (msg.box !== undefined) {
+      resolved.box = darknet_ros_msgs.msg.BoundingBox.Resolve(msg.box)
+    }
+    else {
+      resolved.box = new darknet_ros_msgs.msg.BoundingBox()
     }
 
     return resolved;

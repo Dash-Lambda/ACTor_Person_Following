@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mpleune/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/mpleune/lfa_ws/ACTor_Person_Following/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mpleune/catkin_ws/build
+CMAKE_BINARY_DIR = /home/mpleune/lfa_ws/ACTor_Person_Following/build
 
 # Utility rule file for _run_tests_darknet_ros.
 
@@ -63,10 +63,10 @@ darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/build: _run_tests_
 .PHONY : darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/build
 
 darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/clean:
-	cd /home/mpleune/catkin_ws/build/darknet_ros/darknet_ros && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_darknet_ros.dir/cmake_clean.cmake
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_darknet_ros.dir/cmake_clean.cmake
 .PHONY : darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/clean
 
 darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/depend:
-	cd /home/mpleune/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mpleune/catkin_ws/src /home/mpleune/catkin_ws/src/darknet_ros/darknet_ros /home/mpleune/catkin_ws/build /home/mpleune/catkin_ws/build/darknet_ros/darknet_ros /home/mpleune/catkin_ws/build/darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mpleune/lfa_ws/ACTor_Person_Following/src /home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros /home/mpleune/lfa_ws/ACTor_Person_Following/build /home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros /home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : darknet_ros/darknet_ros/CMakeFiles/_run_tests_darknet_ros.dir/depend
 

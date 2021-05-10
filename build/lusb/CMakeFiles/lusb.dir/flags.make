@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -DROS_BUILD_SHARED_LIBS=1 -Dlusb_EXPORTS
 
-CXX_INCLUDES = -I/home/mpleune/catkin_ws/src/lusb/include 
+CXX_INCLUDES = -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include 
 

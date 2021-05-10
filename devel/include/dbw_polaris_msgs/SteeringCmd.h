@@ -112,7 +112,7 @@ typedef boost::shared_ptr< ::dbw_polaris_msgs::SteeringCmd const> SteeringCmdCon
    template<typename ContainerAllocator> const float
       SteeringCmd_<ContainerAllocator>::ANGLE_MAX =
         
-          8.4
+          10.5
         
         ;
    
@@ -154,7 +154,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/catkin_ws/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
+// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -197,12 +197,12 @@ struct MD5Sum< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "db9f921f0c5966aa2ecb11628a300e0d";
+    return "3057c03242918b13faef4ba58cf222b5";
   }
 
   static const char* value(const ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xdb9f921f0c5966aaULL;
-  static const uint64_t static_value2 = 0x2ecb11628a300e0dULL;
+  static const uint64_t static_value1 = 0x3057c03242918b13ULL;
+  static const uint64_t static_value2 = 0xfaef4ba58cf222b5ULL;
 };
 
 template<class ContainerAllocator>
@@ -222,8 +222,8 @@ struct Definition< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> >
   static const char* value()
   {
     return "# Steering Wheel\n\
-float32 steering_wheel_angle_cmd        # rad, range -8.4 to 8.4\n\
-float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = maximum\n\
+float32 steering_wheel_angle_cmd        # rad, range -10.5 to 10.5\n\
+float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = default\n\
 float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0\n\
 uint8 cmd_type\n\
 \n\
@@ -250,7 +250,7 @@ uint8 CMD_ANGLE=0\n\
 uint8 CMD_TORQUE=1\n\
 \n\
 # Maximum values\n\
-float32 ANGLE_MAX=8.4    # rad, maximum angle\n\
+float32 ANGLE_MAX=10.5    # rad, maximum angle\n\
 float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity\n\
 float32 TORQUE_MAX=60.0   # Nm, maximum torque\n\
 ";

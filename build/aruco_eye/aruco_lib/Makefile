@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mpleune/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/mpleune/lfa_ws/ACTor_Person_Following/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mpleune/catkin_ws/build
+CMAKE_BINARY_DIR = /home/mpleune/lfa_ws/ACTor_Person_Following/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -135,14 +135,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/mpleune/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/mpleune/catkin_ws/build/CMakeFiles /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib/CMakeFiles/progress.marks
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mpleune/catkin_ws/build/CMakeFiles 0
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib/CMakeFiles/progress.marks
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/clean
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/clean
 .PHONY : clean
 
 # The main clean target
@@ -152,22 +152,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/preinstall
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/preinstall
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/mpleune/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/rule:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/rule
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/rule
 .PHONY : aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/rule
 
 # Convenience name for target.
@@ -177,7 +177,7 @@ aruco_lib: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/rule
 
 # fast build rule for target.
 aruco_lib/fast:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build
 .PHONY : aruco_lib/fast
 
 src/source/ar_omp.o: src/source/ar_omp.cpp.o
@@ -186,7 +186,7 @@ src/source/ar_omp.o: src/source/ar_omp.cpp.o
 
 # target to build an object file
 src/source/ar_omp.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o
 .PHONY : src/source/ar_omp.cpp.o
 
 src/source/ar_omp.i: src/source/ar_omp.cpp.i
@@ -195,7 +195,7 @@ src/source/ar_omp.i: src/source/ar_omp.cpp.i
 
 # target to preprocess a source file
 src/source/ar_omp.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.i
 .PHONY : src/source/ar_omp.cpp.i
 
 src/source/ar_omp.s: src/source/ar_omp.cpp.s
@@ -204,7 +204,7 @@ src/source/ar_omp.s: src/source/ar_omp.cpp.s
 
 # target to generate assembly for a file
 src/source/ar_omp.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.s
 .PHONY : src/source/ar_omp.cpp.s
 
 src/source/cameraparameters.o: src/source/cameraparameters.cpp.o
@@ -213,7 +213,7 @@ src/source/cameraparameters.o: src/source/cameraparameters.cpp.o
 
 # target to build an object file
 src/source/cameraparameters.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o
 .PHONY : src/source/cameraparameters.cpp.o
 
 src/source/cameraparameters.i: src/source/cameraparameters.cpp.i
@@ -222,7 +222,7 @@ src/source/cameraparameters.i: src/source/cameraparameters.cpp.i
 
 # target to preprocess a source file
 src/source/cameraparameters.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.i
 .PHONY : src/source/cameraparameters.cpp.i
 
 src/source/cameraparameters.s: src/source/cameraparameters.cpp.s
@@ -231,7 +231,7 @@ src/source/cameraparameters.s: src/source/cameraparameters.cpp.s
 
 # target to generate assembly for a file
 src/source/cameraparameters.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.s
 .PHONY : src/source/cameraparameters.cpp.s
 
 src/source/checkrectcontour.o: src/source/checkrectcontour.cpp.o
@@ -240,7 +240,7 @@ src/source/checkrectcontour.o: src/source/checkrectcontour.cpp.o
 
 # target to build an object file
 src/source/checkrectcontour.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o
 .PHONY : src/source/checkrectcontour.cpp.o
 
 src/source/checkrectcontour.i: src/source/checkrectcontour.cpp.i
@@ -249,7 +249,7 @@ src/source/checkrectcontour.i: src/source/checkrectcontour.cpp.i
 
 # target to preprocess a source file
 src/source/checkrectcontour.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.i
 .PHONY : src/source/checkrectcontour.cpp.i
 
 src/source/checkrectcontour.s: src/source/checkrectcontour.cpp.s
@@ -258,7 +258,7 @@ src/source/checkrectcontour.s: src/source/checkrectcontour.cpp.s
 
 # target to generate assembly for a file
 src/source/checkrectcontour.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.s
 .PHONY : src/source/checkrectcontour.cpp.s
 
 src/source/cvdrawingutils.o: src/source/cvdrawingutils.cpp.o
@@ -267,7 +267,7 @@ src/source/cvdrawingutils.o: src/source/cvdrawingutils.cpp.o
 
 # target to build an object file
 src/source/cvdrawingutils.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o
 .PHONY : src/source/cvdrawingutils.cpp.o
 
 src/source/cvdrawingutils.i: src/source/cvdrawingutils.cpp.i
@@ -276,7 +276,7 @@ src/source/cvdrawingutils.i: src/source/cvdrawingutils.cpp.i
 
 # target to preprocess a source file
 src/source/cvdrawingutils.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.i
 .PHONY : src/source/cvdrawingutils.cpp.i
 
 src/source/cvdrawingutils.s: src/source/cvdrawingutils.cpp.s
@@ -285,7 +285,7 @@ src/source/cvdrawingutils.s: src/source/cvdrawingutils.cpp.s
 
 # target to generate assembly for a file
 src/source/cvdrawingutils.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.s
 .PHONY : src/source/cvdrawingutils.cpp.s
 
 src/source/dictionary.o: src/source/dictionary.cpp.o
@@ -294,7 +294,7 @@ src/source/dictionary.o: src/source/dictionary.cpp.o
 
 # target to build an object file
 src/source/dictionary.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o
 .PHONY : src/source/dictionary.cpp.o
 
 src/source/dictionary.i: src/source/dictionary.cpp.i
@@ -303,7 +303,7 @@ src/source/dictionary.i: src/source/dictionary.cpp.i
 
 # target to preprocess a source file
 src/source/dictionary.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.i
 .PHONY : src/source/dictionary.cpp.i
 
 src/source/dictionary.s: src/source/dictionary.cpp.s
@@ -312,7 +312,7 @@ src/source/dictionary.s: src/source/dictionary.cpp.s
 
 # target to generate assembly for a file
 src/source/dictionary.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.s
 .PHONY : src/source/dictionary.cpp.s
 
 src/source/ippe.o: src/source/ippe.cpp.o
@@ -321,7 +321,7 @@ src/source/ippe.o: src/source/ippe.cpp.o
 
 # target to build an object file
 src/source/ippe.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o
 .PHONY : src/source/ippe.cpp.o
 
 src/source/ippe.i: src/source/ippe.cpp.i
@@ -330,7 +330,7 @@ src/source/ippe.i: src/source/ippe.cpp.i
 
 # target to preprocess a source file
 src/source/ippe.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.i
 .PHONY : src/source/ippe.cpp.i
 
 src/source/ippe.s: src/source/ippe.cpp.s
@@ -339,7 +339,7 @@ src/source/ippe.s: src/source/ippe.cpp.s
 
 # target to generate assembly for a file
 src/source/ippe.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.s
 .PHONY : src/source/ippe.cpp.s
 
 src/source/marker.o: src/source/marker.cpp.o
@@ -348,7 +348,7 @@ src/source/marker.o: src/source/marker.cpp.o
 
 # target to build an object file
 src/source/marker.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o
 .PHONY : src/source/marker.cpp.o
 
 src/source/marker.i: src/source/marker.cpp.i
@@ -357,7 +357,7 @@ src/source/marker.i: src/source/marker.cpp.i
 
 # target to preprocess a source file
 src/source/marker.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.i
 .PHONY : src/source/marker.cpp.i
 
 src/source/marker.s: src/source/marker.cpp.s
@@ -366,7 +366,7 @@ src/source/marker.s: src/source/marker.cpp.s
 
 # target to generate assembly for a file
 src/source/marker.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.s
 .PHONY : src/source/marker.cpp.s
 
 src/source/markerdetector.o: src/source/markerdetector.cpp.o
@@ -375,7 +375,7 @@ src/source/markerdetector.o: src/source/markerdetector.cpp.o
 
 # target to build an object file
 src/source/markerdetector.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o
 .PHONY : src/source/markerdetector.cpp.o
 
 src/source/markerdetector.i: src/source/markerdetector.cpp.i
@@ -384,7 +384,7 @@ src/source/markerdetector.i: src/source/markerdetector.cpp.i
 
 # target to preprocess a source file
 src/source/markerdetector.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.i
 .PHONY : src/source/markerdetector.cpp.i
 
 src/source/markerdetector.s: src/source/markerdetector.cpp.s
@@ -393,7 +393,7 @@ src/source/markerdetector.s: src/source/markerdetector.cpp.s
 
 # target to generate assembly for a file
 src/source/markerdetector.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.s
 .PHONY : src/source/markerdetector.cpp.s
 
 src/source/markerlabeler.o: src/source/markerlabeler.cpp.o
@@ -402,7 +402,7 @@ src/source/markerlabeler.o: src/source/markerlabeler.cpp.o
 
 # target to build an object file
 src/source/markerlabeler.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o
 .PHONY : src/source/markerlabeler.cpp.o
 
 src/source/markerlabeler.i: src/source/markerlabeler.cpp.i
@@ -411,7 +411,7 @@ src/source/markerlabeler.i: src/source/markerlabeler.cpp.i
 
 # target to preprocess a source file
 src/source/markerlabeler.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.i
 .PHONY : src/source/markerlabeler.cpp.i
 
 src/source/markerlabeler.s: src/source/markerlabeler.cpp.s
@@ -420,7 +420,7 @@ src/source/markerlabeler.s: src/source/markerlabeler.cpp.s
 
 # target to generate assembly for a file
 src/source/markerlabeler.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.s
 .PHONY : src/source/markerlabeler.cpp.s
 
 src/source/markerlabelers/dictionary_based.o: src/source/markerlabelers/dictionary_based.cpp.o
@@ -429,7 +429,7 @@ src/source/markerlabelers/dictionary_based.o: src/source/markerlabelers/dictiona
 
 # target to build an object file
 src/source/markerlabelers/dictionary_based.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o
 .PHONY : src/source/markerlabelers/dictionary_based.cpp.o
 
 src/source/markerlabelers/dictionary_based.i: src/source/markerlabelers/dictionary_based.cpp.i
@@ -438,7 +438,7 @@ src/source/markerlabelers/dictionary_based.i: src/source/markerlabelers/dictiona
 
 # target to preprocess a source file
 src/source/markerlabelers/dictionary_based.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.i
 .PHONY : src/source/markerlabelers/dictionary_based.cpp.i
 
 src/source/markerlabelers/dictionary_based.s: src/source/markerlabelers/dictionary_based.cpp.s
@@ -447,7 +447,7 @@ src/source/markerlabelers/dictionary_based.s: src/source/markerlabelers/dictiona
 
 # target to generate assembly for a file
 src/source/markerlabelers/dictionary_based.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.s
 .PHONY : src/source/markerlabelers/dictionary_based.cpp.s
 
 src/source/markerlabelers/svmmarkers.o: src/source/markerlabelers/svmmarkers.cpp.o
@@ -456,7 +456,7 @@ src/source/markerlabelers/svmmarkers.o: src/source/markerlabelers/svmmarkers.cpp
 
 # target to build an object file
 src/source/markerlabelers/svmmarkers.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o
 .PHONY : src/source/markerlabelers/svmmarkers.cpp.o
 
 src/source/markerlabelers/svmmarkers.i: src/source/markerlabelers/svmmarkers.cpp.i
@@ -465,7 +465,7 @@ src/source/markerlabelers/svmmarkers.i: src/source/markerlabelers/svmmarkers.cpp
 
 # target to preprocess a source file
 src/source/markerlabelers/svmmarkers.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.i
 .PHONY : src/source/markerlabelers/svmmarkers.cpp.i
 
 src/source/markerlabelers/svmmarkers.s: src/source/markerlabelers/svmmarkers.cpp.s
@@ -474,7 +474,7 @@ src/source/markerlabelers/svmmarkers.s: src/source/markerlabelers/svmmarkers.cpp
 
 # target to generate assembly for a file
 src/source/markerlabelers/svmmarkers.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.s
 .PHONY : src/source/markerlabelers/svmmarkers.cpp.s
 
 src/source/markermap.o: src/source/markermap.cpp.o
@@ -483,7 +483,7 @@ src/source/markermap.o: src/source/markermap.cpp.o
 
 # target to build an object file
 src/source/markermap.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o
 .PHONY : src/source/markermap.cpp.o
 
 src/source/markermap.i: src/source/markermap.cpp.i
@@ -492,7 +492,7 @@ src/source/markermap.i: src/source/markermap.cpp.i
 
 # target to preprocess a source file
 src/source/markermap.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.i
 .PHONY : src/source/markermap.cpp.i
 
 src/source/markermap.s: src/source/markermap.cpp.s
@@ -501,7 +501,7 @@ src/source/markermap.s: src/source/markermap.cpp.s
 
 # target to generate assembly for a file
 src/source/markermap.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.s
 .PHONY : src/source/markermap.cpp.s
 
 src/source/posetracker.o: src/source/posetracker.cpp.o
@@ -510,7 +510,7 @@ src/source/posetracker.o: src/source/posetracker.cpp.o
 
 # target to build an object file
 src/source/posetracker.cpp.o:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o
 .PHONY : src/source/posetracker.cpp.o
 
 src/source/posetracker.i: src/source/posetracker.cpp.i
@@ -519,7 +519,7 @@ src/source/posetracker.i: src/source/posetracker.cpp.i
 
 # target to preprocess a source file
 src/source/posetracker.cpp.i:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.i
 .PHONY : src/source/posetracker.cpp.i
 
 src/source/posetracker.s: src/source/posetracker.cpp.s
@@ -528,7 +528,7 @@ src/source/posetracker.s: src/source/posetracker.cpp.s
 
 # target to generate assembly for a file
 src/source/posetracker.cpp.s:
-	cd /home/mpleune/catkin_ws/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.s
 .PHONY : src/source/posetracker.cpp.s
 
 # Help Target
@@ -595,6 +595,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/mpleune/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

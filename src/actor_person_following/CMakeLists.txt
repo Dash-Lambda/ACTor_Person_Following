@@ -26,6 +26,8 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
     std_msgs
+    darknet_ros_msgs
+    perception_msgs
 )
 
 catkin_package(
@@ -63,5 +65,12 @@ add_dependencies(stop_for_person_node
 add_executable(aruco_tracker_node src/aruco_tracker_node.cpp)
 target_link_libraries(aruco_tracker_node ${catkin_LIBRARIES})
 add_dependencies(aruco_tracker_node
+  actor_person_following_generate_messages_cpp
+)
+
+add_executable(detection_image_viewer_node src/detection_image_viewer_node.cpp)
+target_link_libraries(detection_image_viewer_node ${catkin_LIBRARIES})
+target_link_libraries(detection_image_viewer_node ${OpenCV_LIBS})
+add_dependencies(detection_image_viewer_node
   actor_person_following_generate_messages_cpp
 )

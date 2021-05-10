@@ -156,15 +156,15 @@ class SteeringCmd {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'db9f921f0c5966aa2ecb11628a300e0d';
+    return '3057c03242918b13faef4ba58cf222b5';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     # Steering Wheel
-    float32 steering_wheel_angle_cmd        # rad, range -8.4 to 8.4
-    float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = maximum
+    float32 steering_wheel_angle_cmd        # rad, range -10.5 to 10.5
+    float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = default
     float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0
     uint8 cmd_type
     
@@ -191,7 +191,7 @@ class SteeringCmd {
     uint8 CMD_TORQUE=1
     
     # Maximum values
-    float32 ANGLE_MAX=8.4    # rad, maximum angle
+    float32 ANGLE_MAX=10.5    # rad, maximum angle
     float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity
     float32 TORQUE_MAX=60.0   # Nm, maximum torque
     
@@ -282,7 +282,7 @@ class SteeringCmd {
 SteeringCmd.Constants = {
   CMD_ANGLE: 0,
   CMD_TORQUE: 1,
-  ANGLE_MAX: 8.4,
+  ANGLE_MAX: 10.5,
   VELOCITY_MAX: 17.5,
   TORQUE_MAX: 60.0,
 }

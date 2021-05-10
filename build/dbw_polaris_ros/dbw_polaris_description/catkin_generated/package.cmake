@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "dbw_polaris_description")
-set(dbw_polaris_description_VERSION "0.0.7")
+set(dbw_polaris_description_VERSION "0.0.8")
 set(dbw_polaris_description_MAINTAINER "Kevin Hallenbeck <khallenbeck@dataspeedinc.com>")
 set(dbw_polaris_description_PACKAGE_FORMAT "2")
 set(dbw_polaris_description_BUILD_DEPENDS )

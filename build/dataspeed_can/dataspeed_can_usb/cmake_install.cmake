@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb
+# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,18 +33,18 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/catkin_ws/build/dataspeed_can/dataspeed_can_usb/catkin_generated/installspace/dataspeed_can_usb.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_usb/catkin_generated/installspace/dataspeed_can_usb.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb/cmake" TYPE FILE FILES
-    "/home/mpleune/catkin_ws/build/dataspeed_can/dataspeed_can_usb/catkin_generated/installspace/dataspeed_can_usbConfig.cmake"
-    "/home/mpleune/catkin_ws/build/dataspeed_can/dataspeed_can_usb/catkin_generated/installspace/dataspeed_can_usbConfig-version.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_usb/catkin_generated/installspace/dataspeed_can_usbConfig.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_usb/catkin_generated/installspace/dataspeed_can_usbConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb" TYPE FILE FILES "/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -54,12 +54,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_usb.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mpleune/catkin_ws/devel/lib/libdataspeed_can_usb.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libdataspeed_can_usb.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_usb.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_usb.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_usb.so"
-         OLD_RPATH "/home/mpleune/catkin_ws/devel/lib:/opt/ros/kinetic/lib:"
+         OLD_RPATH "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib:/opt/ros/kinetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_usb.so")
@@ -74,12 +74,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb/can_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb" TYPE EXECUTABLE FILES "/home/mpleune/catkin_ws/devel/lib/dataspeed_can_usb/can_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb" TYPE EXECUTABLE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dataspeed_can_usb/can_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb/can_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb/can_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb/can_node"
-         OLD_RPATH "/home/mpleune/catkin_ws/devel/lib:/opt/ros/kinetic/lib:"
+         OLD_RPATH "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib:/opt/ros/kinetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb/can_node")
@@ -88,31 +88,31 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dataspeed_can_usb" TYPE DIRECTORY FILES "/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/include/dataspeed_can_usb/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dataspeed_can_usb" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/include/dataspeed_can_usb/")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb" TYPE FILE FILES "/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/nodelets.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/nodelets.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb" TYPE DIRECTORY FILES
-    "/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/firmware"
-    "/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/launch"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/firmware"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/launch"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb" TYPE DIRECTORY FILES "/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/scripts" USE_SOURCE_PERMISSIONS)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_usb" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/scripts" USE_SOURCE_PERMISSIONS)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb" TYPE DIRECTORY FILES "/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/udev")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_usb" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/udev")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/mpleune/catkin_ws/build/dataspeed_can/dataspeed_can_usb/tests/cmake_install.cmake")
+  include("/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_usb/tests/cmake_install.cmake")
 
 endif()
 

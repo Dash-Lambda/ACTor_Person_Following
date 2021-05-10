@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mpleune/catkin_ws/src/simple_camera_publisher/src/cam_pub.cpp
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/simple_camera_publisher/src/cam_pub.cpp
 ros/ros.h
 -
 image_transport/image_transport.h

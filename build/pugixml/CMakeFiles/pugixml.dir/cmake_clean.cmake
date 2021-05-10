@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pugixml.dir/src/sources/pugixml.cpp.o"
-  "/home/mpleune/catkin_ws/devel/lib/libpugixml.pdb"
-  "/home/mpleune/catkin_ws/devel/lib/libpugixml.so"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libpugixml.pdb"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libpugixml.so"
 )
 
 # Per-language clean rules from dependency scanning.

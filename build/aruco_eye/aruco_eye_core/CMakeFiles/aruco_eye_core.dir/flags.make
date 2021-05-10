@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -std=c++11
 
 CXX_DEFINES = -DROS_BUILD_SHARED_LIBS=1 -Daruco_eye_core_EXPORTS
 
-CXX_INCLUDES = -I/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_core/src/include -isystem /opt/ros/kinetic/include/opencv-3.3.1-dev -isystem /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv -I/home/mpleune/catkin_ws/src/pugixml/src/include -I/home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/include 
+CXX_INCLUDES = -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_core/src/include -isystem /opt/ros/kinetic/include/opencv-3.3.1-dev -isystem /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include 
 

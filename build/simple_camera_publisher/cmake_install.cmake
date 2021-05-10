@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/catkin_ws/src/simple_camera_publisher
+# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/simple_camera_publisher
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/catkin_ws/build/simple_camera_publisher/catkin_generated/installspace/simple_camera_publisher.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/simple_camera_publisher/catkin_generated/installspace/simple_camera_publisher.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_camera_publisher/cmake" TYPE FILE FILES
-    "/home/mpleune/catkin_ws/build/simple_camera_publisher/catkin_generated/installspace/simple_camera_publisherConfig.cmake"
-    "/home/mpleune/catkin_ws/build/simple_camera_publisher/catkin_generated/installspace/simple_camera_publisherConfig-version.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/simple_camera_publisher/catkin_generated/installspace/simple_camera_publisherConfig.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/simple_camera_publisher/catkin_generated/installspace/simple_camera_publisherConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_camera_publisher" TYPE FILE FILES "/home/mpleune/catkin_ws/src/simple_camera_publisher/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_camera_publisher" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/simple_camera_publisher/package.xml")
 endif()
 

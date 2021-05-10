@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/catkin_ws/src/aruco_eye/aruco_eye
+# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,6 +33,6 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_eye" TYPE FILE FILES "/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_eye" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye/package.xml")
 endif()
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/catkin_ws/src/dbw_polaris_ros/dbw_polaris_description
+# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,31 +33,31 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/catkin_ws/build/dbw_polaris_ros/dbw_polaris_description/catkin_generated/installspace/dbw_polaris_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_description/catkin_generated/installspace/dbw_polaris_description.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_description/cmake" TYPE FILE FILES
-    "/home/mpleune/catkin_ws/build/dbw_polaris_ros/dbw_polaris_description/catkin_generated/installspace/dbw_polaris_descriptionConfig.cmake"
-    "/home/mpleune/catkin_ws/build/dbw_polaris_ros/dbw_polaris_description/catkin_generated/installspace/dbw_polaris_descriptionConfig-version.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_description/catkin_generated/installspace/dbw_polaris_descriptionConfig.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_description/catkin_generated/installspace/dbw_polaris_descriptionConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_description" TYPE FILE FILES "/home/mpleune/catkin_ws/src/dbw_polaris_ros/dbw_polaris_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_description" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_description/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_description" TYPE DIRECTORY FILES
-    "/home/mpleune/catkin_ws/src/dbw_polaris_ros/dbw_polaris_description/meshes"
-    "/home/mpleune/catkin_ws/src/dbw_polaris_ros/dbw_polaris_description/urdf"
-    "/home/mpleune/catkin_ws/src/dbw_polaris_ros/dbw_polaris_description/launch"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_description/meshes"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_description/urdf"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_description/launch"
     REGEX "/[^/]*\\.tar\\.gz$" EXCLUDE)
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/mpleune/catkin_ws/build/dbw_polaris_ros/dbw_polaris_description/tests/cmake_install.cmake")
+  include("/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_description/tests/cmake_install.cmake")
 
 endif()
 

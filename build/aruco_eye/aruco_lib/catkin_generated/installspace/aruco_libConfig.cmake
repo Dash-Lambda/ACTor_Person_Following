@@ -67,14 +67,14 @@ set(aruco_lib_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(aruco_lib_SOURCE_PREFIX /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib)
-  set(aruco_lib_DEVEL_PREFIX /home/mpleune/catkin_ws/devel)
+  set(aruco_lib_SOURCE_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib)
+  set(aruco_lib_DEVEL_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/devel)
   set(aruco_lib_INSTALL_PREFIX "")
   set(aruco_lib_PREFIX ${aruco_lib_DEVEL_PREFIX})
 else()
   set(aruco_lib_SOURCE_PREFIX "")
   set(aruco_lib_DEVEL_PREFIX "")
-  set(aruco_lib_INSTALL_PREFIX /home/mpleune/catkin_ws/install)
+  set(aruco_lib_INSTALL_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/install)
   set(aruco_lib_PREFIX ${aruco_lib_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/mpleune/catkin_ws/install/lib;/home/mpleune/catkin_ws/devel/lib;/home/mpleune/LTU-Actor/devel_isolated/sign_detection/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_vehicle_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_gpio/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_estop_loop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_obstacle/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_blob/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_inputprocess_camadjust/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_graph/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_estop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_core/lib;/home/mpleune/LTU-Actor/devel_isolated/image_proc/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_example/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_controller/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_joystick_demo/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_can/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_msgs/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/camera_calibration/lib;/home/mpleune/LTU-Actor/devel_isolated/avt_vimba_camera/lib;/home/mpleune/LTU-Actor/devel_isolated/adap_parameter/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/mpleune/lfa_ws/ACTor_Person_Following/install/lib;/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib;/home/mpleune/LTU-Actor/devel_isolated/sign_detection/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_vehicle_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_gpio/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_estop_loop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_obstacle/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_blob/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_inputprocess_camadjust/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_graph/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_estop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_core/lib;/home/mpleune/LTU-Actor/devel_isolated/image_proc/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_example/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_controller/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_joystick_demo/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_can/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_msgs/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/camera_calibration/lib;/home/mpleune/LTU-Actor/devel_isolated/avt_vimba_camera/lib;/home/mpleune/LTU-Actor/devel_isolated/adap_parameter/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -67,14 +67,14 @@ set(aruco_eye_ros_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(aruco_eye_ros_SOURCE_PREFIX /home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_ros)
-  set(aruco_eye_ros_DEVEL_PREFIX /home/mpleune/catkin_ws/devel)
+  set(aruco_eye_ros_SOURCE_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_ros)
+  set(aruco_eye_ros_DEVEL_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/devel)
   set(aruco_eye_ros_INSTALL_PREFIX "")
   set(aruco_eye_ros_PREFIX ${aruco_eye_ros_DEVEL_PREFIX})
 else()
   set(aruco_eye_ros_SOURCE_PREFIX "")
   set(aruco_eye_ros_DEVEL_PREFIX "")
-  set(aruco_eye_ros_INSTALL_PREFIX /home/mpleune/catkin_ws/install)
+  set(aruco_eye_ros_INSTALL_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/install)
   set(aruco_eye_ros_PREFIX ${aruco_eye_ros_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(aruco_eye_ros_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_ros/src/include;/opt/ros/kinetic/include/opencv-3.3.1-dev;/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv " STREQUAL " ")
+if(NOT "/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_ros/src/include;/opt/ros/kinetic/include/opencv-3.3.1-dev;/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv " STREQUAL " ")
   set(aruco_eye_ros_INCLUDE_DIRS "")
-  set(_include_dirs "/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_ros/src/include;/opt/ros/kinetic/include/opencv-3.3.1-dev;/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv")
+  set(_include_dirs "/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_ros/src/include;/opt/ros/kinetic/include/opencv-3.3.1-dev;/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/aruco_eye_ros " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_ros/src/include;/opt/ros
         message(FATAL_ERROR "Project 'aruco_eye_ros' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'aruco_eye_ros' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_ros/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'aruco_eye_ros' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_ros/${idir}'.  ${_report}")
     endif()
     _list_append_unique(aruco_eye_ros_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/mpleune/catkin_ws/devel/lib;/home/mpleune/catkin_ws/devel/lib;/home/mpleune/LTU-Actor/devel_isolated/sign_detection/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_vehicle_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_gpio/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_estop_loop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_obstacle/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_blob/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_inputprocess_camadjust/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_graph/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_estop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_core/lib;/home/mpleune/LTU-Actor/devel_isolated/image_proc/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_example/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_controller/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_joystick_demo/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_can/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_msgs/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/camera_calibration/lib;/home/mpleune/LTU-Actor/devel_isolated/avt_vimba_camera/lib;/home/mpleune/LTU-Actor/devel_isolated/adap_parameter/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib;/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib;/home/mpleune/LTU-Actor/devel_isolated/sign_detection/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_vehicle_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_gpio/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_estop_loop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_obstacle/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_blob/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_inputprocess_camadjust/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_graph/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_estop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_core/lib;/home/mpleune/LTU-Actor/devel_isolated/image_proc/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_example/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_controller/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_joystick_demo/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_can/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_msgs/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/camera_calibration/lib;/home/mpleune/LTU-Actor/devel_isolated/avt_vimba_camera/lib;/home/mpleune/LTU-Actor/devel_isolated/adap_parameter/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

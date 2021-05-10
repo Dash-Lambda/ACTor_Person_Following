@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "dbw_polaris_msgs")
-set(dbw_polaris_msgs_VERSION "0.0.7")
+set(dbw_polaris_msgs_VERSION "0.0.8")
 set(dbw_polaris_msgs_MAINTAINER "Kevin Hallenbeck <khallenbeck@dataspeedinc.com>")
 set(dbw_polaris_msgs_PACKAGE_FORMAT "2")
 set(dbw_polaris_msgs_BUILD_DEPENDS "message_generation" "std_msgs" "geometry_msgs")

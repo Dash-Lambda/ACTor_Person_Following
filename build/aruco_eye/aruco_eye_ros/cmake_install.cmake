@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_ros
+# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_ros
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/catkin_ws/build/aruco_eye/aruco_eye_ros/catkin_generated/installspace/aruco_eye_ros.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_eye_ros/catkin_generated/installspace/aruco_eye_ros.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_eye_ros/cmake" TYPE FILE FILES
-    "/home/mpleune/catkin_ws/build/aruco_eye/aruco_eye_ros/catkin_generated/installspace/aruco_eye_rosConfig.cmake"
-    "/home/mpleune/catkin_ws/build/aruco_eye/aruco_eye_ros/catkin_generated/installspace/aruco_eye_rosConfig-version.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_eye_ros/catkin_generated/installspace/aruco_eye_rosConfig.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_eye_ros/catkin_generated/installspace/aruco_eye_rosConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_eye_ros" TYPE FILE FILES "/home/mpleune/catkin_ws/src/aruco_eye/aruco_eye_ros/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_eye_ros" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_eye_ros/package.xml")
 endif()
 

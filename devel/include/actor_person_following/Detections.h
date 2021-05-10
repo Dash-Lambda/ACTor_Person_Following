@@ -16,7 +16,9 @@
 #include <ros/message_operations.h>
 
 #include <std_msgs/Header.h>
+#include <std_msgs/Header.h>
 #include <actor_person_following/Detection.h>
+#include <perception_msgs/PointInImage.h>
 
 namespace actor_person_following
 {
@@ -27,19 +29,35 @@ struct Detections_
 
   Detections_()
     : header()
+    , image_header()
     , num_detects(0)
-    , closest(0)
     , detections()
+    , closest(0)
+    , close_target(0)
+    , aruco_target(0)
+    , color_target(0)
     , xres(0)
-    , yres(0)  {
+    , yres(0)
+    , aruco_visible(false)
+    , aruco_x(0.0)
+    , aruco_y(0.0)
+    , aruco_points()  {
     }
   Detections_(const ContainerAllocator& _alloc)
     : header(_alloc)
+    , image_header(_alloc)
     , num_detects(0)
-    , closest(0)
     , detections(_alloc)
+    , closest(0)
+    , close_target(0)
+    , aruco_target(0)
+    , color_target(0)
     , xres(0)
-    , yres(0)  {
+    , yres(0)
+    , aruco_visible(false)
+    , aruco_x(0.0)
+    , aruco_y(0.0)
+    , aruco_points(_alloc)  {
   (void)_alloc;
     }
 
@@ -48,20 +66,44 @@ struct Detections_
    typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
+   typedef  ::std_msgs::Header_<ContainerAllocator>  _image_header_type;
+  _image_header_type image_header;
+
    typedef int32_t _num_detects_type;
   _num_detects_type num_detects;
+
+   typedef std::vector< ::actor_person_following::Detection_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::actor_person_following::Detection_<ContainerAllocator> >::other >  _detections_type;
+  _detections_type detections;
 
    typedef int32_t _closest_type;
   _closest_type closest;
 
-   typedef std::vector< ::actor_person_following::Detection_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::actor_person_following::Detection_<ContainerAllocator> >::other >  _detections_type;
-  _detections_type detections;
+   typedef int32_t _close_target_type;
+  _close_target_type close_target;
+
+   typedef int32_t _aruco_target_type;
+  _aruco_target_type aruco_target;
+
+   typedef int32_t _color_target_type;
+  _color_target_type color_target;
 
    typedef int32_t _xres_type;
   _xres_type xres;
 
    typedef int32_t _yres_type;
   _yres_type yres;
+
+   typedef uint8_t _aruco_visible_type;
+  _aruco_visible_type aruco_visible;
+
+   typedef double _aruco_x_type;
+  _aruco_x_type aruco_x;
+
+   typedef double _aruco_y_type;
+  _aruco_y_type aruco_y;
+
+   typedef std::vector< ::perception_msgs::PointInImage_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::perception_msgs::PointInImage_<ContainerAllocator> >::other >  _aruco_points_type;
+  _aruco_points_type aruco_points;
 
 
 
@@ -98,7 +140,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'actor_person_following': ['/home/mpleune/catkin_ws/src/actor_person_following/msg']}
+// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'actor_person_following': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'perception_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg'], 'darknet_ros_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg', '/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/darknet_ros_msgs/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -141,12 +183,12 @@ struct MD5Sum< ::actor_person_following::Detections_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "0650002a922808155cc9f3d500ee9e38";
+    return "60fd021630dd3b6e37263ed4dd63f0e0";
   }
 
   static const char* value(const ::actor_person_following::Detections_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x0650002a92280815ULL;
-  static const uint64_t static_value2 = 0x5cc9f3d500ee9e38ULL;
+  static const uint64_t static_value1 = 0x60fd021630dd3b6eULL;
+  static const uint64_t static_value2 = 0x37263ed4dd63f0e0ULL;
 };
 
 template<class ContainerAllocator>
@@ -166,12 +208,22 @@ struct Definition< ::actor_person_following::Detections_<ContainerAllocator> >
   static const char* value()
   {
     return "Header header\n\
+Header image_header\n\
 int32 num_detects\n\
-int32 closest\n\
 Detection[] detections\n\
+\n\
+int32 closest\n\
+int32 close_target\n\
+int32 aruco_target\n\
+int32 color_target\n\
 \n\
 int32 xres\n\
 int32 yres\n\
+\n\
+bool aruco_visible\n\
+float64 aruco_x\n\
+float64 aruco_y\n\
+perception_msgs/PointInImage[] aruco_points\n\
 \n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
@@ -197,10 +249,36 @@ float64 width\n\
 float64 height\n\
 float64 center\n\
 \n\
+float64 close_overlap\n\
+float64 aruco_overlap\n\
+\n\
+float64 close_dist\n\
+float64 aruco_dist\n\
+\n\
+float64 aruco_strength\n\
+\n\
 float32 r\n\
 float32 g\n\
 float32 b\n\
 \n\
+darknet_ros_msgs/BoundingBox box\n\
+\n\
+================================================================================\n\
+MSG: darknet_ros_msgs/BoundingBox\n\
+float64 probability\n\
+int64 xmin\n\
+int64 ymin\n\
+int64 xmax\n\
+int64 ymax\n\
+int16 id\n\
+string Class\n\
+\n\
+================================================================================\n\
+MSG: perception_msgs/PointInImage\n\
+# x coordinate of the point in the image\n\
+float32 x\n\
+# y coordinate of the poitn in the image\n\
+float32 y\n\
 ";
   }
 
@@ -220,11 +298,19 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.header);
+      stream.next(m.image_header);
       stream.next(m.num_detects);
-      stream.next(m.closest);
       stream.next(m.detections);
+      stream.next(m.closest);
+      stream.next(m.close_target);
+      stream.next(m.aruco_target);
+      stream.next(m.color_target);
       stream.next(m.xres);
       stream.next(m.yres);
+      stream.next(m.aruco_visible);
+      stream.next(m.aruco_x);
+      stream.next(m.aruco_y);
+      stream.next(m.aruco_points);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -246,10 +332,11 @@ struct Printer< ::actor_person_following::Detections_<ContainerAllocator> >
     s << indent << "header: ";
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
+    s << indent << "image_header: ";
+    s << std::endl;
+    Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.image_header);
     s << indent << "num_detects: ";
     Printer<int32_t>::stream(s, indent + "  ", v.num_detects);
-    s << indent << "closest: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.closest);
     s << indent << "detections[]" << std::endl;
     for (size_t i = 0; i < v.detections.size(); ++i)
     {
@@ -258,10 +345,32 @@ struct Printer< ::actor_person_following::Detections_<ContainerAllocator> >
       s << indent;
       Printer< ::actor_person_following::Detection_<ContainerAllocator> >::stream(s, indent + "    ", v.detections[i]);
     }
+    s << indent << "closest: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.closest);
+    s << indent << "close_target: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.close_target);
+    s << indent << "aruco_target: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.aruco_target);
+    s << indent << "color_target: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.color_target);
     s << indent << "xres: ";
     Printer<int32_t>::stream(s, indent + "  ", v.xres);
     s << indent << "yres: ";
     Printer<int32_t>::stream(s, indent + "  ", v.yres);
+    s << indent << "aruco_visible: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.aruco_visible);
+    s << indent << "aruco_x: ";
+    Printer<double>::stream(s, indent + "  ", v.aruco_x);
+    s << indent << "aruco_y: ";
+    Printer<double>::stream(s, indent + "  ", v.aruco_y);
+    s << indent << "aruco_points[]" << std::endl;
+    for (size_t i = 0; i < v.aruco_points.size(); ++i)
+    {
+      s << indent << "  aruco_points[" << i << "]: ";
+      s << std::endl;
+      s << indent;
+      Printer< ::perception_msgs::PointInImage_<ContainerAllocator> >::stream(s, indent + "    ", v.aruco_points[i]);
+    }
   }
 };
 

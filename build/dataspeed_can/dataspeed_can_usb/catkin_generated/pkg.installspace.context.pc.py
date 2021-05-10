@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-ldataspeed_can_usb".split(';') if "-ldataspeed_can_usb" != "" else []
 PROJECT_NAME = "dataspeed_can_usb"
-PROJECT_SPACE_DIR = "/home/mpleune/catkin_ws/install"
+PROJECT_SPACE_DIR = "/home/mpleune/lfa_ws/ACTor_Person_Following/install"
 PROJECT_VERSION = "1.0.16"

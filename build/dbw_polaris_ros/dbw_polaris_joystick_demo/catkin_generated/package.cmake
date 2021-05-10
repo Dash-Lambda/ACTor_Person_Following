@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "dbw_polaris_joystick_demo")
-set(dbw_polaris_joystick_demo_VERSION "0.0.7")
+set(dbw_polaris_joystick_demo_VERSION "0.0.8")
 set(dbw_polaris_joystick_demo_MAINTAINER "Kevin Hallenbeck <khallenbeck@dataspeedinc.com>")
 set(dbw_polaris_joystick_demo_PACKAGE_FORMAT "2")
 set(dbw_polaris_joystick_demo_BUILD_DEPENDS "roscpp" "std_msgs" "sensor_msgs" "dbw_polaris_msgs")

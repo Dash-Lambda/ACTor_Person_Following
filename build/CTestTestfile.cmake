@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/mpleune/catkin_ws/src
-# Build directory: /home/mpleune/catkin_ws/build
+# Source directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src
+# Build directory: /home/mpleune/lfa_ws/ACTor_Person_Following/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
@@ -23,7 +23,6 @@ subdirs(dbw_polaris_ros/dbw_polaris_joystick_demo)
 subdirs(darknet_ros/darknet_ros)
 subdirs(perception_msgs)
 subdirs(simple_camera_publisher)
-subdirs(actor2_support)
 subdirs(aruco_eye/aruco_eye_ros)
 subdirs(actor_person_following)
 subdirs(dbw_polaris_ros/dbw_polaris_description)

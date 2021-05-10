@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/mpleune/catkin_ws/src/robot_component_srvs/srv/SetBool.srv"
+services_str = "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
 pkg_name = "robot_component_srvs"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

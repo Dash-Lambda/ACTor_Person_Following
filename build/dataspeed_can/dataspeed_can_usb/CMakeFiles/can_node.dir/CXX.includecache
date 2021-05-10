@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/include/dataspeed_can_usb/CanDriver.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/include/dataspeed_can_usb/CanDriver.h
 ros/ros.h
 -
 can_msgs/Frame.h
@@ -18,13 +18,13 @@ boost/thread/lock_guard.hpp
 dataspeed_can_usb/ModuleVersion.h
 -
 
-/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/include/dataspeed_can_usb/ModuleVersion.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/include/dataspeed_can_usb/ModuleVersion.h
 stdint.h
 -
 endian.h
 -
 
-/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_usb/src/node.cpp
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_usb/src/node.cpp
 ros/ros.h
 -
 dataspeed_can_usb/CanDriver.h

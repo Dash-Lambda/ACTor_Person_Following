@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/catkin_ws/src/pugixml
+# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/catkin_ws/build/pugixml/catkin_generated/installspace/pugixml.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/pugixml/catkin_generated/installspace/pugixml.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pugixml/cmake" TYPE FILE FILES
-    "/home/mpleune/catkin_ws/build/pugixml/catkin_generated/installspace/pugixmlConfig.cmake"
-    "/home/mpleune/catkin_ws/build/pugixml/catkin_generated/installspace/pugixmlConfig-version.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/pugixml/catkin_generated/installspace/pugixmlConfig.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/pugixml/catkin_generated/installspace/pugixmlConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pugixml" TYPE FILE FILES "/home/mpleune/catkin_ws/src/pugixml/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pugixml" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/package.xml")
 endif()
 

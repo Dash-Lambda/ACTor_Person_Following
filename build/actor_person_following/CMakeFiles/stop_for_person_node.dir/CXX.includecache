@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mpleune/catkin_ws/devel/include/actor_person_following/Detection.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detection.h
 string
 -
 vector
@@ -21,8 +21,10 @@ ros/builtin_message_traits.h
 -
 ros/message_operations.h
 -
+darknet_ros_msgs/BoundingBox.h
+-
 
-/home/mpleune/catkin_ws/devel/include/actor_person_following/Detections.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detections.h
 string
 -
 vector
@@ -39,10 +41,14 @@ ros/message_operations.h
 -
 std_msgs/Header.h
 -
+std_msgs/Header.h
+-
 actor_person_following/Detection.h
 -
+perception_msgs/PointInImage.h
+-
 
-/home/mpleune/catkin_ws/devel/include/dbw_polaris_msgs/BrakeCmd.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/BoundingBox.h
 string
 -
 vector
@@ -58,7 +64,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/mpleune/catkin_ws/devel/include/dbw_polaris_msgs/Gear.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/dbw_polaris_msgs/BrakeCmd.h
 string
 -
 vector
@@ -74,7 +80,23 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/mpleune/catkin_ws/devel/include/dbw_polaris_msgs/GearCmd.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/dbw_polaris_msgs/Gear.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/dbw_polaris_msgs/GearCmd.h
 string
 -
 vector
@@ -92,7 +114,7 @@ ros/message_operations.h
 dbw_polaris_msgs/Gear.h
 -
 
-/home/mpleune/catkin_ws/devel/include/dbw_polaris_msgs/SteeringCmd.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/dbw_polaris_msgs/SteeringCmd.h
 string
 -
 vector
@@ -108,7 +130,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/mpleune/catkin_ws/devel/include/dbw_polaris_msgs/ThrottleCmd.h
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/dbw_polaris_msgs/ThrottleCmd.h
 string
 -
 vector
@@ -124,7 +146,23 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/mpleune/catkin_ws/src/actor_person_following/src/stop_for_person_node.cpp
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/perception_msgs/PointInImage.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/src/stop_for_person_node.cpp
 ros/ros.h
 -
 time.h
@@ -140,6 +178,8 @@ std_msgs/Bool.h
 std_msgs/String.h
 -
 std_msgs/ColorRGBA.h
+-
+std_msgs/Empty.h
 -
 string
 -
@@ -873,6 +913,22 @@ ros/message_operations.h
 -
 
 /opt/ros/kinetic/include/std_msgs/ColorRGBA.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/opt/ros/kinetic/include/std_msgs/Empty.h
 string
 -
 vector

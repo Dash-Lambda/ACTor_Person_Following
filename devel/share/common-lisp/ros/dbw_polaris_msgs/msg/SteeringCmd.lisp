@@ -120,7 +120,7 @@
     "Constants for message type '<SteeringCmd>"
   '((:CMD_ANGLE . 0)
     (:CMD_TORQUE . 1)
-    (:ANGLE_MAX . 8.4)
+    (:ANGLE_MAX . 10.5)
     (:VELOCITY_MAX . 17.5)
     (:TORQUE_MAX . 60.0))
 )
@@ -128,7 +128,7 @@
     "Constants for message type 'SteeringCmd"
   '((:CMD_ANGLE . 0)
     (:CMD_TORQUE . 1)
-    (:ANGLE_MAX . 8.4)
+    (:ANGLE_MAX . 10.5)
     (:VELOCITY_MAX . 17.5)
     (:TORQUE_MAX . 60.0))
 )
@@ -194,16 +194,16 @@
   "dbw_polaris_msgs/SteeringCmd")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<SteeringCmd>)))
   "Returns md5sum for a message object of type '<SteeringCmd>"
-  "db9f921f0c5966aa2ecb11628a300e0d")
+  "3057c03242918b13faef4ba58cf222b5")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'SteeringCmd)))
   "Returns md5sum for a message object of type 'SteeringCmd"
-  "db9f921f0c5966aa2ecb11628a300e0d")
+  "3057c03242918b13faef4ba58cf222b5")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<SteeringCmd>)))
   "Returns full string definition for message of type '<SteeringCmd>"
-  (cl:format cl:nil "# Steering Wheel~%float32 steering_wheel_angle_cmd        # rad, range -8.4 to 8.4~%float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = maximum~%float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0~%uint8 cmd_type~%~%# Enable~%bool enable~%~%# Clear driver overrides~%bool clear~%~%# Ignore driver overrides~%bool ignore~%~%# Sets current steering wheel angle to value in steering_wheel_angle_cmd~%bool calibrate~%~%# Disable the driver override audible warning~%bool quiet~%~%# Watchdog counter (optional)~%uint8 count~%~%# Command types~%uint8 CMD_ANGLE=0~%uint8 CMD_TORQUE=1~%~%# Maximum values~%float32 ANGLE_MAX=8.4    # rad, maximum angle~%float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity~%float32 TORQUE_MAX=60.0   # Nm, maximum torque~%~%~%"))
+  (cl:format cl:nil "# Steering Wheel~%float32 steering_wheel_angle_cmd        # rad, range -10.5 to 10.5~%float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = default~%float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0~%uint8 cmd_type~%~%# Enable~%bool enable~%~%# Clear driver overrides~%bool clear~%~%# Ignore driver overrides~%bool ignore~%~%# Sets current steering wheel angle to value in steering_wheel_angle_cmd~%bool calibrate~%~%# Disable the driver override audible warning~%bool quiet~%~%# Watchdog counter (optional)~%uint8 count~%~%# Command types~%uint8 CMD_ANGLE=0~%uint8 CMD_TORQUE=1~%~%# Maximum values~%float32 ANGLE_MAX=10.5    # rad, maximum angle~%float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity~%float32 TORQUE_MAX=60.0   # Nm, maximum torque~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'SteeringCmd)))
   "Returns full string definition for message of type 'SteeringCmd"
-  (cl:format cl:nil "# Steering Wheel~%float32 steering_wheel_angle_cmd        # rad, range -8.4 to 8.4~%float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = maximum~%float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0~%uint8 cmd_type~%~%# Enable~%bool enable~%~%# Clear driver overrides~%bool clear~%~%# Ignore driver overrides~%bool ignore~%~%# Sets current steering wheel angle to value in steering_wheel_angle_cmd~%bool calibrate~%~%# Disable the driver override audible warning~%bool quiet~%~%# Watchdog counter (optional)~%uint8 count~%~%# Command types~%uint8 CMD_ANGLE=0~%uint8 CMD_TORQUE=1~%~%# Maximum values~%float32 ANGLE_MAX=8.4    # rad, maximum angle~%float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity~%float32 TORQUE_MAX=60.0   # Nm, maximum torque~%~%~%"))
+  (cl:format cl:nil "# Steering Wheel~%float32 steering_wheel_angle_cmd        # rad, range -10.5 to 10.5~%float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = default~%float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0~%uint8 cmd_type~%~%# Enable~%bool enable~%~%# Clear driver overrides~%bool clear~%~%# Ignore driver overrides~%bool ignore~%~%# Sets current steering wheel angle to value in steering_wheel_angle_cmd~%bool calibrate~%~%# Disable the driver override audible warning~%bool quiet~%~%# Watchdog counter (optional)~%uint8 count~%~%# Command types~%uint8 CMD_ANGLE=0~%uint8 CMD_TORQUE=1~%~%# Maximum values~%float32 ANGLE_MAX=10.5    # rad, maximum angle~%float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity~%float32 TORQUE_MAX=60.0   # Nm, maximum torque~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <SteeringCmd>))
   (cl:+ 0
      4

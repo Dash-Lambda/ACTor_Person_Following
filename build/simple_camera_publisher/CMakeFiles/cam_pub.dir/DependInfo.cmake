@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mpleune/catkin_ws/src/simple_camera_publisher/src/cam_pub.cpp" "/home/mpleune/catkin_ws/build/simple_camera_publisher/CMakeFiles/cam_pub.dir/src/cam_pub.cpp.o"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/simple_camera_publisher/src/cam_pub.cpp" "/home/mpleune/lfa_ws/ACTor_Person_Following/build/simple_camera_publisher/CMakeFiles/cam_pub.dir/src/cam_pub.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -22,7 +22,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv"
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/cmake/cfgbuild.cmake"
-  "/home/mpleune/catkin_ws/src/simple_camera_publisher/include"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/simple_camera_publisher/include"
   )
 
 # Targets to which this target links.

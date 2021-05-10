@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mpleune/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/mpleune/lfa_ws/ACTor_Person_Following/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mpleune/catkin_ws/build
+CMAKE_BINARY_DIR = /home/mpleune/lfa_ws/ACTor_Person_Following/build
 
 # Include any dependencies generated for this target.
 include aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/depend.make
@@ -58,17 +58,17 @@ include aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/progress.make
 include aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/dictionary.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/dictionary.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/dictionary.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/dictionary.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/dictionary.cpp > CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/dictionary.cpp > CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/dictionary.cpp -o CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/dictionary.cpp -o CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o.requires:
 
@@ -82,17 +82,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o.provide
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp > CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp > CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerdetector.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o.requires:
 
@@ -106,17 +106,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o.pro
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markermap.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markermap.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markermap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markermap.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markermap.cpp > CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markermap.cpp > CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markermap.cpp -o CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markermap.cpp -o CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o.requires:
 
@@ -130,17 +130,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o.provides
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp > CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp > CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp -o CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cameraparameters.cpp -o CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o.requires:
 
@@ -154,17 +154,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o.p
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ippe.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ippe.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ippe.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ippe.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ippe.cpp > CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ippe.cpp > CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ippe.cpp -o CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ippe.cpp -o CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o.requires:
 
@@ -178,17 +178,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o.provides.buil
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/marker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/marker.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/marker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/marker.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/marker.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/marker.cpp > CMakeFiles/aruco_lib.dir/src/source/marker.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/marker.cpp > CMakeFiles/aruco_lib.dir/src/source/marker.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/marker.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/marker.cpp -o CMakeFiles/aruco_lib.dir/src/source/marker.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/marker.cpp -o CMakeFiles/aruco_lib.dir/src/source/marker.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o.requires:
 
@@ -202,17 +202,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o.provides.bu
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp > CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp > CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp -o CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/cvdrawingutils.cpp -o CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o.requires:
 
@@ -226,17 +226,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o.pro
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp > CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp > CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp -o CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/ar_omp.cpp -o CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o.requires:
 
@@ -250,17 +250,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o.provides.bu
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp > CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp > CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/svmmarkers.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o.requires:
 
@@ -274,17 +274,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarker
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp > CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp > CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabelers/dictionary_based.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o.requires:
 
@@ -298,17 +298,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionar
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp > CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp > CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/markerlabeler.cpp -o CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o.requires:
 
@@ -322,17 +322,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o.prov
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/posetracker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/posetracker.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/posetracker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/posetracker.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/posetracker.cpp > CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/posetracker.cpp > CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/posetracker.cpp -o CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/posetracker.cpp -o CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o.requires:
 
@@ -346,17 +346,17 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o.provid
 
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/flags.make
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o: /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o -c /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o -c /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.i"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp > CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.i
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp > CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.i
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.s"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp -o CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.s
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/source/checkrectcontour.cpp -o CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.s
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o.requires:
 
@@ -388,71 +388,71 @@ aruco_lib_OBJECTS = \
 # External object files for target aruco_lib
 aruco_lib_EXTERNAL_OBJECTS =
 
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_stitching3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_superres3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_videostab3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_aruco3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_bgsegm3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_bioinspired3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_ccalib3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_cvv3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_dpm3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_face3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_fuzzy3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_hdf3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_img_hash3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_line_descriptor3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_optflow3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_reg3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_rgbd3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_saliency3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_stereo3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_structured_light3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_surface_matching3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_tracking3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_xfeatures2d3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_ximgproc3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_xobjdetect3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_xphoto3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_shape3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_photo3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_datasets3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_plot3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_text3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_dnn3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_ml3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_video3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_calib3d3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_features2d3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_highgui3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_videoio3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_viz3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_phase_unwrapping3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_flann3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgcodecs3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_objdetect3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgproc3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_core3.so.3.3.1
-/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mpleune/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX shared library /home/mpleune/catkin_ws/devel/lib/libaruco_lib.so"
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aruco_lib.dir/link.txt --verbose=$(VERBOSE)
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/dictionary.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerdetector.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markermap.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cameraparameters.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ippe.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/marker.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/cvdrawingutils.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/ar_omp.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/svmmarkers.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabelers/dictionary_based.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build.make
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_stitching3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_superres3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_videostab3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_aruco3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_bgsegm3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_bioinspired3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_ccalib3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_cvv3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_dpm3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_face3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_fuzzy3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_hdf3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_img_hash3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_line_descriptor3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_optflow3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_reg3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_rgbd3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_saliency3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_stereo3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_structured_light3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_surface_matching3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_tracking3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_xfeatures2d3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_ximgproc3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_xobjdetect3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_xphoto3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_shape3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_photo3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_datasets3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_plot3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_text3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_dnn3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_ml3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_video3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_calib3d3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_features2d3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_highgui3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_videoio3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_viz3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_phase_unwrapping3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_flann3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgcodecs3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_objdetect3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgproc3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_core3.so.3.3.1
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so: aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mpleune/lfa_ws/ACTor_Person_Following/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX shared library /home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so"
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aruco_lib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build: /home/mpleune/catkin_ws/devel/lib/libaruco_lib.so
+aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so
 
 .PHONY : aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/build
 
@@ -473,10 +473,10 @@ aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/requires: aruco_eye/aruco_lib/CMake
 .PHONY : aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/requires
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/clean:
-	cd /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib && $(CMAKE_COMMAND) -P CMakeFiles/aruco_lib.dir/cmake_clean.cmake
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib && $(CMAKE_COMMAND) -P CMakeFiles/aruco_lib.dir/cmake_clean.cmake
 .PHONY : aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/clean
 
 aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/depend:
-	cd /home/mpleune/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mpleune/catkin_ws/src /home/mpleune/catkin_ws/src/aruco_eye/aruco_lib /home/mpleune/catkin_ws/build /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib /home/mpleune/catkin_ws/build/aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mpleune/lfa_ws/ACTor_Person_Following/src /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib /home/mpleune/lfa_ws/ACTor_Person_Following/build /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib /home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : aruco_eye/aruco_lib/CMakeFiles/aruco_lib.dir/depend
 

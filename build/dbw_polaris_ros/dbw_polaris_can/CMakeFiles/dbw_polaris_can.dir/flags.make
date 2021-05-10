@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -std=gnu++11
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"dbw_polaris_can\" -Ddbw_polaris_can_EXPORTS
 
-CXX_INCLUDES = -I/home/mpleune/catkin_ws/src/dbw_polaris_ros/dbw_polaris_can/include -I/home/mpleune/catkin_ws/devel/include -I/home/mpleune/catkin_ws/src/dataspeed_can/dataspeed_can_msg_filters/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_can/include -I/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_msg_filters/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>dbw_polaris_can</name>
-  <version>0.0.7</version>
+  <version>0.0.8</version>
   <description>
     Drive-by-wire interface to the Dataspeed Inc. Polaris GEM/Ranger/RZR DBW kit
   </description>
@@ -27,6 +27,7 @@
   <build_depend>dataspeed_can_msg_filters</build_depend>
 
   <exec_depend>roslaunch</exec_depend>
+  <exec_depend>socketcan_bridge</exec_depend>
   <exec_depend>dataspeed_can_usb</exec_depend>
   <exec_depend>dbw_polaris_description</exec_depend>
   <exec_depend>dataspeed_ulc_can</exec_depend>

@@ -1,15 +1,15 @@
 file(REMOVE_RECURSE
   "CMakeFiles/darknet_ros_msgs_generate_messages_nodejs"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsResult.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsActionFeedback.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/BoundingBox.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsActionGoal.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsAction.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsActionResult.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsFeedback.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/ObjectCount.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsGoal.js"
-  "/home/mpleune/catkin_ws/devel/share/gennodejs/ros/darknet_ros_msgs/msg/BoundingBoxes.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/BoundingBox.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsActionResult.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/ObjectCount.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsResult.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/BoundingBoxes.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsAction.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsFeedback.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsActionGoal.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsGoal.js"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/darknet_ros_msgs/msg/CheckForObjectsActionFeedback.js"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/perception_msgs_generate_messages_py"
-  "/home/mpleune/catkin_ws/devel/lib/python2.7/dist-packages/perception_msgs/msg/_MarkerList.py"
-  "/home/mpleune/catkin_ws/devel/lib/python2.7/dist-packages/perception_msgs/msg/_LabeledPointInImage.py"
-  "/home/mpleune/catkin_ws/devel/lib/python2.7/dist-packages/perception_msgs/msg/_PointInImage.py"
-  "/home/mpleune/catkin_ws/devel/lib/python2.7/dist-packages/perception_msgs/msg/_Marker.py"
-  "/home/mpleune/catkin_ws/devel/lib/python2.7/dist-packages/perception_msgs/msg/__init__.py"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/perception_msgs/msg/_Marker.py"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/perception_msgs/msg/_MarkerList.py"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/perception_msgs/msg/_LabeledPointInImage.py"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/perception_msgs/msg/_PointInImage.py"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/perception_msgs/msg/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

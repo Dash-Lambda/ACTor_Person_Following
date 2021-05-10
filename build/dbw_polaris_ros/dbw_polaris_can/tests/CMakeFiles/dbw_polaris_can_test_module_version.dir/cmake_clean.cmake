@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dbw_polaris_can_test_module_version.dir/test_module_version.cpp.o"
-  "/home/mpleune/catkin_ws/devel/lib/dbw_polaris_can/dbw_polaris_can_test_module_version.pdb"
-  "/home/mpleune/catkin_ws/devel/lib/dbw_polaris_can/dbw_polaris_can_test_module_version"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dbw_polaris_can/dbw_polaris_can_test_module_version.pdb"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dbw_polaris_can/dbw_polaris_can_test_module_version"
 )
 
 # Per-language clean rules from dependency scanning.

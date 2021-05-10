@@ -73,6 +73,7 @@
 
   <!-- Start darknet and ros wrapper -->
   <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen" launch-prefix="$(arg launch_prefix)">
+    <param name="image_view/enable_opencv" type="boolean" value="false" />
     <param name="subscribers/camera_reading/topic" value="$(arg cam_source_topic)" />
     <param name="weights_path"          value="$(arg yolo_weights_path)" />
     <param name="config_path"           value="$(arg yolo_config_path)" />
@@ -83,35 +84,103 @@
 
 	<!-- CAMERA PUBLISHER -->
 
-  <!-- launch the node -->
+    <!-- launch the node -->
   <node name="cam_pub" pkg="simple_camera_publisher" type="cam_pub" respawn="true" respawn_delay="10" output="screen">
       <param name="source" type="string" value="" />
       <param name="res_wid" type="int" value="640" />
       <param name="res_hgt" type="int" value="480" />
   </node>
 
+	<!-- Aruco Tracker -->
+  <arg name="aruco_eye_ros_node_name" 	default="aruco_eye_ros_node" />
+  <arg name="aruco_list_file" default="$(find aruco_eye_ros)/config/arUcoList.xml"/>
+
+  <!-- <arg name="camera_calibration_file" default="$(find aruco_eye_ros)/config/camera.yml"/> -->
+  <arg name="camera_calibration_file" default=""/>
+  <arg name="camera_info_topic_name" default="/camera/camera_info"/>
+
+  <arg name="aruco_detector_frame_name" default="aruco_detector"/>
+  <arg name="aruco_marker_child_base_name" default="aruco_marker_"/>
+
+  <arg name="image_topic_name" 	default="/camera/image_raw" />
+  <arg name="aruco_list_topic_name" 	default="aruco_eye/aruco_observation" />
+
+
+  <!--<node name="$(arg aruco_eye_ros_node_name)" pkg="aruco_eye_ros" type="aruco_eye_ros_detector" output="screen">
+    <param name="aruco_list_file" value="$(arg aruco_list_file)" type="string"/>
+    <param name="camera_calibration_file" value="$(arg camera_calibration_file)" type="string"/>
+    <param name="camera_info_topic_name" value="$(arg camera_info_topic_name)" type="string"/>
+    <param name="aruco_detector_frame_name" value="$(arg aruco_detector_frame_name)" type="string"/>
+    <param name="aruco_marker_child_base_name" value="$(arg aruco_marker_child_base_name)" type="string"/>
+    <param name="image_topic_name" value="$(arg image_topic_name)" type="string"/>
+    <param name="aruco_list_topic_name" value="$(arg aruco_list_topic_name)" type="string"/>
+  </node>-->
+
+
 	<!-- PERSON DETECTOR -->
+  <node name="detection_image_viewer_node" pkg="actor_person_following" type="detection_image_viewer_node" >
+    <param name="flip_image" type="boolean" value="false" />
+  </node>
   <node name="detection_reporter_node" pkg="actor_person_following" type="detection_reporter_node" >
     <param name="cam_topic" type="string" value="$(arg cam_source_topic)" />
+    <param name="detection_image_topic" type="string" value="/darknet_ros/detection_image" />
+
     <param name="color_spot_width" type="int" value="20" />
     <param name="smoothing_timeout" type="double" value="0.1" />
     <param name="target_class" type="string" value="person" />
     <param name="sat_adj" type="double" value="3" />
+
+    <param name="aruco_topic" type="string" value="/aruco_eye/aruco_observation" />
+    <param name="aruco_target" type="string" value="123" />
+
+    <param name="color_target_r" type="int" value="2" />
+    <param name="color_target_g" type="int" value="2" />
+    <param name="color_target_b" type="int" value="2" />
+    <param name="color_target_tol" type="double" value="20" />
+
+    <param name="overlap_thresh" type="double" value="0" />
+    <param name="distance_thresh" type="double" value="0.25" />
+    <param name="persist_method" type="int" value="1" />
+    <param name="retarget_timeout" type="double" value="5" />
+    <param name="aruco_grab_dist" type="double" value="0.1" />
+    <param name="distance_expansion" type="double" value="1" />
   </node>
   <node name="stop_for_person_node" pkg="actor_person_following" type="stop_for_person_node" >
-    <param name="start_active" type="int" value="1" />
-    <param name="twist_topic" type="string" value="/follower/twist" />
+    <param name="twist_topic" type="string" value="/vehicle/cmd_vel" />
+    <param name="brake_topic" type="string" value="/vehicle/brake_cmd" />
+    <param name="gear_topic" type="string" value="/vehicle/gear_cmd" />
+    <param name="enable_topic" type="string" value="/vehicle/enable" />
     <param name="start_topic" type="string" value="/follower/start" />
-    <param name="stop_thresh" type="double" value="1" />
-    <param name="speed" type="double" value="0.25" />
-    <param name="steerMult" type="double" value="1" />
-    <param name="timeout" type="double" value="99" />
-    <param name="looprate" type="int" value="5" />
-    <param name="proximity_cooldown" type="double" value="5" />
     <param name="disp_msg_topic" type="string" value="/display/text/msg" />
     <param name="disp_rgb_topic" type="string" value="/display/text/color" />
-    <param name="color_sel" type="int" value="2" />
-    <param name="color_fallback" type="int" value="0" />
-    <param name="smoothing_timeout" type="double" value="0.1" />
+
+    <param name="start_active" type="int" value="1" />
+    <param name="stop_thresh" type="double" value="0.25" />
+    <param name="stall_thresh" type="double" value="0.15" />
+    <param name="speed" type="double" value="0.7" />
+    <param name="steerMult" type="double" value="-0.3" />
+    <param name="timeout" type="double" value="99" />
+    <param name="looprate" type="int" value="10" />
+    <param name="proximity_cooldown" type="double" value="1" />
+    <param name="smoothing_timeout" type="double" value="0.5" />
+    <param name="stall_speed" type="double" value="0.1" />
+    <param name="center_offset" type="double" value="0.1" />
+    <param name="brake_force" type="double" value="0.5" />
+    <param name="enable_rate" type="double" value="5" />
+
+    <param name="distance_decay" type="double" value="0.9" />
+    <param name="steering_decay" type="double" value="0.9" />
+
+    <param name="enable_aruco" type="boolean" value="true" />
+    <param name="enable_color" type="boolean" value="false" />
+    <param name="enable_closest" type="boolean" value="false" />
+
+    <param name="stopped_color" type="string" value="#888888" />
+    <param name="idle_color" type="string" value="#FFFFFF" />
+    <param name="follow_color" type="string" value="#00FF00" />
+    <param name="slow_color" type="string" value="#FFFF00" />
+    <param name="stop_color" type="string" value="#FF0000" />
+    <param name="cooldown_color" type="string" value="#00FFFF" />
+    <param name="error_color" type="string" value="#FF00FF" />
   </node>
 </launch>

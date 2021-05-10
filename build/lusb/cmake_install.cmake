@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/catkin_ws/src/lusb
+# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,18 +33,18 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/catkin_ws/build/lusb/catkin_generated/installspace/lusb.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/lusb/catkin_generated/installspace/lusb.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lusb/cmake" TYPE FILE FILES
-    "/home/mpleune/catkin_ws/build/lusb/catkin_generated/installspace/lusbConfig.cmake"
-    "/home/mpleune/catkin_ws/build/lusb/catkin_generated/installspace/lusbConfig-version.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/lusb/catkin_generated/installspace/lusbConfig.cmake"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/lusb/catkin_generated/installspace/lusbConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lusb" TYPE FILE FILES "/home/mpleune/catkin_ws/src/lusb/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lusb" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -54,7 +54,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/liblusb.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mpleune/catkin_ws/devel/lib/liblusb.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/liblusb.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/liblusb.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/liblusb.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -64,6 +64,6 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lusb" TYPE DIRECTORY FILES "/home/mpleune/catkin_ws/src/lusb/include/lusb/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lusb" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include/lusb/")
 endif()
 

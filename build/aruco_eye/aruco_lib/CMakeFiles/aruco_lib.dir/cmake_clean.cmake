@@ -12,8 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/aruco_lib.dir/src/source/markerlabeler.cpp.o"
   "CMakeFiles/aruco_lib.dir/src/source/posetracker.cpp.o"
   "CMakeFiles/aruco_lib.dir/src/source/checkrectcontour.cpp.o"
-  "/home/mpleune/catkin_ws/devel/lib/libaruco_lib.pdb"
-  "/home/mpleune/catkin_ws/devel/lib/libaruco_lib.so"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.pdb"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libaruco_lib.so"
 )
 
 # Per-language clean rules from dependency scanning.

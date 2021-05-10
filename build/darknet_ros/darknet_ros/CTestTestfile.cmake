@@ -1,7 +1,7 @@
 # CMake generated Testfile for 
-# Source directory: /home/mpleune/catkin_ws/src/darknet_ros/darknet_ros
-# Build directory: /home/mpleune/catkin_ws/build/darknet_ros/darknet_ros
+# Source directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros
+# Build directory: /home/mpleune/lfa_ws/ACTor_Person_Following/build/darknet_ros/darknet_ros
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-add_test(_ctest_darknet_ros_rostest_test_object_detection.test "/home/mpleune/catkin_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python2" "/opt/ros/kinetic/share/catkin/cmake/test/run_tests.py" "/home/mpleune/catkin_ws/build/test_results/darknet_ros/rostest-test_object_detection.xml" "--return-code" "/opt/ros/kinetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/mpleune/catkin_ws/src/darknet_ros/darknet_ros --package=darknet_ros --results-filename test_object_detection.xml --results-base-dir \"/home/mpleune/catkin_ws/build/test_results\" /home/mpleune/catkin_ws/src/darknet_ros/darknet_ros/test/object_detection.test ")
+add_test(_ctest_darknet_ros_rostest_test_object_detection.test "/home/mpleune/lfa_ws/ACTor_Person_Following/build/catkin_generated/env_cached.sh" "/usr/bin/python2" "/opt/ros/kinetic/share/catkin/cmake/test/run_tests.py" "/home/mpleune/lfa_ws/ACTor_Person_Following/build/test_results/darknet_ros/rostest-test_object_detection.xml" "--return-code" "/opt/ros/kinetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros --package=darknet_ros --results-filename test_object_detection.xml --results-base-dir \"/home/mpleune/lfa_ws/ACTor_Person_Following/build/test_results\" /home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros/test/object_detection.test ")

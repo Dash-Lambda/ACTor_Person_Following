@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mpleune/catkin_ws/src/lusb/src/UsbDevice.cpp" "/home/mpleune/catkin_ws/build/lusb/CMakeFiles/lusb.dir/src/UsbDevice.cpp.o"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/src/UsbDevice.cpp" "/home/mpleune/lfa_ws/ACTor_Person_Following/build/lusb/CMakeFiles/lusb.dir/src/UsbDevice.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,7 +15,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/mpleune/catkin_ws/src/lusb/include"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include"
   )
 
 # Targets to which this target links.

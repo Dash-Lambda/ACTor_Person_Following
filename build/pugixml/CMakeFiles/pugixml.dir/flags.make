@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -std=c++11
 
 CXX_DEFINES = -DROS_BUILD_SHARED_LIBS=1 -Dpugixml_EXPORTS
 
-CXX_INCLUDES = -I/home/mpleune/catkin_ws/src/pugixml/src/include -I/home/mpleune/catkin_ws/src/pugixml/src/include/pugixml 
+CXX_INCLUDES = -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include/pugixml 
 
