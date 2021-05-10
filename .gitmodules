@@ -19,3 +19,6 @@
 [submodule "src/lusb"]
 	path = src/lusb
 	url = https://bitbucket.org/DataspeedInc/lusb.git
+[submodule "src/dataspeed_can"]
+	path = src/dataspeed_can
+	url = https://bitbucket.org/DataspeedInc/dataspeed_can.git
