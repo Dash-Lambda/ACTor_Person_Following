@@ -1,8 +1,0 @@
-prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/devel
-
-Name: dbw_polaris_joystick_demo
-Description: Description of dbw_polaris_joystick_demo
-Version: 0.0.8
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/install
-
-Name: dataspeed_can_msg_filters
-Description: Description of dataspeed_can_msg_filters
-Version: 1.0.16
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: roscpp can_msgs

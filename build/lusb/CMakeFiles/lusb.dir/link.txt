@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC   -shared -Wl,-soname,liblusb.so -o /home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/liblusb.so CMakeFiles/lusb.dir/src/UsbDevice.cpp.o -lboost_thread -lboost_system -lboost_chrono -lboost_date_time -lboost_atomic -lpthread -lusb-1.0 
