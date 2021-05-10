@@ -16,3 +16,6 @@
 [submodule "src/simple_camera_publisher"]
 	path = src/simple_camera_publisher
 	url = https://github.com/ltu-ros/simple_camera_publisher.git
+[submodule "src/lusb"]
+	path = src/lusb
+	url = https://bitbucket.org/DataspeedInc/lusb.git
