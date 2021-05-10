@@ -10,3 +10,6 @@
 [submodule "src/perception_msgs"]
 	path = src/perception_msgs
 	url = https://github.com/joselusl/perception_msgs.git
+[submodule "src/robot_component_srvs"]
+	path = src/robot_component_srvs
+	url = https://github.com/joselusl/robot_component_srvs.git
