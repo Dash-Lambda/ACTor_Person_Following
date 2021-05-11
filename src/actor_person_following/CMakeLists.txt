@@ -62,9 +62,9 @@ add_dependencies(stop_for_person_node
   actor_person_following_generate_messages_cpp
 )
 
-add_executable(aruco_tracker_node src/aruco_tracker_node.cpp)
-target_link_libraries(aruco_tracker_node ${catkin_LIBRARIES})
-add_dependencies(aruco_tracker_node
+add_executable(lidar_node src/lidar_node.cpp)
+target_link_libraries(lidar_node ${catkin_LIBRARIES})
+add_dependencies(lidar_node
   actor_person_following_generate_messages_cpp
 )
 

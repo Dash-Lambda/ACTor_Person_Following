@@ -1,0 +1,8 @@
+prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/devel
+
+Name: dbw_polaris_can
+Description: Description of dbw_polaris_can
+Version: 0.0.8
+Cflags: -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_can/include
+Libs: -L${prefix}/lib -ldbw_polaris_can
+Requires: 

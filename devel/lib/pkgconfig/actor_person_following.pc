@@ -1,0 +1,8 @@
+prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/devel
+
+Name: actor_person_following
+Description: Description of actor_person_following
+Version: 0.0.0
+Cflags: -I/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime
