@@ -1,0 +1,21 @@
+<launch>
+  <node pkg="actor_person_following" type="lidar_node" name="lidar_node" output="screen">
+    <param name="center_angle" type="double" value="-1.1471975512" />
+    <param name="fov" type="double" value="1.0471975512" />
+
+    <param name="center_pitch" type="double" value="0.13" />
+    <param name="vertical_fov" type="double" value="0.8" />
+
+    <param name="frame_top" type="double" value="3.1415" />
+    <param name="frame_bottom" type="double" value="0" />
+
+    <param name="min_radius" type="double" value="2" />
+    <param name="max_radius" type="double" value="100" />
+    <param name="min_height" type="double" value="-10" />
+    <param name="max_height" type="double" value="10" />
+    <param name="zero_height" type="double" value="-1.213" />
+
+    <param name="y_roll" type="double" value="0.00596964" />
+    <param name="x_roll" type="double" value="-0.0430699" />
+  </node>
+</launch>

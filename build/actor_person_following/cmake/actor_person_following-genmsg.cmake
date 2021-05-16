@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "actor_person_following: 2 messages, 0 services")
+message(STATUS "actor_person_following: 4 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iactor_person_following:/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg;-Idarknet_ros_msgs:/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg;-Idarknet_ros_msgs:/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/darknet_ros_msgs/msg;-Iperception_msgs:/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg;-Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg")
 
@@ -19,12 +19,22 @@ add_custom_target(actor_person_following_generate_messages ALL)
 
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" NAME_WE)
 add_custom_target(_actor_person_following_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "actor_person_following" "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" "actor_person_following/Detection:darknet_ros_msgs/BoundingBox:std_msgs/Header:perception_msgs/PointInImage"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "actor_person_following" "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" "actor_person_following/Lidar_Point:actor_person_following/Detection:darknet_ros_msgs/BoundingBox:std_msgs/Header:perception_msgs/PointInImage"
+)
+
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg" NAME_WE)
+add_custom_target(_actor_person_following_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "actor_person_following" "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg" "actor_person_following/Lidar_Point:std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" NAME_WE)
 add_custom_target(_actor_person_following_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "actor_person_following" "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" "darknet_ros_msgs/BoundingBox"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "actor_person_following" "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" "actor_person_following/Lidar_Point:darknet_ros_msgs/BoundingBox"
+)
+
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg" NAME_WE)
+add_custom_target(_actor_person_following_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "actor_person_following" "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg" ""
 )
 
 #
@@ -36,13 +46,25 @@ add_custom_target(_actor_person_following_generate_messages_check_deps_${_filena
 _generate_msg_cpp(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_cpp(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/actor_person_following
 )
 _generate_msg_cpp(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_cpp(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/actor_person_following
 )
 
@@ -62,7 +84,11 @@ add_dependencies(actor_person_following_generate_messages actor_person_following
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_cpp _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_cpp _actor_person_following_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_cpp _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_cpp _actor_person_following_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -77,13 +103,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS actor_person_following_generate_mes
 _generate_msg_eus(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_eus(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/actor_person_following
 )
 _generate_msg_eus(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_eus(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/actor_person_following
 )
 
@@ -103,7 +141,11 @@ add_dependencies(actor_person_following_generate_messages actor_person_following
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_eus _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_eus _actor_person_following_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_eus _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_eus _actor_person_following_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -118,13 +160,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS actor_person_following_generate_mes
 _generate_msg_lisp(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_lisp(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/actor_person_following
 )
 _generate_msg_lisp(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_lisp(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/actor_person_following
 )
 
@@ -144,7 +198,11 @@ add_dependencies(actor_person_following_generate_messages actor_person_following
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_lisp _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_lisp _actor_person_following_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_lisp _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_lisp _actor_person_following_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -159,13 +217,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS actor_person_following_generate_mes
 _generate_msg_nodejs(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_nodejs(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/actor_person_following
 )
 _generate_msg_nodejs(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_nodejs(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/actor_person_following
 )
 
@@ -185,7 +255,11 @@ add_dependencies(actor_person_following_generate_messages actor_person_following
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_nodejs _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_nodejs _actor_person_following_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_nodejs _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_nodejs _actor_person_following_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -200,13 +274,25 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS actor_person_following_generate_mes
 _generate_msg_py(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg/PointInImage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_py(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/actor_person_following
 )
 _generate_msg_py(actor_person_following
   "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
   "${MSG_I_FLAGS}"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg/BoundingBox.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/actor_person_following
+)
+_generate_msg_py(actor_person_following
+  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/actor_person_following
 )
 
@@ -226,7 +312,11 @@ add_dependencies(actor_person_following_generate_messages actor_person_following
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_py _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_py _actor_person_following_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg" NAME_WE)
+add_dependencies(actor_person_following_generate_messages_py _actor_person_following_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg" NAME_WE)
 add_dependencies(actor_person_following_generate_messages_py _actor_person_following_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

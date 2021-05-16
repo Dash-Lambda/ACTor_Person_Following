@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
+messages_str = "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg;/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
 services_str = ""
 pkg_name = "actor_person_following"
 dependencies_str = "std_msgs;darknet_ros_msgs;perception_msgs"

@@ -26,13 +26,13 @@ string twist_topic, brake_topic, gear_topic, enable_topic, disp_msg_topic, disp_
 double stop_thresh, speed, steerMult, 
 	timeout, looprate, proximity_cooldown, 
 	smoothing_timeout, dist_decay, steer_decay, 
-	stall_speed, stall_thresh, center_offset,
-	brake_force, enable_rate;
+	center_offset, brake_force, enable_rate,
+	target_distance, deadzone;
 bool enable_aruco, enable_color, enable_closest;
 string stopped_color, idle_color, follow_color, slow_color, stop_color, cooldown_color, error_color;
 
 //Running Variables
-double cur_wid, cur_pos;
+double cur_dist, cur_pos, closest_dist;
 int cur_r, cur_g, cur_b, clr_sel;
 ros::Time last_update, last_proximity_trigger;
 bool active, target_visible, aruco_visible;
@@ -73,9 +73,10 @@ void box_callback(const actor_person_following::Detections::ConstPtr& boxes_msg)
 			target_ind = boxes_msg->close_target;
 		}
 
-		cur_wid = (boxes_msg->detections[boxes_msg->closest].width + dist_decay*cur_wid)/(1 + dist_decay); // set current width
+		closest_dist = boxes_msg->detections[boxes_msg->closest].lidar_point.distance; // set current width
 		if(target_ind >= 0){ // if target exists, update state
 			actor_person_following::Detection box_msg = boxes_msg->detections[target_ind];
+			cur_dist = (box_msg.lidar_point.distance + dist_decay*cur_dist)/(1 + dist_decay);
 			cur_pos = (box_msg.center + steer_decay*cur_pos)/(1 + steer_decay);
 			cur_r = box_msg.r;
 			cur_g = box_msg.g;
@@ -83,13 +84,13 @@ void box_callback(const actor_person_following::Detections::ConstPtr& boxes_msg)
 			target_visible = true;
 			last_update = ros::Time::now();
 		}else if(ros::Time::now() - last_update > ros::Duration(smoothing_timeout)){ // if smoothing timed out, update state regardless of target
-			cur_wid = -1;
+			cur_dist = -1;
 			cur_pos = 0;
 			target_visible = false;
 			last_update = ros::Time::now();
 		}
 	}else if(ros::Time::now() - last_update > ros::Duration(smoothing_timeout)){ // if smoothing timed out, update state regardless of detections
-		cur_wid = -1;
+		cur_dist = -1;
 		cur_pos = 0;
 		target_visible = false;
 		last_update = ros::Time::now();
@@ -125,11 +126,11 @@ int main(int argc, char* argv[])
 	smoothing_timeout = 0;
 	dist_decay = 0;
 	steer_decay = 0;
-	stall_speed = 0;
-	stall_thresh = 0;
 	center_offset = 0;
 	brake_force = 0;
 	enable_rate = -1;
+	target_distance = 5;
+	deadzone = 0;
 	target_visible = false;
 	aruco_visible = false;
 
@@ -155,10 +156,10 @@ int main(int argc, char* argv[])
 	nh.getParam("/stop_for_person_node/smoothing_timeout", smoothing_timeout);
 	nh.getParam("/stop_for_person_node/distance_decay", dist_decay);
 	nh.getParam("/stop_for_person_node/steering_decay", steer_decay);
-	nh.getParam("/stop_for_person_node/stall_speed", stall_speed);
-	nh.getParam("/stop_for_person_node/stall_thresh", stall_thresh);
 	nh.getParam("/stop_for_person_node/center_offset", center_offset);
 	nh.getParam("/stop_for_person_node/enable_rate", enable_rate);
+	nh.getParam("/stop_for_person_node/target_distance", target_distance);
+	nh.getParam("/stop_for_person_node/deadzone", deadzone);
 
 	steer_decay = 1 - ((1 - steer_decay)/looprate);
 	dist_decay = 1 - ((1 - dist_decay)/looprate);
@@ -187,7 +188,8 @@ int main(int argc, char* argv[])
 	start_sub = nh.subscribe("/follower/start", 10, start_callback);
 	stop_sub = nh.subscribe("/follower/stop", 10, stop_callback);
 
-	cur_wid = -1;
+	cur_dist = -1;
+	closest_dist = -1;
 	cur_pos = 0;
 	last_update = ros::Time::now();
 	last_proximity_trigger = ros::Time::now();
@@ -205,6 +207,7 @@ int main(int argc, char* argv[])
 	send_enable();
 	send_gear(4);
 	ros::Time enable_tag = ros::Time::now();
+	string stopped_reason = "STOPPED";
 	while(ros::ok()){
 		//Set message template with steering direction
 		std_msgs::String str_msg, clr_msg;
@@ -234,42 +237,51 @@ int main(int argc, char* argv[])
 		}
 		if(!active){ //Idle State
 			send_twist(0, 0);
-			str_msg.data = "STOPPED";
+			str_msg.data = stopped_reason;
 			clr_msg.data = stopped_color;
-		}else if(cur_wid >= stop_thresh){ //Proximity Trigger
+		}else if(closest_dist <= stop_thresh || cur_dist <= stop_thresh){ //Proximity Trigger
 			send_twist(0, steer_dir);
 			send_brake(brake_force);
 			last_proximity_trigger = ros::Time::now();
 			str_msg.data = "STOP";
 			clr_msg.data = stop_color;
 		}else if(cur_time - last_proximity_trigger <= ros::Duration(proximity_cooldown)){ //Wait after prox trigger before restarting
-			send_twist(stall_speed, steer_dir);
+			send_twist(0, steer_dir);
 			int disp = proximity_cooldown - (int)(cur_time - last_proximity_trigger).toSec();
 			char disc = to_string(disp)[0];
 			str_msg.data[2] = disc;
 			clr_msg.data = cooldown_color;
 			str_msg.data = "STOP";
 			clr_msg.data = stop_color;
-		}else if(cur_wid >= stall_thresh){ //Slow/stall near person
-			send_twist(stall_speed, steer_dir);
-			str_msg.data = "SLOW";
-			clr_msg.data = slow_color;
 		}else if(cur_time - last_update >= ros::Duration(timeout)){ //Timeout if communication stopped
 			send_twist(0, 0);
 			active = false;
+			stopped_reason = "STOPPED: TIMEOUT";
 			str_msg.data = "TIMEOUT";
 			clr_msg.data = error_color;
-		}else if(cur_wid <= 0 || !target_visible){ //Active but no detections
-			send_twist(stall_speed, 0);
+		}else if(cur_dist <= 0 || !target_visible){ //Active but no detections
+			send_twist(0, 0);
 			str_msg.data = "--0--";
 			clr_msg.data = idle_color;
-		}else if(cur_wid > 0 && cur_wid < stop_thresh){ //Following detected person
+		}else if(cur_dist >= target_distance + deadzone && closest_dist > stop_thresh){ //Following detected person
 			send_twist(speed, steer_dir);
-			str_msg.data[2] = '^';
+			str_msg.data[2] = '+';
+			//str_msg.data = to_string(cur_dist - deadzone);
+			clr_msg.data = follow_color;
+		}else if(cur_dist <= target_distance - deadzone && closest_dist > stop_thresh){ //Retreating from detected person
+			send_twist(-speed, steer_dir);
+			str_msg.data[2] = '-';
+			//str_msg.data = to_string(cur_dist - deadzone);
+			clr_msg.data = follow_color;
+		}else if(cur_dist <= target_distance + deadzone && cur_dist >= target_distance - deadzone && closest_dist > stop_thresh){ //Idling on target
+			send_twist(0, steer_dir);
+			str_msg.data[2] = '.';
+			//str_msg.data = to_string(cur_dist - deadzone);
 			clr_msg.data = follow_color;
 		}else{ //Unexpected error
 			send_twist(0, 0);
 			active = false;
+			stopped_reason = "STOPPED: Unknown";
 			str_msg.data = "UNKN";
 			clr_msg.data = error_color;
 		}

@@ -16,6 +16,7 @@
 #include <ros/message_operations.h>
 
 #include <darknet_ros_msgs/BoundingBox.h>
+#include <actor_person_following/Lidar_Point.h>
 
 namespace actor_person_following
 {
@@ -36,7 +37,8 @@ struct Detection_
     , r(0.0)
     , g(0.0)
     , b(0.0)
-    , box()  {
+    , box()
+    , lidar_point()  {
     }
   Detection_(const ContainerAllocator& _alloc)
     : width(0.0)
@@ -50,7 +52,8 @@ struct Detection_
     , r(0.0)
     , g(0.0)
     , b(0.0)
-    , box(_alloc)  {
+    , box(_alloc)
+    , lidar_point(_alloc)  {
   (void)_alloc;
     }
 
@@ -91,6 +94,9 @@ struct Detection_
 
    typedef  ::darknet_ros_msgs::BoundingBox_<ContainerAllocator>  _box_type;
   _box_type box;
+
+   typedef  ::actor_person_following::Lidar_Point_<ContainerAllocator>  _lidar_point_type;
+  _lidar_point_type lidar_point;
 
 
 
@@ -170,12 +176,12 @@ struct MD5Sum< ::actor_person_following::Detection_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d6fc16488a4bcd596d1574f8093b6d85";
+    return "5e399b4ad5ae6de8338e645f4db8e5a4";
   }
 
   static const char* value(const ::actor_person_following::Detection_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd6fc16488a4bcd59ULL;
-  static const uint64_t static_value2 = 0x6d1574f8093b6d85ULL;
+  static const uint64_t static_value1 = 0x5e399b4ad5ae6de8ULL;
+  static const uint64_t static_value2 = 0x338e645f4db8e5a4ULL;
 };
 
 template<class ContainerAllocator>
@@ -211,6 +217,7 @@ float32 g\n\
 float32 b\n\
 \n\
 darknet_ros_msgs/BoundingBox box\n\
+actor_person_following/Lidar_Point lidar_point\n\
 \n\
 ================================================================================\n\
 MSG: darknet_ros_msgs/BoundingBox\n\
@@ -221,6 +228,19 @@ int64 xmax\n\
 int64 ymax\n\
 int16 id\n\
 string Class\n\
+\n\
+================================================================================\n\
+MSG: actor_person_following/Lidar_Point\n\
+float64 x\n\
+float64 y\n\
+float64 z\n\
+\n\
+float64 distance\n\
+float64 pitch\n\
+float64 yaw\n\
+\n\
+float64 frame_x\n\
+float64 frame_y\n\
 ";
   }
 
@@ -251,6 +271,7 @@ namespace serialization
       stream.next(m.g);
       stream.next(m.b);
       stream.next(m.box);
+      stream.next(m.lidar_point);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -294,6 +315,9 @@ struct Printer< ::actor_person_following::Detection_<ContainerAllocator> >
     s << indent << "box: ";
     s << std::endl;
     Printer< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> >::stream(s, indent + "  ", v.box);
+    s << indent << "lidar_point: ";
+    s << std::endl;
+    Printer< ::actor_person_following::Lidar_Point_<ContainerAllocator> >::stream(s, indent + "  ", v.lidar_point);
   }
 };
 

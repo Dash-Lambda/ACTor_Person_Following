@@ -3,6 +3,7 @@
 
 actor_person_following/CMakeFiles/detection_image_viewer_node.dir/src/detection_image_viewer_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detection.h
 actor_person_following/CMakeFiles/detection_image_viewer_node.dir/src/detection_image_viewer_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detections.h
+actor_person_following/CMakeFiles/detection_image_viewer_node.dir/src/detection_image_viewer_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Lidar_Point.h
 actor_person_following/CMakeFiles/detection_image_viewer_node.dir/src/detection_image_viewer_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/BoundingBox.h
 actor_person_following/CMakeFiles/detection_image_viewer_node.dir/src/detection_image_viewer_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/perception_msgs/PointInImage.h
 actor_person_following/CMakeFiles/detection_image_viewer_node.dir/src/detection_image_viewer_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/src/detection_image_viewer_node.cpp

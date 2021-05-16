@@ -23,4 +23,6 @@
           B
           BOX-VAL
           BOX
+          LIDAR_POINT-VAL
+          LIDAR_POINT
 ))

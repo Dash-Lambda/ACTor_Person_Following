@@ -16,7 +16,7 @@
 
 (defclass actor_person_following::Detection
   :super ros::object
-  :slots (_width _height _center _close_overlap _aruco_overlap _close_dist _aruco_dist _aruco_strength _r _g _b _box ))
+  :slots (_width _height _center _close_overlap _aruco_overlap _close_dist _aruco_dist _aruco_strength _r _g _b _box _lidar_point ))
 
 (defmethod actor_person_following::Detection
   (:init
@@ -33,6 +33,7 @@
     ((:g __g) 0.0)
     ((:b __b) 0.0)
     ((:box __box) (instance darknet_ros_msgs::BoundingBox :init))
+    ((:lidar_point __lidar_point) (instance actor_person_following::Lidar_Point :init))
     )
    (send-super :init)
    (setq _width (float __width))
@@ -47,6 +48,7 @@
    (setq _g (float __g))
    (setq _b (float __b))
    (setq _box __box)
+   (setq _lidar_point __lidar_point)
    self)
   (:width
    (&optional __width)
@@ -88,6 +90,13 @@
      (progn
        (if __box (setq _box (car __box)))
        _box)))
+  (:lidar_point
+   (&rest __lidar_point)
+   (if (keywordp (car __lidar_point))
+       (send* _lidar_point __lidar_point)
+     (progn
+       (if __lidar_point (setq _lidar_point (car __lidar_point)))
+       _lidar_point)))
   (:serialization-length
    ()
    (+
@@ -115,6 +124,8 @@
     4
     ;; darknet_ros_msgs/BoundingBox _box
     (send _box :serialization-length)
+    ;; actor_person_following/Lidar_Point _lidar_point
+    (send _lidar_point :serialization-length)
     ))
   (:serialize
    (&optional strm)
@@ -144,6 +155,8 @@
        (sys::poke _b (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; darknet_ros_msgs/BoundingBox _box
        (send _box :serialize s)
+     ;; actor_person_following/Lidar_Point _lidar_point
+       (send _lidar_point :serialize s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -172,11 +185,13 @@
      (setq _b (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; darknet_ros_msgs/BoundingBox _box
      (send _box :deserialize buf ptr-) (incf ptr- (send _box :serialization-length))
+   ;; actor_person_following/Lidar_Point _lidar_point
+     (send _lidar_point :deserialize buf ptr-) (incf ptr- (send _lidar_point :serialization-length))
    ;;
    self)
   )
 
-(setf (get actor_person_following::Detection :md5sum-) "d6fc16488a4bcd596d1574f8093b6d85")
+(setf (get actor_person_following::Detection :md5sum-) "5e399b4ad5ae6de8338e645f4db8e5a4")
 (setf (get actor_person_following::Detection :datatype-) "actor_person_following/Detection")
 (setf (get actor_person_following::Detection :definition-)
       "float64 width
@@ -196,6 +211,7 @@ float32 g
 float32 b
 
 darknet_ros_msgs/BoundingBox box
+actor_person_following/Lidar_Point lidar_point
 
 ================================================================================
 MSG: darknet_ros_msgs/BoundingBox
@@ -207,10 +223,23 @@ int64 ymax
 int16 id
 string Class
 
+================================================================================
+MSG: actor_person_following/Lidar_Point
+float64 x
+float64 y
+float64 z
+
+float64 distance
+float64 pitch
+float64 yaw
+
+float64 frame_x
+float64 frame_y
+
 ")
 
 
 
-(provide :actor_person_following/Detection "d6fc16488a4bcd596d1574f8093b6d85")
+(provide :actor_person_following/Detection "5e399b4ad5ae6de8338e645f4db8e5a4")
 
 

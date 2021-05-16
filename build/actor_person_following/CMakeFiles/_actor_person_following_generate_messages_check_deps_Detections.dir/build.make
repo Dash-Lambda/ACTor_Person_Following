@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mpleune/lfa_ws/ACTor_Person_Following/build
 include actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Detections.dir/progress.make
 
 actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Detections:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/actor_person_following && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py actor_person_following /home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg actor_person_following/Detection:darknet_ros_msgs/BoundingBox:std_msgs/Header:perception_msgs/PointInImage
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build/actor_person_following && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py actor_person_following /home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg actor_person_following/Lidar_Point:actor_person_following/Detection:darknet_ros_msgs/BoundingBox:std_msgs/Header:perception_msgs/PointInImage
 
 _actor_person_following_generate_messages_check_deps_Detections: actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Detections
 _actor_person_following_generate_messages_check_deps_Detections: actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Detections.dir/build.make

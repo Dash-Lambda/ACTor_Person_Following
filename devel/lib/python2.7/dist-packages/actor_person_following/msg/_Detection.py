@@ -6,10 +6,11 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import actor_person_following.msg
 import darknet_ros_msgs.msg
 
 class Detection(genpy.Message):
-  _md5sum = "d6fc16488a4bcd596d1574f8093b6d85"
+  _md5sum = "5e399b4ad5ae6de8338e645f4db8e5a4"
   _type = "actor_person_following/Detection"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """float64 width
@@ -29,6 +30,7 @@ float32 g
 float32 b
 
 darknet_ros_msgs/BoundingBox box
+actor_person_following/Lidar_Point lidar_point
 
 ================================================================================
 MSG: darknet_ros_msgs/BoundingBox
@@ -39,9 +41,22 @@ int64 xmax
 int64 ymax
 int16 id
 string Class
+
+================================================================================
+MSG: actor_person_following/Lidar_Point
+float64 x
+float64 y
+float64 z
+
+float64 distance
+float64 pitch
+float64 yaw
+
+float64 frame_x
+float64 frame_y
 """
-  __slots__ = ['width','height','center','close_overlap','aruco_overlap','close_dist','aruco_dist','aruco_strength','r','g','b','box']
-  _slot_types = ['float64','float64','float64','float64','float64','float64','float64','float64','float32','float32','float32','darknet_ros_msgs/BoundingBox']
+  __slots__ = ['width','height','center','close_overlap','aruco_overlap','close_dist','aruco_dist','aruco_strength','r','g','b','box','lidar_point']
+  _slot_types = ['float64','float64','float64','float64','float64','float64','float64','float64','float32','float32','float32','darknet_ros_msgs/BoundingBox','actor_person_following/Lidar_Point']
 
   def __init__(self, *args, **kwds):
     """
@@ -51,7 +66,7 @@ string Class
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       width,height,center,close_overlap,aruco_overlap,close_dist,aruco_dist,aruco_strength,r,g,b,box
+       width,height,center,close_overlap,aruco_overlap,close_dist,aruco_dist,aruco_strength,r,g,b,box,lidar_point
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -84,6 +99,8 @@ string Class
         self.b = 0.
       if self.box is None:
         self.box = darknet_ros_msgs.msg.BoundingBox()
+      if self.lidar_point is None:
+        self.lidar_point = actor_person_following.msg.Lidar_Point()
     else:
       self.width = 0.
       self.height = 0.
@@ -97,6 +114,7 @@ string Class
       self.g = 0.
       self.b = 0.
       self.box = darknet_ros_msgs.msg.BoundingBox()
+      self.lidar_point = actor_person_following.msg.Lidar_Point()
 
   def _get_types(self):
     """
@@ -118,6 +136,8 @@ string Class
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_8d().pack(_x.lidar_point.x, _x.lidar_point.y, _x.lidar_point.z, _x.lidar_point.distance, _x.lidar_point.pitch, _x.lidar_point.yaw, _x.lidar_point.frame_x, _x.lidar_point.frame_y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -130,6 +150,8 @@ string Class
     try:
       if self.box is None:
         self.box = darknet_ros_msgs.msg.BoundingBox()
+      if self.lidar_point is None:
+        self.lidar_point = actor_person_following.msg.Lidar_Point()
       end = 0
       _x = self
       start = end
@@ -144,6 +166,10 @@ string Class
         self.box.Class = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.box.Class = str[start:end]
+      _x = self
+      start = end
+      end += 64
+      (_x.lidar_point.x, _x.lidar_point.y, _x.lidar_point.z, _x.lidar_point.distance, _x.lidar_point.pitch, _x.lidar_point.yaw, _x.lidar_point.frame_x, _x.lidar_point.frame_y,) = _get_struct_8d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -164,6 +190,8 @@ string Class
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_8d().pack(_x.lidar_point.x, _x.lidar_point.y, _x.lidar_point.z, _x.lidar_point.distance, _x.lidar_point.pitch, _x.lidar_point.yaw, _x.lidar_point.frame_x, _x.lidar_point.frame_y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -177,6 +205,8 @@ string Class
     try:
       if self.box is None:
         self.box = darknet_ros_msgs.msg.BoundingBox()
+      if self.lidar_point is None:
+        self.lidar_point = actor_person_following.msg.Lidar_Point()
       end = 0
       _x = self
       start = end
@@ -191,6 +221,10 @@ string Class
         self.box.Class = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.box.Class = str[start:end]
+      _x = self
+      start = end
+      end += 64
+      (_x.lidar_point.x, _x.lidar_point.y, _x.lidar_point.z, _x.lidar_point.distance, _x.lidar_point.pitch, _x.lidar_point.yaw, _x.lidar_point.frame_x, _x.lidar_point.frame_y,) = _get_struct_8d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -199,6 +233,12 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_8d = None
+def _get_struct_8d():
+    global _struct_8d
+    if _struct_8d is None:
+        _struct_8d = struct.Struct("<8d")
+    return _struct_8d
 _struct_8d3fd4qh = None
 def _get_struct_8d3fd4qh():
     global _struct_8d3fd4qh

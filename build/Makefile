@@ -3312,32 +3312,6 @@ aruco_eye_ros_detector/fast:
 .PHONY : aruco_eye_ros_detector/fast
 
 #=============================================================================
-# Target rules for targets named actor_person_following_genlisp
-
-# Build rule for target.
-actor_person_following_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_genlisp
-.PHONY : actor_person_following_genlisp
-
-# fast build rule for target.
-actor_person_following_genlisp/fast:
-	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build
-.PHONY : actor_person_following_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named lidar_node
-
-# Build rule for target.
-lidar_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lidar_node
-.PHONY : lidar_node
-
-# fast build rule for target.
-lidar_node/fast:
-	$(MAKE) -f actor_person_following/CMakeFiles/lidar_node.dir/build.make actor_person_following/CMakeFiles/lidar_node.dir/build
-.PHONY : lidar_node/fast
-
-#=============================================================================
 # Target rules for targets named actor_person_following_generate_messages_lisp
 
 # Build rule for target.
@@ -3349,45 +3323,6 @@ actor_person_following_generate_messages_lisp: cmake_check_build_system
 actor_person_following_generate_messages_lisp/fast:
 	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_lisp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_lisp.dir/build
 .PHONY : actor_person_following_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named actor_person_following_generate_messages_nodejs
-
-# Build rule for target.
-actor_person_following_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages_nodejs
-.PHONY : actor_person_following_generate_messages_nodejs
-
-# fast build rule for target.
-actor_person_following_generate_messages_nodejs/fast:
-	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build
-.PHONY : actor_person_following_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named actor_person_following_generate_messages
-
-# Build rule for target.
-actor_person_following_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages
-.PHONY : actor_person_following_generate_messages
-
-# fast build rule for target.
-actor_person_following_generate_messages/fast:
-	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build
-.PHONY : actor_person_following_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named actor_person_following_generate_messages_eus
-
-# Build rule for target.
-actor_person_following_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages_eus
-.PHONY : actor_person_following_generate_messages_eus
-
-# fast build rule for target.
-actor_person_following_generate_messages_eus/fast:
-	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build
-.PHONY : actor_person_following_generate_messages_eus/fast
 
 #=============================================================================
 # Target rules for targets named actor_person_following_gencpp
@@ -3414,6 +3349,45 @@ actor_person_following_genpy: cmake_check_build_system
 actor_person_following_genpy/fast:
 	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_genpy.dir/build.make actor_person_following/CMakeFiles/actor_person_following_genpy.dir/build
 .PHONY : actor_person_following_genpy/fast
+
+#=============================================================================
+# Target rules for targets named actor_person_following_generate_messages_cpp
+
+# Build rule for target.
+actor_person_following_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages_cpp
+.PHONY : actor_person_following_generate_messages_cpp
+
+# fast build rule for target.
+actor_person_following_generate_messages_cpp/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build
+.PHONY : actor_person_following_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named actor_person_following_generate_messages
+
+# Build rule for target.
+actor_person_following_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages
+.PHONY : actor_person_following_generate_messages
+
+# fast build rule for target.
+actor_person_following_generate_messages/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build
+.PHONY : actor_person_following_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named actor_person_following_generate_messages_nodejs
+
+# Build rule for target.
+actor_person_following_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages_nodejs
+.PHONY : actor_person_following_generate_messages_nodejs
+
+# fast build rule for target.
+actor_person_following_generate_messages_nodejs/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build
+.PHONY : actor_person_following_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named actor_person_following_geneus
@@ -3455,6 +3429,45 @@ _actor_person_following_generate_messages_check_deps_Detections/fast:
 .PHONY : _actor_person_following_generate_messages_check_deps_Detections/fast
 
 #=============================================================================
+# Target rules for targets named actor_person_following_generate_messages_eus
+
+# Build rule for target.
+actor_person_following_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages_eus
+.PHONY : actor_person_following_generate_messages_eus
+
+# fast build rule for target.
+actor_person_following_generate_messages_eus/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build
+.PHONY : actor_person_following_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named _actor_person_following_generate_messages_check_deps_Lidar_Points
+
+# Build rule for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Points: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _actor_person_following_generate_messages_check_deps_Lidar_Points
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Points
+
+# fast build rule for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Points/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/build.make actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/build
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Points/fast
+
+#=============================================================================
+# Target rules for targets named _actor_person_following_generate_messages_check_deps_Lidar_Point
+
+# Build rule for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Point: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _actor_person_following_generate_messages_check_deps_Lidar_Point
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Point
+
+# fast build rule for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Point/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/build.make actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/build
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Point/fast
+
+#=============================================================================
 # Target rules for targets named _actor_person_following_generate_messages_check_deps_Detection
 
 # Build rule for target.
@@ -3481,17 +3494,30 @@ detection_image_viewer_node/fast:
 .PHONY : detection_image_viewer_node/fast
 
 #=============================================================================
-# Target rules for targets named actor_person_following_generate_messages_cpp
+# Target rules for targets named actor_person_following_genlisp
 
 # Build rule for target.
-actor_person_following_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_generate_messages_cpp
-.PHONY : actor_person_following_generate_messages_cpp
+actor_person_following_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actor_person_following_genlisp
+.PHONY : actor_person_following_genlisp
 
 # fast build rule for target.
-actor_person_following_generate_messages_cpp/fast:
-	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build
-.PHONY : actor_person_following_generate_messages_cpp/fast
+actor_person_following_genlisp/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build
+.PHONY : actor_person_following_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named lidar_node
+
+# Build rule for target.
+lidar_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lidar_node
+.PHONY : lidar_node
+
+# fast build rule for target.
+lidar_node/fast:
+	$(MAKE) -f actor_person_following/CMakeFiles/lidar_node.dir/build.make actor_person_following/CMakeFiles/lidar_node.dir/build
+.PHONY : lidar_node/fast
 
 #=============================================================================
 # Target rules for targets named actor_person_following_gennodejs
@@ -3878,20 +3904,22 @@ help:
 	@echo "... aruco_eye_ros"
 	@echo "... aruco_eye_ros_display"
 	@echo "... aruco_eye_ros_detector"
-	@echo "... actor_person_following_genlisp"
-	@echo "... lidar_node"
 	@echo "... actor_person_following_generate_messages_lisp"
-	@echo "... actor_person_following_generate_messages_nodejs"
-	@echo "... actor_person_following_generate_messages"
-	@echo "... actor_person_following_generate_messages_eus"
 	@echo "... actor_person_following_gencpp"
 	@echo "... actor_person_following_genpy"
+	@echo "... actor_person_following_generate_messages_cpp"
+	@echo "... actor_person_following_generate_messages"
+	@echo "... actor_person_following_generate_messages_nodejs"
 	@echo "... actor_person_following_geneus"
 	@echo "... actor_person_following_generate_messages_py"
 	@echo "... _actor_person_following_generate_messages_check_deps_Detections"
+	@echo "... actor_person_following_generate_messages_eus"
+	@echo "... _actor_person_following_generate_messages_check_deps_Lidar_Points"
+	@echo "... _actor_person_following_generate_messages_check_deps_Lidar_Point"
 	@echo "... _actor_person_following_generate_messages_check_deps_Detection"
 	@echo "... detection_image_viewer_node"
-	@echo "... actor_person_following_generate_messages_cpp"
+	@echo "... actor_person_following_genlisp"
+	@echo "... lidar_node"
 	@echo "... actor_person_following_gennodejs"
 	@echo "... detection_reporter_node"
 	@echo "... stop_for_person_node"

@@ -36,6 +36,8 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following/msg" TYPE FILE FILES
     "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
     "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
+    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
     )
 endif()
 

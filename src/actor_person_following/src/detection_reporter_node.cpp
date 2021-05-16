@@ -1,5 +1,8 @@
 #include <ros/ros.h>
 #include <std_msgs/Float64.h>
+//#include <sensor_msgs/PointCloud2.h>
+#include <actor_person_following/Lidar_Point.h>
+#include <actor_person_following/Lidar_Points.h>
 #include <std_msgs/Header.h>
 #include <sensor_msgs/Image.h>
 #include <perception_msgs/MarkerList.h>
@@ -19,11 +22,13 @@
 #include <opencv2/highgui/highgui.hpp>
 
 #include <image_transport/image_transport.h>
+#include <math.h>
 
 using namespace std;
+const double PI = 3.14159265359;
 
 ros::Publisher dist_pub;
-ros::Subscriber box_sub, img_sub, aruco_sub;
+ros::Subscriber box_sub, img_sub, aruco_sub, lidar_sub;
 image_transport::Publisher img_test_pub;
 
 //Config Parameters
@@ -47,6 +52,35 @@ std::vector<actor_person_following::Detection> cur_detects;
 std::vector<perception_msgs::PointInImage> aruco_points;
 darknet_ros_msgs::BoundingBox cur_target_box, cur_aruco_box;
 std_msgs::Header cur_image_header;
+
+//Lidar;
+vector<actor_person_following::Lidar_Point> lidar_points;
+
+bool pointsort(actor_person_following::Lidar_Point a, actor_person_following::Lidar_Point b){ return a.distance < b.distance; }
+
+void lidar_callback(const actor_person_following::Lidar_Points::ConstPtr& lidar_msg){
+	lidar_points = lidar_msg->points;
+}
+
+actor_person_following::Lidar_Point get_distance(double x0, double x1, double y0, double y1){
+	vector<actor_person_following::Lidar_Point> points;
+	for(actor_person_following::Lidar_Point point : lidar_points){
+		double x = point.frame_x;
+		double y = point.frame_y;
+		if(x0 <= x && x <= x1 && y0 <= y && y <= y1){
+			points.push_back(point);
+		}
+	}
+	int size = points.size();
+	if (size == 0){
+		actor_person_following::Lidar_Point nah;
+		nah.distance = -1;
+		return nah; // Undefined, really.
+	}else{
+		sort(points.begin(), points.end(), pointsort);
+		return points[size / 2];
+	}
+}
 
 cv::Vec3b get_color(int xc, int yc, int wid){
 	double clr[3] = {0, 0, 0};
@@ -96,6 +130,7 @@ double box_distance(darknet_ros_msgs::BoundingBox base, darknet_ros_msgs::Boundi
 }
 
 actor_person_following::Detection make_detection(darknet_ros_msgs::BoundingBox box){
+	double x0 = (double)box.xmin/cur_xres, x1 = (double)box.xmax/cur_xres, y0 = (double)box.ymin/cur_yres, y1 = (double)box.ymax/cur_yres;
 	actor_person_following::Detection tmp_msg;
 	tmp_msg.box = box;
 	tmp_msg.width = (double)(box.xmax - box.xmin)/cur_xres;
@@ -113,6 +148,8 @@ actor_person_following::Detection make_detection(darknet_ros_msgs::BoundingBox b
 	tmp_msg.r = pix[0];
 	tmp_msg.g = pix[1];
 	tmp_msg.b = pix[2];
+
+	tmp_msg.lidar_point = get_distance(x0, x1, y0, y1);
 	return tmp_msg;
 }
 
@@ -121,7 +158,7 @@ double expansion_func(ros::Duration dur){
 }
 
 void box_callback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& box_msg){
-	double tmp_wid = -1, tmp_ardist = -1, tmp_aruco_metric = -1, tmp_wid_color = -1, tmp_close_metric = -1;
+	double tmp_dist = -1, tmp_ardist = -1, tmp_aruco_metric = -1, tmp_wid_color = -1, tmp_close_metric = -1;
 	int tmp_max_ind = -1, tmp_color_ind = -1, count = 0, tmp_aruco_ind = -1, tmp_close_ind = -1, tmp_ardist_ind = -1;
 
 	std::vector<actor_person_following::Detection> tmp_detects;
@@ -160,8 +197,8 @@ void box_callback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& box_msg){
 				tmp_ardist_ind = count;
 				tmp_ardist = tmp_msg.aruco_strength;
 			}
-			if(tmp_msg.width > tmp_wid || tmp_max_ind < 0){
-				tmp_wid = tmp_msg.width;
+			if(tmp_msg.lidar_point.distance > tmp_dist || tmp_max_ind < 0){
+				tmp_dist = tmp_msg.lidar_point.distance;
 				tmp_max_ind = count;
 			}
 			if((pow(color_target_rgb[0] - tmp_msg.r, 2) + pow(color_target_rgb[0] - tmp_msg.r, 2) + pow(color_target_rgb[0] - tmp_msg.r, 2)) < color_target_tol && tmp_msg.width > tmp_wid_color){
@@ -369,6 +406,8 @@ int main(int argc, char* argv[])
 
 	image_transport::ImageTransport it(nh);
 	img_test_pub = it.advertise("/follower/target_image", 1);
+
+	lidar_sub = nh.subscribe("/follower/lidar_points", 10, lidar_callback);
 
 	ros::Rate r(30);
 	while(ros::ok()){

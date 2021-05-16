@@ -183,12 +183,12 @@ struct MD5Sum< ::actor_person_following::Detections_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "60fd021630dd3b6e37263ed4dd63f0e0";
+    return "19fe65d07f7d0b5259da8a0b7e475e88";
   }
 
   static const char* value(const ::actor_person_following::Detections_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x60fd021630dd3b6eULL;
-  static const uint64_t static_value2 = 0x37263ed4dd63f0e0ULL;
+  static const uint64_t static_value1 = 0x19fe65d07f7d0b52ULL;
+  static const uint64_t static_value2 = 0x59da8a0b7e475e88ULL;
 };
 
 template<class ContainerAllocator>
@@ -262,6 +262,7 @@ float32 g\n\
 float32 b\n\
 \n\
 darknet_ros_msgs/BoundingBox box\n\
+actor_person_following/Lidar_Point lidar_point\n\
 \n\
 ================================================================================\n\
 MSG: darknet_ros_msgs/BoundingBox\n\
@@ -272,6 +273,19 @@ int64 xmax\n\
 int64 ymax\n\
 int16 id\n\
 string Class\n\
+\n\
+================================================================================\n\
+MSG: actor_person_following/Lidar_Point\n\
+float64 x\n\
+float64 y\n\
+float64 z\n\
+\n\
+float64 distance\n\
+float64 pitch\n\
+float64 yaw\n\
+\n\
+float64 frame_x\n\
+float64 frame_y\n\
 \n\
 ================================================================================\n\
 MSG: perception_msgs/PointInImage\n\

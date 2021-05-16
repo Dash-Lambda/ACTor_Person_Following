@@ -11,4 +11,8 @@
     (:file "_package_Detection" :depends-on ("_package"))
     (:file "Detections" :depends-on ("_package_Detections"))
     (:file "_package_Detections" :depends-on ("_package"))
+    (:file "Lidar_Point" :depends-on ("_package_Lidar_Point"))
+    (:file "_package_Lidar_Point" :depends-on ("_package"))
+    (:file "Lidar_Points" :depends-on ("_package_Lidar_Points"))
+    (:file "_package_Lidar_Points" :depends-on ("_package"))
   ))

@@ -21,6 +21,8 @@ add_message_files(
   FILES
   Detection.msg
   Detections.msg
+  Lidar_Point.msg
+  Lidar_Points.msg
 )
 
 generate_messages(

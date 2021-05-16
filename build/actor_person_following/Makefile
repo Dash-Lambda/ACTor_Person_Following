@@ -79,16 +79,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : install/local/fast
+.PHONY : edit_cache/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -111,6 +111,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -121,17 +132,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,36 +166,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule
-.PHONY : actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule
-
-# Convenience name for target.
-actor_person_following_genlisp: actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule
-
-.PHONY : actor_person_following_genlisp
-
-# fast build rule for target.
-actor_person_following_genlisp/fast:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build
-.PHONY : actor_person_following_genlisp/fast
-
-# Convenience name for target.
-actor_person_following/CMakeFiles/lidar_node.dir/rule:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/lidar_node.dir/rule
-.PHONY : actor_person_following/CMakeFiles/lidar_node.dir/rule
-
-# Convenience name for target.
-lidar_node: actor_person_following/CMakeFiles/lidar_node.dir/rule
-
-.PHONY : lidar_node
-
-# fast build rule for target.
-lidar_node/fast:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/lidar_node.dir/build.make actor_person_following/CMakeFiles/lidar_node.dir/build
-.PHONY : lidar_node/fast
-
-# Convenience name for target.
 actor_person_following/CMakeFiles/actor_person_following_generate_messages_lisp.dir/rule:
 	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages_lisp.dir/rule
 .PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages_lisp.dir/rule
@@ -209,51 +179,6 @@ actor_person_following_generate_messages_lisp: actor_person_following/CMakeFiles
 actor_person_following_generate_messages_lisp/fast:
 	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_lisp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_lisp.dir/build
 .PHONY : actor_person_following_generate_messages_lisp/fast
-
-# Convenience name for target.
-actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule
-.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actor_person_following_generate_messages_nodejs: actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule
-
-.PHONY : actor_person_following_generate_messages_nodejs
-
-# fast build rule for target.
-actor_person_following_generate_messages_nodejs/fast:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build
-.PHONY : actor_person_following_generate_messages_nodejs/fast
-
-# Convenience name for target.
-actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule
-.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule
-
-# Convenience name for target.
-actor_person_following_generate_messages: actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule
-
-.PHONY : actor_person_following_generate_messages
-
-# fast build rule for target.
-actor_person_following_generate_messages/fast:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build
-.PHONY : actor_person_following_generate_messages/fast
-
-# Convenience name for target.
-actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule
-.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actor_person_following_generate_messages_eus: actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule
-
-.PHONY : actor_person_following_generate_messages_eus
-
-# fast build rule for target.
-actor_person_following_generate_messages_eus/fast:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build
-.PHONY : actor_person_following_generate_messages_eus/fast
 
 # Convenience name for target.
 actor_person_following/CMakeFiles/actor_person_following_gencpp.dir/rule:
@@ -284,6 +209,51 @@ actor_person_following_genpy: actor_person_following/CMakeFiles/actor_person_fol
 actor_person_following_genpy/fast:
 	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_genpy.dir/build.make actor_person_following/CMakeFiles/actor_person_following_genpy.dir/build
 .PHONY : actor_person_following_genpy/fast
+
+# Convenience name for target.
+actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule
+.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+actor_person_following_generate_messages_cpp: actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule
+
+.PHONY : actor_person_following_generate_messages_cpp
+
+# fast build rule for target.
+actor_person_following_generate_messages_cpp/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build
+.PHONY : actor_person_following_generate_messages_cpp/fast
+
+# Convenience name for target.
+actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule
+.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule
+
+# Convenience name for target.
+actor_person_following_generate_messages: actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/rule
+
+.PHONY : actor_person_following_generate_messages
+
+# fast build rule for target.
+actor_person_following_generate_messages/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages.dir/build
+.PHONY : actor_person_following_generate_messages/fast
+
+# Convenience name for target.
+actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule
+.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+actor_person_following_generate_messages_nodejs: actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/rule
+
+.PHONY : actor_person_following_generate_messages_nodejs
+
+# fast build rule for target.
+actor_person_following_generate_messages_nodejs/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_nodejs.dir/build
+.PHONY : actor_person_following_generate_messages_nodejs/fast
 
 # Convenience name for target.
 actor_person_following/CMakeFiles/actor_person_following_geneus.dir/rule:
@@ -331,6 +301,51 @@ _actor_person_following_generate_messages_check_deps_Detections/fast:
 .PHONY : _actor_person_following_generate_messages_check_deps_Detections/fast
 
 # Convenience name for target.
+actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule
+.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+actor_person_following_generate_messages_eus: actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/rule
+
+.PHONY : actor_person_following_generate_messages_eus
+
+# fast build rule for target.
+actor_person_following_generate_messages_eus/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_eus.dir/build
+.PHONY : actor_person_following_generate_messages_eus/fast
+
+# Convenience name for target.
+actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/rule
+.PHONY : actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/rule
+
+# Convenience name for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Points: actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/rule
+
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Points
+
+# fast build rule for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Points/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/build.make actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Points.dir/build
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Points/fast
+
+# Convenience name for target.
+actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/rule
+.PHONY : actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/rule
+
+# Convenience name for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Point: actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/rule
+
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Point
+
+# fast build rule for target.
+_actor_person_following_generate_messages_check_deps_Lidar_Point/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/build.make actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Lidar_Point.dir/build
+.PHONY : _actor_person_following_generate_messages_check_deps_Lidar_Point/fast
+
+# Convenience name for target.
 actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Detection.dir/rule:
 	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Detection.dir/rule
 .PHONY : actor_person_following/CMakeFiles/_actor_person_following_generate_messages_check_deps_Detection.dir/rule
@@ -361,19 +376,34 @@ detection_image_viewer_node/fast:
 .PHONY : detection_image_viewer_node/fast
 
 # Convenience name for target.
-actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule
-.PHONY : actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule
+actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule
+.PHONY : actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule
 
 # Convenience name for target.
-actor_person_following_generate_messages_cpp: actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/rule
+actor_person_following_genlisp: actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/rule
 
-.PHONY : actor_person_following_generate_messages_cpp
+.PHONY : actor_person_following_genlisp
 
 # fast build rule for target.
-actor_person_following_generate_messages_cpp/fast:
-	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_generate_messages_cpp.dir/build
-.PHONY : actor_person_following_generate_messages_cpp/fast
+actor_person_following_genlisp/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build.make actor_person_following/CMakeFiles/actor_person_following_genlisp.dir/build
+.PHONY : actor_person_following_genlisp/fast
+
+# Convenience name for target.
+actor_person_following/CMakeFiles/lidar_node.dir/rule:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f CMakeFiles/Makefile2 actor_person_following/CMakeFiles/lidar_node.dir/rule
+.PHONY : actor_person_following/CMakeFiles/lidar_node.dir/rule
+
+# Convenience name for target.
+lidar_node: actor_person_following/CMakeFiles/lidar_node.dir/rule
+
+.PHONY : lidar_node
+
+# fast build rule for target.
+lidar_node/fast:
+	cd /home/mpleune/lfa_ws/ACTor_Person_Following/build && $(MAKE) -f actor_person_following/CMakeFiles/lidar_node.dir/build.make actor_person_following/CMakeFiles/lidar_node.dir/build
+.PHONY : lidar_node/fast
 
 # Convenience name for target.
 actor_person_following/CMakeFiles/actor_person_following_gennodejs.dir/rule:
@@ -535,29 +565,31 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install"
-	@echo "... actor_person_following_genlisp"
-	@echo "... lidar_node"
-	@echo "... actor_person_following_generate_messages_lisp"
-	@echo "... actor_person_following_generate_messages_nodejs"
-	@echo "... actor_person_following_generate_messages"
 	@echo "... rebuild_cache"
-	@echo "... actor_person_following_generate_messages_eus"
-	@echo "... install/local"
+	@echo "... edit_cache"
+	@echo "... actor_person_following_generate_messages_lisp"
 	@echo "... actor_person_following_gencpp"
 	@echo "... actor_person_following_genpy"
 	@echo "... install/strip"
+	@echo "... actor_person_following_generate_messages_cpp"
+	@echo "... actor_person_following_generate_messages"
+	@echo "... actor_person_following_generate_messages_nodejs"
 	@echo "... list_install_components"
 	@echo "... actor_person_following_geneus"
 	@echo "... actor_person_following_generate_messages_py"
 	@echo "... _actor_person_following_generate_messages_check_deps_Detections"
+	@echo "... actor_person_following_generate_messages_eus"
+	@echo "... install/local"
+	@echo "... _actor_person_following_generate_messages_check_deps_Lidar_Points"
+	@echo "... _actor_person_following_generate_messages_check_deps_Lidar_Point"
 	@echo "... _actor_person_following_generate_messages_check_deps_Detection"
 	@echo "... detection_image_viewer_node"
-	@echo "... actor_person_following_generate_messages_cpp"
+	@echo "... actor_person_following_genlisp"
+	@echo "... lidar_node"
 	@echo "... actor_person_following_gennodejs"
 	@echo "... test"
 	@echo "... detection_reporter_node"
 	@echo "... stop_for_person_node"
-	@echo "... edit_cache"
 	@echo "... src/detection_image_viewer_node.o"
 	@echo "... src/detection_image_viewer_node.i"
 	@echo "... src/detection_image_viewer_node.s"

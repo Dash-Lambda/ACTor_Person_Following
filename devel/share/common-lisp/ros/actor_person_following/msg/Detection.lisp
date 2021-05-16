@@ -66,7 +66,12 @@
     :reader box
     :initarg :box
     :type darknet_ros_msgs-msg:BoundingBox
-    :initform (cl:make-instance 'darknet_ros_msgs-msg:BoundingBox)))
+    :initform (cl:make-instance 'darknet_ros_msgs-msg:BoundingBox))
+   (lidar_point
+    :reader lidar_point
+    :initarg :lidar_point
+    :type actor_person_following-msg:Lidar_Point
+    :initform (cl:make-instance 'actor_person_following-msg:Lidar_Point)))
 )
 
 (cl:defclass Detection (<Detection>)
@@ -136,6 +141,11 @@
 (cl:defmethod box-val ((m <Detection>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:box-val is deprecated.  Use actor_person_following-msg:box instead.")
   (box m))
+
+(cl:ensure-generic-function 'lidar_point-val :lambda-list '(m))
+(cl:defmethod lidar_point-val ((m <Detection>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:lidar_point-val is deprecated.  Use actor_person_following-msg:lidar_point instead.")
+  (lidar_point m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <Detection>) ostream)
   "Serializes a message object of type '<Detection>"
   (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'width))))
@@ -226,6 +236,7 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'box) ostream)
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'lidar_point) ostream)
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <Detection>) istream)
   "Deserializes a message object of type '<Detection>"
@@ -328,6 +339,7 @@
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'b) (roslisp-utils:decode-single-float-bits bits)))
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'box) istream)
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'lidar_point) istream)
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Detection>)))
@@ -338,16 +350,16 @@
   "actor_person_following/Detection")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Detection>)))
   "Returns md5sum for a message object of type '<Detection>"
-  "d6fc16488a4bcd596d1574f8093b6d85")
+  "5e399b4ad5ae6de8338e645f4db8e5a4")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Detection)))
   "Returns md5sum for a message object of type 'Detection"
-  "d6fc16488a4bcd596d1574f8093b6d85")
+  "5e399b4ad5ae6de8338e645f4db8e5a4")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Detection>)))
   "Returns full string definition for message of type '<Detection>"
-  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%~%"))
+  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Detection)))
   "Returns full string definition for message of type 'Detection"
-  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%~%"))
+  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Detection>))
   (cl:+ 0
      8
@@ -362,6 +374,7 @@
      4
      4
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'box))
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'lidar_point))
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <Detection>))
   "Converts a ROS message object to a list"
@@ -378,4 +391,5 @@
     (cl:cons ':g (g msg))
     (cl:cons ':b (b msg))
     (cl:cons ':box (box msg))
+    (cl:cons ':lidar_point (lidar_point msg))
 ))

@@ -1,6 +1,8 @@
 #include <ros/ros.h>
 #include <std_msgs/Float64.h>
 #include <sensor_msgs/PointCloud2.h>
+#include <actor_person_following/Lidar_Point.h>
+#include <actor_person_following/Lidar_Points.h>
 #include <sensor_msgs/Image.h>
 #include <string>
 #include <vector>
@@ -20,74 +22,205 @@
 
 using namespace std;
 
-ros::Subscriber lidar_sub;
+const double PI = 3.14159265359;
+
+ros::Subscriber lidar_sub, image_sub;
+ros::Publisher point_pub;
 image_transport::Publisher image_pub;
-float xmax, ymax, zmax;
+
+double center_yaw, hfov, frame_z0, 
+	frame_z1, min_radius, max_radius, 
+	min_height, max_height, center_pitch, 
+	vfov, x_roll, y_roll, 
+	zero_height, camera_x, camera_y,
+	camera_z;
+int image_rows, image_cols;
+float xmax, xmin, ymax, ymin, zmax, zmin, rmax;
+cv::Mat src_image;
+bool got_image;
+
+struct lidar_point{
+	double x, y, z;
+	double pitch, yaw;
+	double distance;
+	double fx, fy;
+};
+vector<lidar_point> lidar_points;
+
+lidar_point rotate(lidar_point p0, double xa, double ya){
+	lidar_point p1, p2;
+	p1.x = p0.x;
+	p1.y = cos(xa)*p0.y - sin(xa)*p0.z;
+	p1.z = sin(xa)*p0.y + cos(xa)*p0.z;
+
+	p2.x = cos(ya)*p1.x + sin(ya)*p1.z;
+	p2.y = p1.y;
+	p2.z = -sin(ya)*p1.x + cos(ya)*p1.z;
+
+	p2.distance = p0.distance;
+	p2.pitch = p0.pitch;
+	p2.yaw = p0.yaw;
+
+	return p2;
+}
+
+lidar_point translate(lidar_point p0, double dx, double dy, double dz){
+	lidar_point tmp;
+	tmp.x = p0.x + dx;
+	tmp.y = p0.y + dy;
+	tmp.z = p0.z + dz;
+
+	tmp.distance = p0.distance;
+	tmp.pitch = p0.pitch;
+	tmp.yaw = p0.yaw;
+
+	return tmp;
+}
+
+lidar_point compute_all(lidar_point p0, double cx, double cy, double cz){
+	lidar_point tmp;
+	tmp.x = p0.x;
+	tmp.y = p0.y;
+	tmp.z = p0.z;
+
+	tmp.distance = sqrt(pow(p0.x - cx, 2) + pow(p0.y - cy, 2) + pow(p0.z - cz, 2));
+	tmp.pitch = atan((tmp.z - cz)/sqrt(pow(tmp.x - cx, 2) + pow(tmp.y - cy, 2)));
+	tmp.yaw = atan((tmp.y - cy)/(tmp.x - cx));
+	if(tmp.x <= cx){ tmp.yaw = tmp.yaw + PI; }
+	else if(tmp.y <= cy){ tmp.yaw = tmp.yaw + 2*PI; }
+
+	tmp.fx = 1 - fmod(tmp.yaw - center_yaw - hfov/2 + 2*PI, 2*PI)/hfov;
+	tmp.fy = 1 - (tmp.pitch - center_pitch + vfov/2)/vfov;
+
+	rmax = max(rmax, (float)abs(tmp.distance));
+
+	return tmp;
+}
+
+bool heightsort(lidar_point a, lidar_point b){ return a.z < b.z; }
+bool distsort(lidar_point a, lidar_point b){ return a.distance > b.distance; }
+lidar_point median(vector<lidar_point> points){
+	int size = points.size();
+	if (size == 0){
+		lidar_point nah;
+		nah.distance = -1;
+		return nah;  // Undefined, really.
+	}else{
+		sort(points.begin(), points.end(), heightsort);
+		return points[size / 2];
+	}
+}
+
+void send_points(vector<lidar_point> points){
+	vector<actor_person_following::Lidar_Point> msgs;
+	for(lidar_point point : points){
+		actor_person_following::Lidar_Point tmp;
+		tmp.x = point.x;
+		tmp.y = point.y;
+		tmp.z = point.z;
+		tmp.distance = point.distance;
+		tmp.pitch = point.pitch;
+		tmp.yaw = point.yaw;
+		tmp.frame_x = point.fx;
+		tmp.frame_y = point.fy;
+		msgs.push_back(tmp);
+	}
+	actor_person_following::Lidar_Points points_msg;
+	points_msg.points = msgs;
+	point_pub.publish(points_msg);
+}
+
+void render_image(){
+	if(!got_image) return;
+	float xybound = max(xmax, ymax);
+	vector<lidar_point> sorted = lidar_points;
+	sort(sorted.begin(), sorted.end(), distsort);
+	cv::Mat image_mat = src_image;
+	for(lidar_point point : sorted){
+		float rs = point.distance/rmax;
+
+		float xs = (point.x + xybound)/(2*xybound);
+		float ys = (point.y + xybound)/(2*xybound);
+		float zs = (point.z - min_height)/(max_height - min_height);
+
+		if(0 <= point.fx && point.fx <= 1 && 
+			0 <= point.fy && point.fy <= 1 && 
+			min_radius <= point.distance && point.distance <= max_radius && 
+			min_height <= point.z && point.z <= max_height) {
+
+			//image_mat((1 - zs)*(image_rows - 1), (1 - ac)*(image_cols - 1)) = 255*(1 - rs*rs);
+			cv::Point circle_center(point.fx*(image_cols - 1), point.fy*(image_rows - 1));
+			//cv::Point circle_center(xs*(image_cols - 1), ys*(image_rows - 1));
+			int strength = 255*(1 - rs*rs);
+			//int strength = point.z == min_height ? 255 : 255*(1 - zs);
+			int rad = 5*(1 - rs*rs);
+			cv::circle(image_mat, circle_center, rad, cv::Scalar(strength, strength, strength), cv::FILLED);
+		}
+	}
+
+	sensor_msgs::ImagePtr image_msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", image_mat).toImageMsg();
+	image_pub.publish(image_msg);
+}
+
+void image_callback(const sensor_msgs::Image::ConstPtr& image_msg){
+	cv_bridge::CvImageConstPtr target_img_ptr = cv_bridge::toCvShare(image_msg, sensor_msgs::image_encodings::BGR8);
+	src_image = target_img_ptr->image;
+	image_rows = src_image.rows;
+	image_cols = src_image.cols;
+	got_image = true;
+}
 
 void lidar_callback(const sensor_msgs::PointCloud2::ConstPtr& lidar_msg){
-	float z0 = 0.0, z1 = 1;
-	int image_size = 1000;
 	int rows = lidar_msg->height;
 	int cols = lidar_msg->width;
 	int x_offset = lidar_msg->fields[0].offset;
 	int y_offset = lidar_msg->fields[1].offset;
 	int z_offset = lidar_msg->fields[2].offset;
 	int data_offset = lidar_msg->fields[3].offset;
-	cv::Mat_<unsigned char> image_mat(image_size, image_size);
-	for(int r = 0; r < rows; r++){
-		for(int c = 0; c < cols; c++){
-			int ind = (r*lidar_msg->row_step) + (c*lidar_msg->point_step);
-			float x, y, z;
-			memcpy(&x, &lidar_msg->data[ind + x_offset], sizeof(float));
-			memcpy(&y, &lidar_msg->data[ind + y_offset], sizeof(float));
-			memcpy(&z, &lidar_msg->data[ind + z_offset], sizeof(float));
-			xmax = max(x, abs(xmax));
-			ymax = max(y, abs(ymax));
-			zmax = max(z, abs(zmax));
-		}
-	}
-	for(int r = 0; r < image_size; r++){
-		for(int c = 0; c < image_size; c++){
-			image_mat(r, c) = 0;
-		}
-	}
-	for(int r = 0; r < rows; r++){
-		for(int c = 0; c < cols; c++){
-			int ind = (r*lidar_msg->row_step) + (c*lidar_msg->point_step);
-			float x, y, z;
-			memcpy(&x, &lidar_msg->data[ind + x_offset], sizeof(float));
-			memcpy(&y, &lidar_msg->data[ind + y_offset], sizeof(float));
-			memcpy(&z, &lidar_msg->data[ind + z_offset], sizeof(float));
-			float dat;
-			memcpy(&dat, &lidar_msg->data[ind + data_offset], sizeof(float));
-			unsigned char tmp = dat;
+	vector<lidar_point> points;
+	for(int i = 0; i < rows*cols; i++){
+		int ind = i*lidar_msg->point_step;
+		float x, y, z, dist, angle, pitch;
+		memcpy(&x, &lidar_msg->data[ind + x_offset], sizeof(float));
+		memcpy(&y, &lidar_msg->data[ind + y_offset], sizeof(float));
+		memcpy(&z, &lidar_msg->data[ind + z_offset], sizeof(float));
+		xmax = max(xmax, x);
+		xmin = min(xmin, x);
+		ymax = max(ymax, y);
+		ymin = min(ymin, y);
+		zmax = max(zmax, z);
+		zmin = min(zmin, z);
 
-			float xybound = max(xmax, ymax);
+		lidar_point tmp;
+		tmp.x = x;
+		tmp.y = y;
+		tmp.z = z;
 
-			x = (x + xybound)/(2*xybound);
-			y = (y + xybound)/(2*xybound);
-			z = (z + zmax)/(zmax + zmax);
-			float x0 = 1/2;
-			float y0 = 1/2;
-			//ROS_INFO("point = (%f, %f, %f)", x, y, z);
-			float rad = sqrt((x - x0)*(x - x0) + (y - y0)*(y - y0));
-			float ang = atan((y - y0)/(x - x0)) + ((x < x0) ? 3.14159 : ((y < y0) ? 2*3.14159 : 0));
-			//ROS_INFO("(r,a) = (%f, %f)", rad, ang);
-			if(z0 <= z && z <= z1) image_mat(y*(image_size - 1), x*(image_size - 1)) = 255*rad*rad;
-		}
+		lidar_point oriented = rotate(tmp, x_roll, y_roll);
+		lidar_point shifted = translate(oriented, 0, 0, -zero_height);
+		//lidar_point filled = compute_all(shifted, 0, 0, 0);
+		points.push_back(shifted);
 	}
 
-	sensor_msgs::ImagePtr image_msg = cv_bridge::CvImage(std_msgs::Header(), "mono8", image_mat).toImageMsg();
-	image_pub.publish(image_msg);
+	vector<lidar_point> filled;
+	for(lidar_point point : points){
+		filled.push_back(compute_all(point, camera_x, camera_y, camera_z));
+	}
 
+	lidar_points = filled;
+	send_points(filled);
+	if(got_image){ render_image(); }
+
+	// Log
 	ROS_INFO("New Frame:");
 	ROS_INFO("  (width, height) = (%d, %d)", lidar_msg->width, lidar_msg->height);
 	ROS_INFO("  point_step = %d", lidar_msg->point_step);
 	ROS_INFO("  row_step = %d", lidar_msg->row_step);
 	ROS_INFO("  is_dense = %s", lidar_msg->is_dense ? "true" : "false");
-	ROS_INFO("  x bounds: [%f, %f]", -xmax, xmax);
-	ROS_INFO("  y bounds: [%f, %f]", -ymax, ymax);
-	ROS_INFO("  z bounds: [%f, %f]", -zmax, zmax);
+	ROS_INFO("  x bounds: [%f, %f]", xmin, xmax);
+	ROS_INFO("  y bounds: [%f, %f]", ymin, ymax);
+	ROS_INFO("  z bounds: [%f, %f]", zmin, zmax);
+	ROS_INFO("  r bound: %f", rmax);
 	ROS_INFO("  fields:");
 	for(int i = 0; i < lidar_msg->fields.size(); i++){
 		ROS_INFO("  %d: %s (%d)", lidar_msg->fields[i].offset, lidar_msg->fields[i].name.c_str(), lidar_msg->fields[i].datatype);
@@ -99,18 +232,61 @@ int main(int argc, char* argv[])
 	//Initialize and set up ROS
 	ros::init(argc, argv, "lidar");
 	ros::NodeHandle nh("~");
+	image_transport::ImageTransport it(nh);
 
-	//cv::Mat markerImage;
-	//cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
-	//cv::aruco::drawMarker(dictionary, 23, 200, markerImage, 1);
-	//cv::imwrite("marker23.png", markerImage);
+	string source_image_topic = "/camera/image_raw";
+	center_yaw = -PI/3;
+	hfov = PI/3;
+	frame_z0 = 0;
+	frame_z1 = 1;
+	min_radius = 0;
+	max_radius = 0;
+	min_height = 0;
+	max_height = 0;
+	center_pitch = 0;
+	vfov = PI;
+	x_roll = 0;
+	y_roll = 0;
+	zero_height = 0;
+	camera_x = 0;
+	camera_y = 0;
+	camera_z = 0;
 
+	nh.getParam("/lidar_node/source_image_topic", source_image_topic);
+	nh.getParam("/lidar_node/center_yaw", center_yaw);
+	nh.getParam("/lidar_node/hfov", hfov);
+	nh.getParam("/lidar_node/frame_top", frame_z1);
+	nh.getParam("/lidar_node/frame_bottom", frame_z0);
+	nh.getParam("/lidar_node/min_radius", min_radius);
+	nh.getParam("/lidar_node/max_radius", max_radius);
+	nh.getParam("/lidar_node/min_height", min_height);
+	nh.getParam("/lidar_node/max_height", max_height);
+	nh.getParam("/lidar_node/center_pitch", center_pitch);
+	nh.getParam("/lidar_node/vfov", vfov);
+	nh.getParam("/lidar_node/x_roll", x_roll);
+	nh.getParam("/lidar_node/y_roll", y_roll);
+	nh.getParam("/lidar_node/zero_height", zero_height);
+	nh.getParam("/lidar_node/camera_x", camera_x);
+	nh.getParam("/lidar_node/camera_y", camera_y);
+	nh.getParam("/lidar_node/camera_z", camera_z);
+	//hfov = 2*PI;
+	//vfov = PI;
+
+	xmin = 0;
 	xmax = 0;
+	ymin = 0;
 	ymax = 0;
+	zmin = 0;
 	zmax = 0;
+	rmax = 0;
+
+	image_rows = 768;
+	image_cols = 1028;
+	got_image = false;
 
 	lidar_sub = nh.subscribe("/velodyne_points", 10, lidar_callback);
-	image_transport::ImageTransport it(nh);
+	image_sub = nh.subscribe(source_image_topic, 10, image_callback);
+	point_pub = nh.advertise<actor_person_following::Lidar_Points>("/follower/lidar_points", 1000);
 	image_pub = it.advertise("/follower/lidar_image", 1);
 
 	ros::spin();

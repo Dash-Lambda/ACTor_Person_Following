@@ -15,3 +15,4 @@ float32 g
 float32 b
 
 darknet_ros_msgs/BoundingBox box
+actor_person_following/Lidar_Point lidar_point

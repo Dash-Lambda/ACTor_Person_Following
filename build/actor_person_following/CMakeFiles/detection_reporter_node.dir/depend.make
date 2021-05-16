@@ -3,6 +3,8 @@
 
 actor_person_following/CMakeFiles/detection_reporter_node.dir/src/detection_reporter_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detection.h
 actor_person_following/CMakeFiles/detection_reporter_node.dir/src/detection_reporter_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detections.h
+actor_person_following/CMakeFiles/detection_reporter_node.dir/src/detection_reporter_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Lidar_Point.h
+actor_person_following/CMakeFiles/detection_reporter_node.dir/src/detection_reporter_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Lidar_Points.h
 actor_person_following/CMakeFiles/detection_reporter_node.dir/src/detection_reporter_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/BoundingBox.h
 actor_person_following/CMakeFiles/detection_reporter_node.dir/src/detection_reporter_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/BoundingBoxes.h
 actor_person_following/CMakeFiles/detection_reporter_node.dir/src/detection_reporter_node.cpp.o: /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/ObjectCount.h

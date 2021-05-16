@@ -228,7 +228,7 @@
    self)
   )
 
-(setf (get actor_person_following::Detections :md5sum-) "60fd021630dd3b6e37263ed4dd63f0e0")
+(setf (get actor_person_following::Detections :md5sum-) "19fe65d07f7d0b5259da8a0b7e475e88")
 (setf (get actor_person_following::Detections :datatype-) "actor_person_following/Detections")
 (setf (get actor_person_following::Detections :definition-)
       "Header header
@@ -286,6 +286,7 @@ float32 g
 float32 b
 
 darknet_ros_msgs/BoundingBox box
+actor_person_following/Lidar_Point lidar_point
 
 ================================================================================
 MSG: darknet_ros_msgs/BoundingBox
@@ -298,6 +299,19 @@ int16 id
 string Class
 
 ================================================================================
+MSG: actor_person_following/Lidar_Point
+float64 x
+float64 y
+float64 z
+
+float64 distance
+float64 pitch
+float64 yaw
+
+float64 frame_x
+float64 frame_y
+
+================================================================================
 MSG: perception_msgs/PointInImage
 # x coordinate of the point in the image
 float32 x
@@ -308,6 +322,6 @@ float32 y
 
 
 
-(provide :actor_person_following/Detections "60fd021630dd3b6e37263ed4dd63f0e0")
+(provide :actor_person_following/Detections "19fe65d07f7d0b5259da8a0b7e475e88")
 
 

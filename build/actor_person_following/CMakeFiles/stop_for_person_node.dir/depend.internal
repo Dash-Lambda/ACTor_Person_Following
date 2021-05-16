@@ -4,6 +4,7 @@
 actor_person_following/CMakeFiles/stop_for_person_node.dir/src/stop_for_person_node.cpp.o
  /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detection.h
  /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detections.h
+ /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Lidar_Point.h
  /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/BoundingBox.h
  /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/dbw_polaris_msgs/BrakeCmd.h
  /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/dbw_polaris_msgs/Gear.h

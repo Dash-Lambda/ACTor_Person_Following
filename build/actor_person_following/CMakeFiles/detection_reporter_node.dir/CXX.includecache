@@ -23,6 +23,8 @@ ros/message_operations.h
 -
 darknet_ros_msgs/BoundingBox.h
 -
+actor_person_following/Lidar_Point.h
+-
 
 /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Detections.h
 string
@@ -46,6 +48,42 @@ std_msgs/Header.h
 actor_person_following/Detection.h
 -
 perception_msgs/PointInImage.h
+-
+
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Lidar_Point.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Lidar_Points.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+actor_person_following/Lidar_Point.h
 -
 
 /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/BoundingBox.h
@@ -185,6 +223,10 @@ ros/ros.h
 -
 std_msgs/Float64.h
 -
+actor_person_following/Lidar_Point.h
+-
+actor_person_following/Lidar_Points.h
+-
 std_msgs/Header.h
 -
 sensor_msgs/Image.h
@@ -218,6 +260,8 @@ opencv2/imgproc/imgproc.hpp
 opencv2/highgui/highgui.hpp
 -
 image_transport/image_transport.h
+-
+math.h
 -
 
 /opt/ros/kinetic/include/cv_bridge/cv_bridge.h

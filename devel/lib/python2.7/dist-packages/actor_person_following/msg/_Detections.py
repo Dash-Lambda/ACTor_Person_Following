@@ -12,7 +12,7 @@ import perception_msgs.msg
 import std_msgs.msg
 
 class Detections(genpy.Message):
-  _md5sum = "60fd021630dd3b6e37263ed4dd63f0e0"
+  _md5sum = "19fe65d07f7d0b5259da8a0b7e475e88"
   _type = "actor_person_following/Detections"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """Header header
@@ -70,6 +70,7 @@ float32 g
 float32 b
 
 darknet_ros_msgs/BoundingBox box
+actor_person_following/Lidar_Point lidar_point
 
 ================================================================================
 MSG: darknet_ros_msgs/BoundingBox
@@ -80,6 +81,19 @@ int64 xmax
 int64 ymax
 int16 id
 string Class
+
+================================================================================
+MSG: actor_person_following/Lidar_Point
+float64 x
+float64 y
+float64 z
+
+float64 distance
+float64 pitch
+float64 yaw
+
+float64 frame_x
+float64 frame_y
 
 ================================================================================
 MSG: perception_msgs/PointInImage
@@ -196,6 +210,9 @@ float32 y
           _x = _x.encode('utf-8')
           length = len(_x)
         buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+        _v2 = val1.lidar_point
+        _x = _v2
+        buff.write(_get_struct_8d().pack(_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y))
       _x = self
       buff.write(_get_struct_6iB2d().pack(_x.closest, _x.close_target, _x.aruco_target, _x.color_target, _x.xres, _x.yres, _x.aruco_visible, _x.aruco_x, _x.aruco_y))
       length = len(self.aruco_points)
@@ -261,8 +278,8 @@ float32 y
         start = end
         end += 76
         (_x.width, _x.height, _x.center, _x.close_overlap, _x.aruco_overlap, _x.close_dist, _x.aruco_dist, _x.aruco_strength, _x.r, _x.g, _x.b,) = _get_struct_8d3f().unpack(str[start:end])
-        _v2 = val1.box
-        _x = _v2
+        _v3 = val1.box
+        _x = _v3
         start = end
         end += 42
         (_x.probability, _x.xmin, _x.ymin, _x.xmax, _x.ymax, _x.id,) = _get_struct_d4qh().unpack(str[start:end])
@@ -272,9 +289,14 @@ float32 y
         start = end
         end += length
         if python3:
-          _v2.Class = str[start:end].decode('utf-8', 'rosmsg')
+          _v3.Class = str[start:end].decode('utf-8', 'rosmsg')
         else:
-          _v2.Class = str[start:end]
+          _v3.Class = str[start:end]
+        _v4 = val1.lidar_point
+        _x = _v4
+        start = end
+        end += 64
+        (_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y,) = _get_struct_8d().unpack(str[start:end])
         self.detections.append(val1)
       _x = self
       start = end
@@ -327,15 +349,18 @@ float32 y
       for val1 in self.detections:
         _x = val1
         buff.write(_get_struct_8d3f().pack(_x.width, _x.height, _x.center, _x.close_overlap, _x.aruco_overlap, _x.close_dist, _x.aruco_dist, _x.aruco_strength, _x.r, _x.g, _x.b))
-        _v3 = val1.box
-        _x = _v3
+        _v5 = val1.box
+        _x = _v5
         buff.write(_get_struct_d4qh().pack(_x.probability, _x.xmin, _x.ymin, _x.xmax, _x.ymax, _x.id))
-        _x = _v3.Class
+        _x = _v5.Class
         length = len(_x)
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
           length = len(_x)
         buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+        _v6 = val1.lidar_point
+        _x = _v6
+        buff.write(_get_struct_8d().pack(_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y))
       _x = self
       buff.write(_get_struct_6iB2d().pack(_x.closest, _x.close_target, _x.aruco_target, _x.color_target, _x.xres, _x.yres, _x.aruco_visible, _x.aruco_x, _x.aruco_y))
       length = len(self.aruco_points)
@@ -402,8 +427,8 @@ float32 y
         start = end
         end += 76
         (_x.width, _x.height, _x.center, _x.close_overlap, _x.aruco_overlap, _x.close_dist, _x.aruco_dist, _x.aruco_strength, _x.r, _x.g, _x.b,) = _get_struct_8d3f().unpack(str[start:end])
-        _v4 = val1.box
-        _x = _v4
+        _v7 = val1.box
+        _x = _v7
         start = end
         end += 42
         (_x.probability, _x.xmin, _x.ymin, _x.xmax, _x.ymax, _x.id,) = _get_struct_d4qh().unpack(str[start:end])
@@ -413,9 +438,14 @@ float32 y
         start = end
         end += length
         if python3:
-          _v4.Class = str[start:end].decode('utf-8', 'rosmsg')
+          _v7.Class = str[start:end].decode('utf-8', 'rosmsg')
         else:
-          _v4.Class = str[start:end]
+          _v7.Class = str[start:end]
+        _v8 = val1.lidar_point
+        _x = _v8
+        start = end
+        end += 64
+        (_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y,) = _get_struct_8d().unpack(str[start:end])
         self.detections.append(val1)
       _x = self
       start = end
@@ -459,6 +489,12 @@ def _get_struct_6iB2d():
     if _struct_6iB2d is None:
         _struct_6iB2d = struct.Struct("<6iB2d")
     return _struct_6iB2d
+_struct_8d = None
+def _get_struct_8d():
+    global _struct_8d
+    if _struct_8d is None:
+        _struct_8d = struct.Struct("<8d")
+    return _struct_8d
 _struct_8d3f = None
 def _get_struct_8d3f():
     global _struct_8d3f

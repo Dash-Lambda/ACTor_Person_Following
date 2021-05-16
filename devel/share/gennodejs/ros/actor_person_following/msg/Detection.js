@@ -11,6 +11,7 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let Lidar_Point = require('./Lidar_Point.js');
 let darknet_ros_msgs = _finder('darknet_ros_msgs');
 
 //-----------------------------------------------------------
@@ -31,6 +32,7 @@ class Detection {
       this.g = null;
       this.b = null;
       this.box = null;
+      this.lidar_point = null;
     }
     else {
       if (initObj.hasOwnProperty('width')) {
@@ -105,6 +107,12 @@ class Detection {
       else {
         this.box = new darknet_ros_msgs.msg.BoundingBox();
       }
+      if (initObj.hasOwnProperty('lidar_point')) {
+        this.lidar_point = initObj.lidar_point
+      }
+      else {
+        this.lidar_point = new Lidar_Point();
+      }
     }
   }
 
@@ -134,6 +142,8 @@ class Detection {
     bufferOffset = _serializer.float32(obj.b, buffer, bufferOffset);
     // Serialize message field [box]
     bufferOffset = darknet_ros_msgs.msg.BoundingBox.serialize(obj.box, buffer, bufferOffset);
+    // Serialize message field [lidar_point]
+    bufferOffset = Lidar_Point.serialize(obj.lidar_point, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -165,13 +175,15 @@ class Detection {
     data.b = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [box]
     data.box = darknet_ros_msgs.msg.BoundingBox.deserialize(buffer, bufferOffset);
+    // Deserialize message field [lidar_point]
+    data.lidar_point = Lidar_Point.deserialize(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += darknet_ros_msgs.msg.BoundingBox.getMessageSize(object.box);
-    return length + 76;
+    return length + 140;
   }
 
   static datatype() {
@@ -181,7 +193,7 @@ class Detection {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'd6fc16488a4bcd596d1574f8093b6d85';
+    return '5e399b4ad5ae6de8338e645f4db8e5a4';
   }
 
   static messageDefinition() {
@@ -204,6 +216,7 @@ class Detection {
     float32 b
     
     darknet_ros_msgs/BoundingBox box
+    actor_person_following/Lidar_Point lidar_point
     
     ================================================================================
     MSG: darknet_ros_msgs/BoundingBox
@@ -214,6 +227,19 @@ class Detection {
     int64 ymax
     int16 id
     string Class
+    
+    ================================================================================
+    MSG: actor_person_following/Lidar_Point
+    float64 x
+    float64 y
+    float64 z
+    
+    float64 distance
+    float64 pitch
+    float64 yaw
+    
+    float64 frame_x
+    float64 frame_y
     
     `;
   }
@@ -306,6 +332,13 @@ class Detection {
     }
     else {
       resolved.box = new darknet_ros_msgs.msg.BoundingBox()
+    }
+
+    if (msg.lidar_point !== undefined) {
+      resolved.lidar_point = Lidar_Point.Resolve(msg.lidar_point)
+    }
+    else {
+      resolved.lidar_point = new Lidar_Point()
     }
 
     return resolved;
