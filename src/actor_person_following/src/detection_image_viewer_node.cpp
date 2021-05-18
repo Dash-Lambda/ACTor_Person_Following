@@ -37,7 +37,7 @@ bool stale_image, made_image, image_exists, image_found, in_sync;
 string cur_status;
 cv::Size status_size;
 vector<sensor_msgs::Image::ConstPtr> image_buffer;
-int image_seq;
+long image_diff;
 
 int write_line(cv::Mat& img, const string& str, cv::Point pos, cv::Scalar color){	
 	int baseline = 0;
@@ -58,13 +58,32 @@ void set_image(int seq_id){
 			return;
 		}
 	}*/
-	if(image_buffer.size() > 0){
+	/*if(image_buffer.size() > 0){
 		cv_bridge::CvImageConstPtr target_img_ptr = cv_bridge::toCvShare(image_buffer[0], sensor_msgs::image_encodings::BGR8);
 		src_image = target_img_ptr->image;
 		in_sync = false;
 		image_seq = image_buffer[0]->header.seq;
 		image_found = true;
 		//ROS_INFO("res: %dx%d", target_img_ptr->image.cols, target_img_ptr->image.rows);
+		return;
+	}else{
+		image_found = false;
+	}*/
+
+	long min_diff = -1;
+	int min_ind = -1;
+	for(int i = 0; i < image_buffer.size(); i++){
+		long diff = abs((image_buffer[i]->header.stamp - detections.image_header.stamp).toNSec());
+		if(diff < min_diff || min_diff < 0){
+			min_diff = diff;
+			min_ind = i;
+		}
+	}
+	if(min_ind >= 0){
+		src_image = cv_bridge::toCvShare(image_buffer[min_ind], sensor_msgs::image_encodings::BGR8)->image;
+		in_sync = false;
+		image_diff = min_diff;
+		image_found = true;
 		return;
 	}else{
 		image_found = false;
@@ -118,9 +137,7 @@ void render_image(){
 	cv::rectangle(image, cv::Point(0, 0), cv::Point(status_size.width, status_size.height), cv::Scalar(0, 0, 0), cv::FILLED);
 	write_line(image, cur_status, cv::Point(0, 0), cv::Scalar(0, 255, 0));
 
-	if(in_sync){
-		write_line(image, "SYNC", cv::Point(0, status_size.height + 5), cv::Scalar(0, 255, 0));
-	}
+	write_line(image, to_string(image_diff), cv::Point(0, status_size.height + 5), cv::Scalar(0, 255, 0));
 
 	made_image = true;
 	stale_image = false;
