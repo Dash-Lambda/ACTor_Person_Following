@@ -27,11 +27,25 @@ struct Lidar_Points_
 
   Lidar_Points_()
     : header()
-    , points()  {
+    , points()
+    , max_distance(0.0)
+    , xmin(0.0)
+    , xmax(0.0)
+    , ymin(0.0)
+    , ymax(0.0)
+    , zmin(0.0)
+    , zmax(0.0)  {
     }
   Lidar_Points_(const ContainerAllocator& _alloc)
     : header(_alloc)
-    , points(_alloc)  {
+    , points(_alloc)
+    , max_distance(0.0)
+    , xmin(0.0)
+    , xmax(0.0)
+    , ymin(0.0)
+    , ymax(0.0)
+    , zmin(0.0)
+    , zmax(0.0)  {
   (void)_alloc;
     }
 
@@ -42,6 +56,27 @@ struct Lidar_Points_
 
    typedef std::vector< ::actor_person_following::Lidar_Point_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::actor_person_following::Lidar_Point_<ContainerAllocator> >::other >  _points_type;
   _points_type points;
+
+   typedef double _max_distance_type;
+  _max_distance_type max_distance;
+
+   typedef double _xmin_type;
+  _xmin_type xmin;
+
+   typedef double _xmax_type;
+  _xmax_type xmax;
+
+   typedef double _ymin_type;
+  _ymin_type ymin;
+
+   typedef double _ymax_type;
+  _ymax_type ymax;
+
+   typedef double _zmin_type;
+  _zmin_type zmin;
+
+   typedef double _zmax_type;
+  _zmax_type zmax;
 
 
 
@@ -121,12 +156,12 @@ struct MD5Sum< ::actor_person_following::Lidar_Points_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "de4f8b3ea313926cde16960ae9499759";
+    return "07597cb25cd3fee3a74bcea7ddf36338";
   }
 
   static const char* value(const ::actor_person_following::Lidar_Points_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xde4f8b3ea313926cULL;
-  static const uint64_t static_value2 = 0xde16960ae9499759ULL;
+  static const uint64_t static_value1 = 0x07597cb25cd3fee3ULL;
+  static const uint64_t static_value2 = 0xa74bcea7ddf36338ULL;
 };
 
 template<class ContainerAllocator>
@@ -147,6 +182,14 @@ struct Definition< ::actor_person_following::Lidar_Points_<ContainerAllocator> >
   {
     return "Header header\n\
 Lidar_Point[] points\n\
+\n\
+float64 max_distance\n\
+float64 xmin\n\
+float64 xmax\n\
+float64 ymin\n\
+float64 ymax\n\
+float64 zmin\n\
+float64 zmax\n\
 \n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
@@ -198,6 +241,13 @@ namespace serialization
     {
       stream.next(m.header);
       stream.next(m.points);
+      stream.next(m.max_distance);
+      stream.next(m.xmin);
+      stream.next(m.xmax);
+      stream.next(m.ymin);
+      stream.next(m.ymax);
+      stream.next(m.zmin);
+      stream.next(m.zmax);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -227,6 +277,20 @@ struct Printer< ::actor_person_following::Lidar_Points_<ContainerAllocator> >
       s << indent;
       Printer< ::actor_person_following::Lidar_Point_<ContainerAllocator> >::stream(s, indent + "    ", v.points[i]);
     }
+    s << indent << "max_distance: ";
+    Printer<double>::stream(s, indent + "  ", v.max_distance);
+    s << indent << "xmin: ";
+    Printer<double>::stream(s, indent + "  ", v.xmin);
+    s << indent << "xmax: ";
+    Printer<double>::stream(s, indent + "  ", v.xmax);
+    s << indent << "ymin: ";
+    Printer<double>::stream(s, indent + "  ", v.ymin);
+    s << indent << "ymax: ";
+    Printer<double>::stream(s, indent + "  ", v.ymax);
+    s << indent << "zmin: ";
+    Printer<double>::stream(s, indent + "  ", v.zmin);
+    s << indent << "zmax: ";
+    Printer<double>::stream(s, indent + "  ", v.zmax);
   }
 };
 

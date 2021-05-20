@@ -269,7 +269,7 @@ int main(int argc, char* argv[])
 			//str_msg.data = to_string(cur_dist - deadzone);
 			clr_msg.data = follow_color;
 		}else if(cur_dist <= target_distance - deadzone && closest_dist > stop_thresh){ //Retreating from detected person
-			send_twist(-speed, steer_dir);
+			send_twist(-speed, -steer_dir);
 			str_msg.data[2] = '-';
 			//str_msg.data = to_string(cur_dist - deadzone);
 			clr_msg.data = follow_color;

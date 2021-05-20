@@ -33,7 +33,7 @@ image_transport::Publisher img_test_pub;
 
 //Config Parameters
 string cam_topic, aruco_topic, target_class, aruco_target;
-int color_spot_wid, persist_method;
+int color_spot_wid, persist_method, buffer_size;
 double smoothing_timeout, sat_adj, color_target_tol, 
 	target_overlap_thresh, retarget_timeout, distance_thresh, 
 	distance_expansion, aruco_grab_dist;
@@ -54,17 +54,39 @@ darknet_ros_msgs::BoundingBox cur_target_box, cur_aruco_box;
 std_msgs::Header cur_image_header;
 
 //Lidar;
-vector<actor_person_following::Lidar_Point> lidar_points;
+vector<actor_person_following::Lidar_Points> lidar_buffer;
+actor_person_following::Lidar_Points lidar_points;
+bool lidar_found;
 
 bool pointsort(actor_person_following::Lidar_Point a, actor_person_following::Lidar_Point b){ return a.distance < b.distance; }
 
-void lidar_callback(const actor_person_following::Lidar_Points::ConstPtr& lidar_msg){
-	lidar_points = lidar_msg->points;
+void lidar_callback(const actor_person_following::Lidar_Points& lidar_msg){
+	lidar_buffer.insert(lidar_buffer.begin(), lidar_msg);
+	if(lidar_buffer.size() > buffer_size){ lidar_buffer.resize(buffer_size); }
+}
+
+void set_lidar(ros::Time timestamp){
+	long min_diff = -1;
+	int min_ind = -1;
+	for(int i = 0; i < lidar_buffer.size(); i++){
+		long diff = abs((lidar_buffer[i].header.stamp - timestamp).toNSec());
+		if(diff < min_diff || min_diff < 0){
+			min_diff = diff;
+			min_ind = i;
+		}
+	}
+	if(min_ind >= 0){
+		lidar_points = lidar_buffer[min_ind];
+		lidar_found = true;
+		return;
+	}else{
+		lidar_found = false;
+	}
 }
 
 actor_person_following::Lidar_Point get_distance(double x0, double x1, double y0, double y1){
 	vector<actor_person_following::Lidar_Point> points;
-	for(actor_person_following::Lidar_Point point : lidar_points){
+	for(actor_person_following::Lidar_Point point : lidar_points.points){
 		double x = point.frame_x;
 		double y = point.frame_y;
 		if(x0 <= x && x <= x1 && y0 <= y && y <= y1){
@@ -78,7 +100,26 @@ actor_person_following::Lidar_Point get_distance(double x0, double x1, double y0
 		return nah; // Undefined, really.
 	}else{
 		sort(points.begin(), points.end(), pointsort);
-		return points[size / 2];
+		actor_person_following::Lidar_Point avg;
+		avg.x = 0;
+		avg.y = 0;
+		avg.z = 0;
+		avg.distance = 0;
+		avg.pitch = 0;
+		avg.yaw = 0;
+		avg.frame_x = 0;
+		avg.frame_y = 0;
+		for(int i = 0; i < min(10, size - 1); i++){
+			avg.x += points[i].x/min(10, size - 1);
+			avg.y += points[i].y/min(10, size - 1);
+			avg.z += points[i].z/min(10, size - 1);
+			avg.distance += points[i].distance/min(10, size - 1);
+			avg.pitch += points[i].pitch/min(10, size - 1);
+			avg.yaw += points[i].yaw/min(10, size - 1);
+			avg.frame_x += points[i].frame_x/min(10, size - 1);
+			avg.frame_y += points[i].frame_y/min(10, size - 1);
+		}	
+		return avg;
 	}
 }
 
@@ -130,8 +171,11 @@ double box_distance(darknet_ros_msgs::BoundingBox base, darknet_ros_msgs::Boundi
 }
 
 actor_person_following::Detection make_detection(darknet_ros_msgs::BoundingBox box){
-	double x0 = (double)box.xmin/cur_xres, x1 = (double)box.xmax/cur_xres, y0 = (double)box.ymin/cur_yres, y1 = (double)box.ymax/cur_yres;
+	double x0 = (double)box.xmin/cur_xres, x1 = (double)box.xmax/cur_xres, y0 = (double)box.ymin/cur_yres, y1 = (double)box.ymax/cur_yres;	
 	actor_person_following::Detection tmp_msg;
+
+	tmp_msg.lidar_point = get_distance(x0, x1, y0, (y0 + y1)/2);
+
 	tmp_msg.box = box;
 	tmp_msg.width = (double)(box.xmax - box.xmin)/cur_xres;
 	tmp_msg.height = (double)(box.ymin + box.ymax)/cur_yres - 1;
@@ -149,7 +193,6 @@ actor_person_following::Detection make_detection(darknet_ros_msgs::BoundingBox b
 	tmp_msg.g = pix[1];
 	tmp_msg.b = pix[2];
 
-	tmp_msg.lidar_point = get_distance(x0, x1, y0, y1);
 	return tmp_msg;
 }
 
@@ -158,6 +201,8 @@ double expansion_func(ros::Duration dur){
 }
 
 void box_callback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& box_msg){
+	set_lidar(box_msg->image_header.stamp);
+	if(!lidar_found){ return; }
 	double tmp_dist = -1, tmp_ardist = -1, tmp_aruco_metric = -1, tmp_wid_color = -1, tmp_close_metric = -1;
 	int tmp_max_ind = -1, tmp_color_ind = -1, count = 0, tmp_aruco_ind = -1, tmp_close_ind = -1, tmp_ardist_ind = -1;
 
@@ -371,6 +416,7 @@ int main(int argc, char* argv[])
 	distance_thresh = 0;
 	distance_expansion = 0;
 	aruco_grab_dist = 2;
+	buffer_size = 100;
 
 	nh.getParam("/detection_reporter_node/cam_topic", cam_topic);
 	nh.getParam("/detection_reporter_node/color_spot_width", color_spot_wid);
@@ -386,6 +432,8 @@ int main(int argc, char* argv[])
 	nh.getParam("/detection_reporter_node/distance_thresh", distance_thresh);
 	nh.getParam("/detection_reporter_node/distance_expansion", distance_expansion);
 	nh.getParam("/detection_reporter_node/aruco_grab_dist", aruco_grab_dist);
+	nh.getParam("/detection_reporter_node/buffer_size", buffer_size);
+
 
 	int tmp_r = 0, tmp_g = 0, tmp_b = 0;
 	nh.getParam("/detection_reporter_node/color_target_r", tmp_r);

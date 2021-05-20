@@ -66,6 +66,26 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
+/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following/Lidar_Points.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+actor_person_following/Lidar_Point.h
+-
+
 /home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/darknet_ros_msgs/BoundingBox.h
 string
 -
@@ -112,6 +132,10 @@ perception_msgs/PointInImage.h
 actor_person_following/Detection.h
 -
 actor_person_following/Detections.h
+-
+actor_person_following/Lidar_Point.h
+-
+actor_person_following/Lidar_Points.h
 -
 string
 -

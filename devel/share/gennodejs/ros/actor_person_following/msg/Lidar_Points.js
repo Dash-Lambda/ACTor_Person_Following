@@ -22,6 +22,13 @@ class Lidar_Points {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.header = null;
       this.points = null;
+      this.max_distance = null;
+      this.xmin = null;
+      this.xmax = null;
+      this.ymin = null;
+      this.ymax = null;
+      this.zmin = null;
+      this.zmax = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -36,6 +43,48 @@ class Lidar_Points {
       else {
         this.points = [];
       }
+      if (initObj.hasOwnProperty('max_distance')) {
+        this.max_distance = initObj.max_distance
+      }
+      else {
+        this.max_distance = 0.0;
+      }
+      if (initObj.hasOwnProperty('xmin')) {
+        this.xmin = initObj.xmin
+      }
+      else {
+        this.xmin = 0.0;
+      }
+      if (initObj.hasOwnProperty('xmax')) {
+        this.xmax = initObj.xmax
+      }
+      else {
+        this.xmax = 0.0;
+      }
+      if (initObj.hasOwnProperty('ymin')) {
+        this.ymin = initObj.ymin
+      }
+      else {
+        this.ymin = 0.0;
+      }
+      if (initObj.hasOwnProperty('ymax')) {
+        this.ymax = initObj.ymax
+      }
+      else {
+        this.ymax = 0.0;
+      }
+      if (initObj.hasOwnProperty('zmin')) {
+        this.zmin = initObj.zmin
+      }
+      else {
+        this.zmin = 0.0;
+      }
+      if (initObj.hasOwnProperty('zmax')) {
+        this.zmax = initObj.zmax
+      }
+      else {
+        this.zmax = 0.0;
+      }
     }
   }
 
@@ -49,6 +98,20 @@ class Lidar_Points {
     obj.points.forEach((val) => {
       bufferOffset = Lidar_Point.serialize(val, buffer, bufferOffset);
     });
+    // Serialize message field [max_distance]
+    bufferOffset = _serializer.float64(obj.max_distance, buffer, bufferOffset);
+    // Serialize message field [xmin]
+    bufferOffset = _serializer.float64(obj.xmin, buffer, bufferOffset);
+    // Serialize message field [xmax]
+    bufferOffset = _serializer.float64(obj.xmax, buffer, bufferOffset);
+    // Serialize message field [ymin]
+    bufferOffset = _serializer.float64(obj.ymin, buffer, bufferOffset);
+    // Serialize message field [ymax]
+    bufferOffset = _serializer.float64(obj.ymax, buffer, bufferOffset);
+    // Serialize message field [zmin]
+    bufferOffset = _serializer.float64(obj.zmin, buffer, bufferOffset);
+    // Serialize message field [zmax]
+    bufferOffset = _serializer.float64(obj.zmax, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -65,6 +128,20 @@ class Lidar_Points {
     for (let i = 0; i < len; ++i) {
       data.points[i] = Lidar_Point.deserialize(buffer, bufferOffset)
     }
+    // Deserialize message field [max_distance]
+    data.max_distance = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [xmin]
+    data.xmin = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [xmax]
+    data.xmax = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [ymin]
+    data.ymin = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [ymax]
+    data.ymax = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [zmin]
+    data.zmin = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [zmax]
+    data.zmax = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
@@ -72,7 +149,7 @@ class Lidar_Points {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
     length += 64 * object.points.length;
-    return length + 4;
+    return length + 60;
   }
 
   static datatype() {
@@ -82,7 +159,7 @@ class Lidar_Points {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'de4f8b3ea313926cde16960ae9499759';
+    return '07597cb25cd3fee3a74bcea7ddf36338';
   }
 
   static messageDefinition() {
@@ -90,6 +167,14 @@ class Lidar_Points {
     return `
     Header header
     Lidar_Point[] points
+    
+    float64 max_distance
+    float64 xmin
+    float64 xmax
+    float64 ymin
+    float64 ymax
+    float64 zmin
+    float64 zmax
     
     ================================================================================
     MSG: std_msgs/Header
@@ -146,6 +231,55 @@ class Lidar_Points {
     }
     else {
       resolved.points = []
+    }
+
+    if (msg.max_distance !== undefined) {
+      resolved.max_distance = msg.max_distance;
+    }
+    else {
+      resolved.max_distance = 0.0
+    }
+
+    if (msg.xmin !== undefined) {
+      resolved.xmin = msg.xmin;
+    }
+    else {
+      resolved.xmin = 0.0
+    }
+
+    if (msg.xmax !== undefined) {
+      resolved.xmax = msg.xmax;
+    }
+    else {
+      resolved.xmax = 0.0
+    }
+
+    if (msg.ymin !== undefined) {
+      resolved.ymin = msg.ymin;
+    }
+    else {
+      resolved.ymin = 0.0
+    }
+
+    if (msg.ymax !== undefined) {
+      resolved.ymax = msg.ymax;
+    }
+    else {
+      resolved.ymax = 0.0
+    }
+
+    if (msg.zmin !== undefined) {
+      resolved.zmin = msg.zmin;
+    }
+    else {
+      resolved.zmin = 0.0
+    }
+
+    if (msg.zmax !== undefined) {
+      resolved.zmax = msg.zmax;
+    }
+    else {
+      resolved.zmax = 0.0
     }
 
     return resolved;

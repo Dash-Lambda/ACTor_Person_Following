@@ -16,17 +16,31 @@
 
 (defclass actor_person_following::Lidar_Points
   :super ros::object
-  :slots (_header _points ))
+  :slots (_header _points _max_distance _xmin _xmax _ymin _ymax _zmin _zmax ))
 
 (defmethod actor_person_following::Lidar_Points
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
     ((:points __points) (let (r) (dotimes (i 0) (push (instance actor_person_following::Lidar_Point :init) r)) r))
+    ((:max_distance __max_distance) 0.0)
+    ((:xmin __xmin) 0.0)
+    ((:xmax __xmax) 0.0)
+    ((:ymin __ymin) 0.0)
+    ((:ymax __ymax) 0.0)
+    ((:zmin __zmin) 0.0)
+    ((:zmax __zmax) 0.0)
     )
    (send-super :init)
    (setq _header __header)
    (setq _points __points)
+   (setq _max_distance (float __max_distance))
+   (setq _xmin (float __xmin))
+   (setq _xmax (float __xmax))
+   (setq _ymin (float __ymin))
+   (setq _ymax (float __ymax))
+   (setq _zmin (float __zmin))
+   (setq _zmax (float __zmax))
    self)
   (:header
    (&rest __header)
@@ -42,6 +56,27 @@
      (progn
        (if __points (setq _points (car __points)))
        _points)))
+  (:max_distance
+   (&optional __max_distance)
+   (if __max_distance (setq _max_distance __max_distance)) _max_distance)
+  (:xmin
+   (&optional __xmin)
+   (if __xmin (setq _xmin __xmin)) _xmin)
+  (:xmax
+   (&optional __xmax)
+   (if __xmax (setq _xmax __xmax)) _xmax)
+  (:ymin
+   (&optional __ymin)
+   (if __ymin (setq _ymin __ymin)) _ymin)
+  (:ymax
+   (&optional __ymax)
+   (if __ymax (setq _ymax __ymax)) _ymax)
+  (:zmin
+   (&optional __zmin)
+   (if __zmin (setq _zmin __zmin)) _zmin)
+  (:zmax
+   (&optional __zmax)
+   (if __zmax (setq _zmax __zmax)) _zmax)
   (:serialization-length
    ()
    (+
@@ -49,6 +84,20 @@
     (send _header :serialization-length)
     ;; actor_person_following/Lidar_Point[] _points
     (apply #'+ (send-all _points :serialization-length)) 4
+    ;; float64 _max_distance
+    8
+    ;; float64 _xmin
+    8
+    ;; float64 _xmax
+    8
+    ;; float64 _ymin
+    8
+    ;; float64 _ymax
+    8
+    ;; float64 _zmin
+    8
+    ;; float64 _zmax
+    8
     ))
   (:serialize
    (&optional strm)
@@ -61,6 +110,20 @@
      (dolist (elem _points)
        (send elem :serialize s)
        )
+     ;; float64 _max_distance
+       (sys::poke _max_distance (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _xmin
+       (sys::poke _xmin (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _xmax
+       (sys::poke _xmax (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _ymin
+       (sys::poke _ymin (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _ymax
+       (sys::poke _ymax (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _zmin
+       (sys::poke _zmin (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _zmax
+       (sys::poke _zmax (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -74,15 +137,37 @@
      (dolist (elem- _points)
      (send elem- :deserialize buf ptr-) (incf ptr- (send elem- :serialization-length))
      ))
+   ;; float64 _max_distance
+     (setq _max_distance (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _xmin
+     (setq _xmin (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _xmax
+     (setq _xmax (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _ymin
+     (setq _ymin (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _ymax
+     (setq _ymax (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _zmin
+     (setq _zmin (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _zmax
+     (setq _zmax (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
 
-(setf (get actor_person_following::Lidar_Points :md5sum-) "de4f8b3ea313926cde16960ae9499759")
+(setf (get actor_person_following::Lidar_Points :md5sum-) "07597cb25cd3fee3a74bcea7ddf36338")
 (setf (get actor_person_following::Lidar_Points :datatype-) "actor_person_following/Lidar_Points")
 (setf (get actor_person_following::Lidar_Points :definition-)
       "Header header
 Lidar_Point[] points
+
+float64 max_distance
+float64 xmin
+float64 xmax
+float64 ymin
+float64 ymax
+float64 zmin
+float64 zmax
 
 ================================================================================
 MSG: std_msgs/Header
@@ -119,6 +204,6 @@ float64 frame_y
 
 
 
-(provide :actor_person_following/Lidar_Points "de4f8b3ea313926cde16960ae9499759")
+(provide :actor_person_following/Lidar_Points "07597cb25cd3fee3a74bcea7ddf36338")
 
 

@@ -3,4 +3,18 @@
           HEADER
           POINTS-VAL
           POINTS
+          MAX_DISTANCE-VAL
+          MAX_DISTANCE
+          XMIN-VAL
+          XMIN
+          XMAX-VAL
+          XMAX
+          YMIN-VAL
+          YMIN
+          YMAX-VAL
+          YMAX
+          ZMIN-VAL
+          ZMIN
+          ZMAX-VAL
+          ZMAX
 ))

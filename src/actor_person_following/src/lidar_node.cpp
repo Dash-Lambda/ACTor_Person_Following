@@ -1,22 +1,10 @@
 #include <ros/ros.h>
-#include <std_msgs/Float64.h>
+#include <std_msgs/Header.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <actor_person_following/Lidar_Point.h>
 #include <actor_person_following/Lidar_Points.h>
-#include <sensor_msgs/Image.h>
 #include <string>
 #include <vector>
-
-#include <cv_bridge/cv_bridge.h>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-
-#include <image_transport/image_transport.h>
-
-//#include "aruco.h"
-//#include <aruco_eye/aruco_eye.h>
-#include <opencv2/aruco.hpp>
-//#include <stdint.h>
 #include <ros/console.h>
 #include <math.h>
 
@@ -24,9 +12,8 @@ using namespace std;
 
 const double PI = 3.14159265359;
 
-ros::Subscriber lidar_sub, image_sub;
+ros::Subscriber lidar_sub;
 ros::Publisher point_pub;
-image_transport::Publisher image_pub;
 
 double center_yaw, hfov, frame_z0, 
 	frame_z1, min_radius, max_radius, 
@@ -34,10 +21,7 @@ double center_yaw, hfov, frame_z0,
 	vfov, x_roll, y_roll, 
 	zero_height, camera_x, camera_y,
 	camera_z;
-int image_rows, image_cols;
 float xmax, xmin, ymax, ymin, zmax, zmin, rmax;
-cv::Mat src_image;
-bool got_image;
 
 struct lidar_point{
 	double x, y, z;
@@ -46,6 +30,7 @@ struct lidar_point{
 	double fx, fy;
 };
 vector<lidar_point> lidar_points;
+std_msgs::Header cur_header;
 
 lidar_point rotate(lidar_point p0, double xa, double ya){
 	lidar_point p1, p2;
@@ -83,7 +68,7 @@ lidar_point compute_all(lidar_point p0, double cx, double cy, double cz){
 	tmp.y = p0.y;
 	tmp.z = p0.z;
 
-	tmp.distance = sqrt(pow(p0.x - cx, 2) + pow(p0.y - cy, 2) + pow(p0.z - cz, 2));
+	tmp.distance = sqrt(pow(p0.x - cx, 2) + pow(p0.y - cy, 2));
 	tmp.pitch = atan((tmp.z - cz)/sqrt(pow(tmp.x - cx, 2) + pow(tmp.y - cy, 2)));
 	tmp.yaw = atan((tmp.y - cy)/(tmp.x - cx));
 	if(tmp.x <= cx){ tmp.yaw = tmp.yaw + PI; }
@@ -107,7 +92,7 @@ lidar_point median(vector<lidar_point> points){
 		return nah;  // Undefined, really.
 	}else{
 		sort(points.begin(), points.end(), heightsort);
-		return points[size / 2];
+		return points[size/2];
 	}
 }
 
@@ -126,48 +111,16 @@ void send_points(vector<lidar_point> points){
 		msgs.push_back(tmp);
 	}
 	actor_person_following::Lidar_Points points_msg;
+	points_msg.header = cur_header;
 	points_msg.points = msgs;
+	points_msg.max_distance = rmax;
+	points_msg.xmin = xmin;
+	points_msg.xmax = xmax;
+	points_msg.ymin = ymin;
+	points_msg.ymax = ymax;
+	points_msg.zmin = zmin;
+	points_msg.zmax = zmax;
 	point_pub.publish(points_msg);
-}
-
-void render_image(){
-	if(!got_image) return;
-	float xybound = max(xmax, ymax);
-	vector<lidar_point> sorted = lidar_points;
-	sort(sorted.begin(), sorted.end(), distsort);
-	cv::Mat image_mat = src_image;
-	for(lidar_point point : sorted){
-		float rs = point.distance/rmax;
-
-		float xs = (point.x + xybound)/(2*xybound);
-		float ys = (point.y + xybound)/(2*xybound);
-		float zs = (point.z - min_height)/(max_height - min_height);
-
-		if(0 <= point.fx && point.fx <= 1 && 
-			0 <= point.fy && point.fy <= 1 && 
-			min_radius <= point.distance && point.distance <= max_radius && 
-			min_height <= point.z && point.z <= max_height) {
-
-			//image_mat((1 - zs)*(image_rows - 1), (1 - ac)*(image_cols - 1)) = 255*(1 - rs*rs);
-			cv::Point circle_center(point.fx*(image_cols - 1), point.fy*(image_rows - 1));
-			//cv::Point circle_center(xs*(image_cols - 1), ys*(image_rows - 1));
-			int strength = 255*(1 - rs*rs);
-			//int strength = point.z == min_height ? 255 : 255*(1 - zs);
-			int rad = 5*(1 - rs*rs);
-			cv::circle(image_mat, circle_center, rad, cv::Scalar(strength, strength, strength), cv::FILLED);
-		}
-	}
-
-	sensor_msgs::ImagePtr image_msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", image_mat).toImageMsg();
-	image_pub.publish(image_msg);
-}
-
-void image_callback(const sensor_msgs::Image::ConstPtr& image_msg){
-	cv_bridge::CvImageConstPtr target_img_ptr = cv_bridge::toCvShare(image_msg, sensor_msgs::image_encodings::BGR8);
-	src_image = target_img_ptr->image;
-	image_rows = src_image.rows;
-	image_cols = src_image.cols;
-	got_image = true;
 }
 
 void lidar_callback(const sensor_msgs::PointCloud2::ConstPtr& lidar_msg){
@@ -208,8 +161,8 @@ void lidar_callback(const sensor_msgs::PointCloud2::ConstPtr& lidar_msg){
 	}
 
 	lidar_points = filled;
+	cur_header = lidar_msg->header;
 	send_points(filled);
-	if(got_image){ render_image(); }
 
 	// Log
 	ROS_INFO("New Frame:");
@@ -232,9 +185,7 @@ int main(int argc, char* argv[])
 	//Initialize and set up ROS
 	ros::init(argc, argv, "lidar");
 	ros::NodeHandle nh("~");
-	image_transport::ImageTransport it(nh);
 
-	string source_image_topic = "/camera/image_raw";
 	center_yaw = -PI/3;
 	hfov = PI/3;
 	frame_z0 = 0;
@@ -252,7 +203,6 @@ int main(int argc, char* argv[])
 	camera_y = 0;
 	camera_z = 0;
 
-	nh.getParam("/lidar_node/source_image_topic", source_image_topic);
 	nh.getParam("/lidar_node/center_yaw", center_yaw);
 	nh.getParam("/lidar_node/hfov", hfov);
 	nh.getParam("/lidar_node/frame_top", frame_z1);
@@ -269,8 +219,6 @@ int main(int argc, char* argv[])
 	nh.getParam("/lidar_node/camera_x", camera_x);
 	nh.getParam("/lidar_node/camera_y", camera_y);
 	nh.getParam("/lidar_node/camera_z", camera_z);
-	//hfov = 2*PI;
-	//vfov = PI;
 
 	xmin = 0;
 	xmax = 0;
@@ -280,14 +228,8 @@ int main(int argc, char* argv[])
 	zmax = 0;
 	rmax = 0;
 
-	image_rows = 768;
-	image_cols = 1028;
-	got_image = false;
-
 	lidar_sub = nh.subscribe("/velodyne_points", 10, lidar_callback);
-	image_sub = nh.subscribe(source_image_topic, 10, image_callback);
 	point_pub = nh.advertise<actor_person_following::Lidar_Points>("/follower/lidar_points", 1000);
-	image_pub = it.advertise("/follower/lidar_image", 1);
 
 	ros::spin();
 }

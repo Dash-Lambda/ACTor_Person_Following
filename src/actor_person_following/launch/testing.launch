@@ -71,11 +71,12 @@
 
 	<!-- PERSON DETECTOR -->
   <node pkg="actor_person_following" type="lidar_node" name="lidar_node" output="screen">
-    <param name="center_yaw" type="double" value="-1.1471975512" />
-    <param name="hfov" type="double" value="1.0471975512" />
+    <!--<param name="center_yaw" type="double" value="-1.1471975512" />-->
+    <param name="center_yaw" type="double" value="-1.25" />
+    <param name="hfov" type="double" value="1.15366" />
 
     <param name="center_pitch" type="double" value="-0.08" />
-    <param name="vfov" type="double" value="0.8" />
+    <param name="vfov" type="double" value="0.886627" />
 
     <param name="frame_top" type="double" value="3.1415" />
     <param name="frame_bottom" type="double" value="0" />
@@ -87,7 +88,7 @@
     <param name="zero_height" type="double" value="-1.213" />
 
     <param name="camera_x" type="double" value="0" />
-    <param name="camera_y" type="double" value="0.025" />
+    <param name="camera_y" type="double" value="-0.1" />
     <param name="camera_z" type="double" value="1" />
 
     <param name="y_roll" type="double" value="0.00596964" />
@@ -96,7 +97,7 @@
   <node name="detection_image_viewer_node" pkg="actor_person_following" type="detection_image_viewer_node" >
     <param name="show_image" type="boolean" value="false" />
     <param name="flip_image" type="boolean" value="false" />
-    <param name="detection_image_topic" type="string" value="/follower/lidar_image" />
+    <param name="detection_image_topic" type="string" value="/camera/image_raw" />
 
     <param name="enable_aruco" type="boolean" value="$(arg enable_aruco)" />
     <param name="enable_color" type="boolean" value="$(arg enable_color)" />
@@ -138,7 +139,7 @@
     <param name="disp_rgb_topic" type="string" value="/display/text/color" />
 
     <param name="target_distance" type="double" value="8" />
-    <param name="deadzone" type="double" value="1" />
+    <param name="deadzone" type="double" value="2" />
     <param name="start_active" type="boolean" value="true" />
     <param name="stop_thresh" type="double" value="3" />
     <param name="speed" type="double" value="0.7" />

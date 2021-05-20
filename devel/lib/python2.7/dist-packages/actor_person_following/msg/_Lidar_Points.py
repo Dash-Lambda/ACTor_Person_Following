@@ -10,11 +10,19 @@ import actor_person_following.msg
 import std_msgs.msg
 
 class Lidar_Points(genpy.Message):
-  _md5sum = "de4f8b3ea313926cde16960ae9499759"
+  _md5sum = "07597cb25cd3fee3a74bcea7ddf36338"
   _type = "actor_person_following/Lidar_Points"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """Header header
 Lidar_Point[] points
+
+float64 max_distance
+float64 xmin
+float64 xmax
+float64 ymin
+float64 ymax
+float64 zmin
+float64 zmax
 
 ================================================================================
 MSG: std_msgs/Header
@@ -47,8 +55,8 @@ float64 yaw
 float64 frame_x
 float64 frame_y
 """
-  __slots__ = ['header','points']
-  _slot_types = ['std_msgs/Header','actor_person_following/Lidar_Point[]']
+  __slots__ = ['header','points','max_distance','xmin','xmax','ymin','ymax','zmin','zmax']
+  _slot_types = ['std_msgs/Header','actor_person_following/Lidar_Point[]','float64','float64','float64','float64','float64','float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -58,7 +66,7 @@ float64 frame_y
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,points
+       header,points,max_distance,xmin,xmax,ymin,ymax,zmin,zmax
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -71,9 +79,30 @@ float64 frame_y
         self.header = std_msgs.msg.Header()
       if self.points is None:
         self.points = []
+      if self.max_distance is None:
+        self.max_distance = 0.
+      if self.xmin is None:
+        self.xmin = 0.
+      if self.xmax is None:
+        self.xmax = 0.
+      if self.ymin is None:
+        self.ymin = 0.
+      if self.ymax is None:
+        self.ymax = 0.
+      if self.zmin is None:
+        self.zmin = 0.
+      if self.zmax is None:
+        self.zmax = 0.
     else:
       self.header = std_msgs.msg.Header()
       self.points = []
+      self.max_distance = 0.
+      self.xmin = 0.
+      self.xmax = 0.
+      self.ymin = 0.
+      self.ymax = 0.
+      self.zmin = 0.
+      self.zmax = 0.
 
   def _get_types(self):
     """
@@ -100,6 +129,8 @@ float64 frame_y
       for val1 in self.points:
         _x = val1
         buff.write(_get_struct_8d().pack(_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y))
+      _x = self
+      buff.write(_get_struct_7d().pack(_x.max_distance, _x.xmin, _x.xmax, _x.ymin, _x.ymax, _x.zmin, _x.zmax))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -139,6 +170,10 @@ float64 frame_y
         end += 64
         (_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y,) = _get_struct_8d().unpack(str[start:end])
         self.points.append(val1)
+      _x = self
+      start = end
+      end += 56
+      (_x.max_distance, _x.xmin, _x.xmax, _x.ymin, _x.ymax, _x.zmin, _x.zmax,) = _get_struct_7d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -164,6 +199,8 @@ float64 frame_y
       for val1 in self.points:
         _x = val1
         buff.write(_get_struct_8d().pack(_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y))
+      _x = self
+      buff.write(_get_struct_7d().pack(_x.max_distance, _x.xmin, _x.xmax, _x.ymin, _x.ymax, _x.zmin, _x.zmax))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -204,6 +241,10 @@ float64 frame_y
         end += 64
         (_x.x, _x.y, _x.z, _x.distance, _x.pitch, _x.yaw, _x.frame_x, _x.frame_y,) = _get_struct_8d().unpack(str[start:end])
         self.points.append(val1)
+      _x = self
+      start = end
+      end += 56
+      (_x.max_distance, _x.xmin, _x.xmax, _x.ymin, _x.ymax, _x.zmin, _x.zmax,) = _get_struct_7d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -218,6 +259,12 @@ def _get_struct_3I():
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
+_struct_7d = None
+def _get_struct_7d():
+    global _struct_7d
+    if _struct_7d is None:
+        _struct_7d = struct.Struct("<7d")
+    return _struct_7d
 _struct_8d = None
 def _get_struct_8d():
     global _struct_8d
