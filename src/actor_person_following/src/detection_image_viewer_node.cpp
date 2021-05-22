@@ -33,9 +33,11 @@ int waitkey_delay, line_spacing, buffer_size;
 
 //Running Variables
 //cv_bridge::CvImageConstPtr cur_img_ptr;
+std_msgs::Header target_header;
 cv::Mat src_image, image;
+vector<actor_person_following::Detections> detection_buffer;
 actor_person_following::Detections detections;
-bool stale_image, made_image, image_exists, image_found, in_sync;
+bool stale_image, made_image, image_exists, image_found, in_sync, detections_found;
 string cur_status;
 cv::Size status_size;
 vector<sensor_msgs::Image::ConstPtr> image_buffer;
@@ -57,7 +59,7 @@ void set_image(){
 	long min_diff = -1;
 	int min_ind = -1;
 	for(int i = 0; i < image_buffer.size(); i++){
-		long diff = abs((image_buffer[i]->header.stamp - detections.image_header.stamp).toNSec());
+		long diff = abs((image_buffer[i]->header.stamp - target_header.stamp).toNSec());
 		if(diff < min_diff || min_diff < 0){
 			min_diff = diff;
 			min_ind = i;
@@ -78,7 +80,7 @@ void set_lidar(){
 	long min_diff = -1;
 	int min_ind = -1;
 	for(int i = 0; i < lidar_buffer.size(); i++){
-		long diff = abs((lidar_buffer[i].header.stamp - detections.image_header.stamp).toNSec());
+		long diff = abs((lidar_buffer[i].header.stamp - target_header.stamp).toNSec());
 		if(diff < min_diff || min_diff < 0){
 			min_diff = diff;
 			min_ind = i;
@@ -93,10 +95,29 @@ void set_lidar(){
 	}
 }
 
+void set_detections(){
+	long min_diff = -1;
+	int min_ind = -1;
+	for(int i = 0; i < detection_buffer.size(); i++){
+		long diff = abs((detection_buffer[i].header.stamp - target_header.stamp).toNSec());
+		if(diff < min_diff || min_diff < 0){
+			min_diff = diff;
+			min_ind = i;
+		}
+	}
+	if(min_ind >= 0){
+		detections = detection_buffer[min_ind];
+		detections_found = true;
+		return;
+	}else{
+		detections_found = false;
+	}
+}
+
 void render_image(){	
 	image = src_image;
 
-	if(lidar_found){
+	if(lidar_found){ //Disabled to diagnose a delay
 		for(actor_person_following::Lidar_Point point : lidar_points.points){
 			float rs = point.distance/lidar_points.max_distance;
 
@@ -111,7 +132,7 @@ void render_image(){
 		}
 	}
 
-	if(detections.num_detects > 0){
+	if(detections_found && lidar_found && detections.num_detects > 0){
 		for(int i = 0; i < detections.num_detects; i++){
 			int line_height = 0;
 			actor_person_following::Detection det = detections.detections[i];
@@ -123,11 +144,11 @@ void render_image(){
 			line_height = write_line(image, to_string(i), label_pos, cv::Scalar(255, 255, 0));
 			label_pos = label_pos + cv::Point(0, line_height + line_spacing);
 
-			line_height = write_line(image, to_string(det.lidar_point.distance), label_pos, cv::Scalar(0, 0, 255));
+			line_height = write_line(image, to_string(det.lidar_point.distance), label_pos, cv::Scalar(0, 255, 0));
 			label_pos = label_pos + cv::Point(0, line_height + line_spacing);
 			
 			cv::Point lidar_circle_center(det.lidar_point.frame_x*(image.cols - 1), det.lidar_point.frame_y*(image.rows - 1));
-			cv::circle(image, lidar_circle_center, 5*(1 - sqrt(det.lidar_point.distance/lidar_points.max_distance)), cv::Scalar(0, 0, 255), cv::FILLED);
+			cv::circle(image, lidar_circle_center, 5*(1 - sqrt(det.lidar_point.distance/lidar_points.max_distance)), cv::Scalar(0, 255, 0), cv::FILLED);
 
 			if(enable_closest && detections.close_target == i){
 				line_height = write_line(image, "CLOSE_TARGET", label_pos, cv::Scalar(0, 0, 255));
@@ -142,7 +163,7 @@ void render_image(){
 		//imshow(window_name, image);
 		//cv::waitKey(waitkey_delay);
 	}
-	if(enable_aruco){
+	if(enable_aruco && detections_found){
 		if(detections.aruco_visible){
 			for(int i = 0; i < detections.aruco_points.size(); i++){
 				perception_msgs::PointInImage p1 = detections.aruco_points[i];
@@ -171,8 +192,10 @@ void send_image(){
 }
 
 void detection_report_callback(const actor_person_following::Detections& detections_msg){
-	detections = detections_msg;
-	stale_image = true;
+	//detections = detections_msg;
+	//stale_image = true;
+	detection_buffer.insert(detection_buffer.begin(), detections_msg);
+	if(detection_buffer.size() > buffer_size){ detection_buffer.resize(buffer_size); }
 }
 
 void lidar_callback(const actor_person_following::Lidar_Points& lidar_msg){
@@ -181,9 +204,12 @@ void lidar_callback(const actor_person_following::Lidar_Points& lidar_msg){
 }
 
 void detection_image_callback(const sensor_msgs::Image::ConstPtr& img_msg){
-	//cv_bridge::CvImageConstPtr target_img_ptr = cv_bridge::toCvShare(img_msg, sensor_msgs::image_encodings::BGR8);
-	image_buffer.insert(image_buffer.begin(), img_msg);
-	if(image_buffer.size() > buffer_size){ image_buffer.resize(buffer_size); }
+	cv_bridge::CvImageConstPtr target_img_ptr = cv_bridge::toCvShare(img_msg, sensor_msgs::image_encodings::BGR8);
+	target_header = img_msg->header;
+	src_image = target_img_ptr->image;
+	//image_buffer.insert(image_buffer.begin(), img_msg);
+	//if(image_buffer.size() > buffer_size){ image_buffer.resize(buffer_size); }
+	image_found = true;
 	stale_image = true;
 }
 
@@ -244,7 +270,8 @@ int main(int argc, char* argv[]) //Make this work with a constant rate loop, det
 
 	ros::Rate r(30);
 	while(ros::ok()){
-		set_image();
+		//set_image();
+		set_detections();
 		set_lidar();
 		if(stale_image && image_found){ render_image(); }
 		if(made_image){ send_image(); }

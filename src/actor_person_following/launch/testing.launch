@@ -1,9 +1,9 @@
 <launch>
 	<!-- ARGS -->
   <arg name="cam_source_topic" default="/camera/image_raw" />
-  <arg name="enable_aruco" default="false" />
+  <arg name="enable_aruco" default="true" />
   <arg name="enable_color" default="false" />
-  <arg name="enable_closest" default="true" />
+  <arg name="enable_closest" default="false" />
 
 	<!-- DARKNET YOLO -->
 
@@ -71,8 +71,8 @@
 
 	<!-- PERSON DETECTOR -->
   <node pkg="actor_person_following" type="lidar_node" name="lidar_node" output="screen">
-    <!--<param name="center_yaw" type="double" value="-1.1471975512" />-->
-    <param name="center_yaw" type="double" value="-1.25" />
+    <param name="center_yaw" type="double" value="-1.1271975512" />
+    <!--<param name="center_yaw" type="double" value="-1.25" />-->
     <param name="hfov" type="double" value="1.15366" />
 
     <param name="center_pitch" type="double" value="-0.08" />
@@ -114,7 +114,7 @@
     <param name="sat_adj" type="double" value="3" />
 
     <param name="aruco_topic" type="string" value="/aruco_eye/aruco_observation" />
-    <param name="aruco_target" type="string" value="123" />
+    <param name="aruco_target" type="string" value="101" />
 
     <param name="color_target_r" type="int" value="2" />
     <param name="color_target_g" type="int" value="2" />
@@ -138,7 +138,7 @@
     <param name="disp_msg_topic" type="string" value="/display/text/msg" />
     <param name="disp_rgb_topic" type="string" value="/display/text/color" />
 
-    <param name="target_distance" type="double" value="8" />
+    <param name="target_distance" type="double" value="6" />
     <param name="deadzone" type="double" value="2" />
     <param name="start_active" type="boolean" value="true" />
     <param name="stop_thresh" type="double" value="3" />
