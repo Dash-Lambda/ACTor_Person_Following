@@ -96,6 +96,27 @@ ros::message_operations::Printer< ::actor_person_following::Lidar_Point_<Contain
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::actor_person_following::Lidar_Point_<ContainerAllocator1> & lhs, const ::actor_person_following::Lidar_Point_<ContainerAllocator2> & rhs)
+{
+  return lhs.x == rhs.x &&
+    lhs.y == rhs.y &&
+    lhs.z == rhs.z &&
+    lhs.distance == rhs.distance &&
+    lhs.pitch == rhs.pitch &&
+    lhs.yaw == rhs.yaw &&
+    lhs.frame_x == rhs.frame_x &&
+    lhs.frame_y == rhs.frame_y;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::actor_person_following::Lidar_Point_<ContainerAllocator1> & lhs, const ::actor_person_following::Lidar_Point_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace actor_person_following
 
 namespace ros
@@ -105,23 +126,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'actor_person_following': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'perception_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg'], 'darknet_ros_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg', '/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/darknet_ros_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::actor_person_following::Lidar_Point_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::actor_person_following::Lidar_Point_<ContainerAllocator> const>
-  : TrueType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::actor_person_following::Lidar_Point_<ContainerAllocator> >
@@ -130,6 +135,16 @@ struct IsMessage< ::actor_person_following::Lidar_Point_<ContainerAllocator> >
 
 template <class ContainerAllocator>
 struct IsMessage< ::actor_person_following::Lidar_Point_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::actor_person_following::Lidar_Point_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::actor_person_following::Lidar_Point_<ContainerAllocator> const>
   : TrueType
   { };
 
@@ -173,17 +188,17 @@ struct Definition< ::actor_person_following::Lidar_Point_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 x\n\
-float64 y\n\
-float64 z\n\
-\n\
-float64 distance\n\
-float64 pitch\n\
-float64 yaw\n\
-\n\
-float64 frame_x\n\
-float64 frame_y\n\
-";
+    return "float64 x\n"
+"float64 y\n"
+"float64 z\n"
+"\n"
+"float64 distance\n"
+"float64 pitch\n"
+"float64 yaw\n"
+"\n"
+"float64 frame_x\n"
+"float64 frame_y\n"
+;
   }
 
   static const char* value(const ::actor_person_following::Lidar_Point_<ContainerAllocator>&) { return value(); }

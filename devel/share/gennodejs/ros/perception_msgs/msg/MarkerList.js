@@ -82,7 +82,7 @@ class MarkerList {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    length += object.imageTopicName.length;
+    length += _getByteLength(object.imageTopicName);
     object.markers.forEach((val) => {
       length += Marker.getMessageSize(val);
     });
@@ -125,8 +125,6 @@ class MarkerList {
     # time-handling sugar is provided by the client library
     time stamp
     #Frame this data is associated with
-    # 0: no frame
-    # 1: global frame
     string frame_id
     
     ================================================================================

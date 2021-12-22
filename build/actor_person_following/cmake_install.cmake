@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following
+# Install script for directory: /home/actor1/ACTor_Person_Following/src/actor_person_following
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
+  set(CMAKE_INSTALL_PREFIX "/home/actor1/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,59 +32,66 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following/msg" TYPE FILE FILES
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
+    "/home/actor1/ACTor_Person_Following/src/actor_person_following/msg/Detection.msg"
+    "/home/actor1/ACTor_Person_Following/src/actor_person_following/msg/Detections.msg"
+    "/home/actor1/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Point.msg"
+    "/home/actor1/ACTor_Person_Following/src/actor_person_following/msg/Lidar_Points.msg"
+    "/home/actor1/ACTor_Person_Following/src/actor_person_following/msg/Pose_Point.msg"
+    "/home/actor1/ACTor_Person_Following/src/actor_person_following/msg/Pose_Points.msg"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following/cmake" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_following-msg-paths.cmake")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following/cmake" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_following-msg-paths.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/actor_person_following")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/include/actor_person_following")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/roseus/ros/actor_person_following")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/share/roseus/ros/actor_person_following")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/common-lisp/ros/actor_person_following")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/share/common-lisp/ros/actor_person_following")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/actor_person_following")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/share/gennodejs/ros/actor_person_following")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/actor_person_following")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/actor1/ACTor_Person_Following/devel/lib/python3/dist-packages/actor_person_following")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/actor_person_following")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/lib/python3/dist-packages/actor_person_following")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_following.pc")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_following.pc")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following/cmake" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_following-msg-extras.cmake")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following/cmake" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_following-msg-extras.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following/cmake" TYPE FILE FILES
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_followingConfig.cmake"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_followingConfig-version.cmake"
+    "/home/actor1/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_followingConfig.cmake"
+    "/home/actor1/ACTor_Person_Following/build/actor_person_following/catkin_generated/installspace/actor_person_followingConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/actor_person_following" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/src/actor_person_following/package.xml")
 endif()
 

@@ -21,6 +21,14 @@
 (intern "*CMD_PERCENT*" (find-package "DBW_POLARIS_MSGS::THROTTLECMD"))
 (shadow '*CMD_PERCENT* (find-package "DBW_POLARIS_MSGS::THROTTLECMD"))
 (defconstant dbw_polaris_msgs::ThrottleCmd::*CMD_PERCENT* 2)
+
+(defun dbw_polaris_msgs::ThrottleCmd-to-symbol (const)
+  (cond
+        ((= const 0) 'dbw_polaris_msgs::ThrottleCmd::*CMD_NONE*)
+        ((= const 1) 'dbw_polaris_msgs::ThrottleCmd::*CMD_PEDAL*)
+        ((= const 2) 'dbw_polaris_msgs::ThrottleCmd::*CMD_PERCENT*)
+        (t nil)))
+
 (defclass dbw_polaris_msgs::ThrottleCmd
   :super ros::object
   :slots (_pedal_cmd _pedal_cmd_type _enable _clear _ignore _count ))
@@ -50,14 +58,14 @@
    (&optional __pedal_cmd_type)
    (if __pedal_cmd_type (setq _pedal_cmd_type __pedal_cmd_type)) _pedal_cmd_type)
   (:enable
-   (&optional __enable)
-   (if __enable (setq _enable __enable)) _enable)
+   (&optional (__enable :null))
+   (if (not (eq __enable :null)) (setq _enable __enable)) _enable)
   (:clear
-   (&optional __clear)
-   (if __clear (setq _clear __clear)) _clear)
+   (&optional (__clear :null))
+   (if (not (eq __clear :null)) (setq _clear __clear)) _clear)
   (:ignore
-   (&optional __ignore)
-   (if __ignore (setq _ignore __ignore)) _ignore)
+   (&optional (__ignore :null))
+   (if (not (eq __ignore :null)) (setq _ignore __ignore)) _ignore)
   (:count
    (&optional __count)
    (if __count (setq _count __count)) _count)

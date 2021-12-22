@@ -58,19 +58,8 @@
   <arg name="aruco_list_topic_name" 	default="aruco_eye/aruco_observation" />
 
 
-  <node name="$(arg aruco_eye_ros_node_name)" pkg="aruco_eye_ros" type="aruco_eye_ros_detector" output="screen">
-    <param name="aruco_list_file" value="$(arg aruco_list_file)" type="string"/>
-    <param name="camera_calibration_file" value="$(arg camera_calibration_file)" type="string"/>
-    <param name="camera_info_topic_name" value="$(arg camera_info_topic_name)" type="string"/>
-    <param name="aruco_detector_frame_name" value="$(arg aruco_detector_frame_name)" type="string"/>
-    <param name="aruco_marker_child_base_name" value="$(arg aruco_marker_child_base_name)" type="string"/>
-    <param name="image_topic_name" value="$(arg image_topic_name)" type="string"/>
-    <param name="aruco_list_topic_name" value="$(arg aruco_list_topic_name)" type="string"/>
-  </node>
-
-
 	<!-- PERSON DETECTOR -->
-  <node pkg="actor_person_following" type="lidar_node" name="lidar_node" output="screen">
+  <node pkg="actor_person_following" type="lidar_node" name="lidar_node">
     <param name="center_yaw" type="double" value="-1.1271975512" />
     <!--<param name="center_yaw" type="double" value="-1.25" />-->
     <param name="hfov" type="double" value="1.15366" />
@@ -98,6 +87,7 @@
     <param name="show_image" type="boolean" value="false" />
     <param name="flip_image" type="boolean" value="false" />
     <param name="detection_image_topic" type="string" value="/camera/image_raw" />
+    <param name="detection_topic" type="string" value="/follower/detects" />
 
     <param name="enable_aruco" type="boolean" value="$(arg enable_aruco)" />
     <param name="enable_color" type="boolean" value="$(arg enable_color)" />
@@ -105,7 +95,7 @@
 
     <param name="buffer_size" type="int" value="100" />
   </node>
-  <node name="detection_reporter_node" pkg="actor_person_following" type="detection_reporter_node" >
+  <node name="detection_reporter_node" pkg="actor_person_following" type="detection_reporter_node"  output="screen">
     <param name="cam_topic" type="string" value="$(arg cam_source_topic)" />
 
     <param name="color_spot_width" type="int" value="20" />
@@ -127,6 +117,7 @@
     <param name="retarget_timeout" type="double" value="0.5" />
     <param name="aruco_grab_dist" type="double" value="0.5" />
     <param name="distance_expansion" type="double" value="1" />
+    <param name="buffer_size" type="int" value="100" />
   </node>
 
   <node name="stop_for_person_node" pkg="actor_person_following" type="stop_for_person_node" >
@@ -138,8 +129,8 @@
     <param name="disp_msg_topic" type="string" value="/display/text/msg" />
     <param name="disp_rgb_topic" type="string" value="/display/text/color" />
 
-    <param name="target_distance" type="double" value="6" />
-    <param name="deadzone" type="double" value="2" />
+    <param name="target_distance" type="double" value="3" />
+    <param name="deadzone" type="double" value="1" />
     <param name="start_active" type="boolean" value="true" />
     <param name="stop_thresh" type="double" value="3" />
     <param name="speed" type="double" value="0.7" />
@@ -167,4 +158,5 @@
     <param name="cooldown_color" type="string" value="#00FFFF" />
     <param name="error_color" type="string" value="#FF00FF" />
   </node>
+  <node pkg="actor_person_following" type="gesture_injection_node.py" name="gesture_injection_node" output="screen" />
 </launch>

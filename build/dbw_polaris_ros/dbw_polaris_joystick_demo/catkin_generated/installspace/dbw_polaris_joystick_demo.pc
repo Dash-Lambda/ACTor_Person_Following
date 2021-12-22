@@ -1,4 +1,4 @@
-prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/install
+prefix=/home/actor1/ACTor_Person_Following/install
 
 Name: dbw_polaris_joystick_demo
 Description: Description of dbw_polaris_joystick_demo

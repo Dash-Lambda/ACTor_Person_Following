@@ -4,6 +4,7 @@
 (defsystem "actor_person_following-msg"
   :depends-on (:roslisp-msg-protocol :roslisp-utils :darknet_ros_msgs-msg
                :perception_msgs-msg
+               :sensor_msgs-msg
                :std_msgs-msg
 )
   :components ((:file "_package")
@@ -15,4 +16,8 @@
     (:file "_package_Lidar_Point" :depends-on ("_package"))
     (:file "Lidar_Points" :depends-on ("_package_Lidar_Points"))
     (:file "_package_Lidar_Points" :depends-on ("_package"))
+    (:file "Pose_Point" :depends-on ("_package_Pose_Point"))
+    (:file "_package_Pose_Point" :depends-on ("_package"))
+    (:file "Pose_Points" :depends-on ("_package_Pose_Points"))
+    (:file "_package_Pose_Points" :depends-on ("_package"))
   ))

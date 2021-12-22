@@ -104,6 +104,14 @@ struct SteeringReport_
 
 
 
+// reducing the odds to have name collisions with Windows.h 
+#if defined(_WIN32) && defined(CMD_ANGLE)
+  #undef CMD_ANGLE
+#endif
+#if defined(_WIN32) && defined(CMD_TORQUE)
+  #undef CMD_TORQUE
+#endif
+
   enum {
     CMD_ANGLE = 0u,
     CMD_TORQUE = 1u,
@@ -135,6 +143,33 @@ ros::message_operations::Printer< ::dbw_polaris_msgs::SteeringReport_<ContainerA
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator2> & rhs)
+{
+  return lhs.header == rhs.header &&
+    lhs.steering_wheel_angle == rhs.steering_wheel_angle &&
+    lhs.steering_wheel_cmd == rhs.steering_wheel_cmd &&
+    lhs.steering_wheel_torque == rhs.steering_wheel_torque &&
+    lhs.steering_wheel_cmd_type == rhs.steering_wheel_cmd_type &&
+    lhs.speed == rhs.speed &&
+    lhs.enabled == rhs.enabled &&
+    lhs.override == rhs.override &&
+    lhs.timeout == rhs.timeout &&
+    lhs.fault_wdc == rhs.fault_wdc &&
+    lhs.fault_bus1 == rhs.fault_bus1 &&
+    lhs.fault_bus2 == rhs.fault_bus2 &&
+    lhs.fault_calibration == rhs.fault_calibration &&
+    lhs.fault_power == rhs.fault_power;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace dbw_polaris_msgs
 
 namespace ros
@@ -144,23 +179,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> >
@@ -170,6 +189,16 @@ struct IsMessage< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -212,53 +241,51 @@ struct Definition< ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "Header header\n\
-\n\
-# Steering Wheel\n\
-float32 steering_wheel_angle      # rad\n\
-float32 steering_wheel_cmd        # rad or Nm\n\
-float32 steering_wheel_torque     # Nm\n\
-uint8 steering_wheel_cmd_type\n\
-\n\
-# Command types\n\
-uint8 CMD_ANGLE=0\n\
-uint8 CMD_TORQUE=1\n\
-\n\
-# Vehicle Speed\n\
-float32 speed                     # m/s\n\
-\n\
-# Status\n\
-bool enabled  # Enabled\n\
-bool override # Driver override\n\
-bool timeout  # Command timeout\n\
-\n\
-# Watchdog Counter\n\
-bool fault_wdc\n\
-\n\
-# Faults\n\
-bool fault_bus1\n\
-bool fault_bus2\n\
-bool fault_calibration\n\
-bool fault_power\n\
-\n\
-================================================================================\n\
-MSG: std_msgs/Header\n\
-# Standard metadata for higher-level stamped data types.\n\
-# This is generally used to communicate timestamped data \n\
-# in a particular coordinate frame.\n\
-# \n\
-# sequence ID: consecutively increasing ID \n\
-uint32 seq\n\
-#Two-integer timestamp that is expressed as:\n\
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n\
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n\
-# time-handling sugar is provided by the client library\n\
-time stamp\n\
-#Frame this data is associated with\n\
-# 0: no frame\n\
-# 1: global frame\n\
-string frame_id\n\
-";
+    return "Header header\n"
+"\n"
+"# Steering Wheel\n"
+"float32 steering_wheel_angle      # rad\n"
+"float32 steering_wheel_cmd        # rad or Nm\n"
+"float32 steering_wheel_torque     # Nm\n"
+"uint8 steering_wheel_cmd_type\n"
+"\n"
+"# Command types\n"
+"uint8 CMD_ANGLE=0\n"
+"uint8 CMD_TORQUE=1\n"
+"\n"
+"# Vehicle Speed\n"
+"float32 speed                     # m/s\n"
+"\n"
+"# Status\n"
+"bool enabled  # Enabled\n"
+"bool override # Driver override\n"
+"bool timeout  # Command timeout\n"
+"\n"
+"# Watchdog Counter\n"
+"bool fault_wdc\n"
+"\n"
+"# Faults\n"
+"bool fault_bus1\n"
+"bool fault_bus2\n"
+"bool fault_calibration\n"
+"bool fault_power\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
+;
   }
 
   static const char* value(const ::dbw_polaris_msgs::SteeringReport_<ContainerAllocator>&) { return value(); }

@@ -38,6 +38,56 @@ struct WatchdogCounter_
 
 
 
+// reducing the odds to have name collisions with Windows.h 
+#if defined(_WIN32) && defined(NONE)
+  #undef NONE
+#endif
+#if defined(_WIN32) && defined(OTHER_BRAKE)
+  #undef OTHER_BRAKE
+#endif
+#if defined(_WIN32) && defined(OTHER_THROTTLE)
+  #undef OTHER_THROTTLE
+#endif
+#if defined(_WIN32) && defined(OTHER_STEERING)
+  #undef OTHER_STEERING
+#endif
+#if defined(_WIN32) && defined(BRAKE_COUNTER)
+  #undef BRAKE_COUNTER
+#endif
+#if defined(_WIN32) && defined(BRAKE_DISABLED)
+  #undef BRAKE_DISABLED
+#endif
+#if defined(_WIN32) && defined(BRAKE_COMMAND)
+  #undef BRAKE_COMMAND
+#endif
+#if defined(_WIN32) && defined(BRAKE_REPORT)
+  #undef BRAKE_REPORT
+#endif
+#if defined(_WIN32) && defined(THROTTLE_COUNTER)
+  #undef THROTTLE_COUNTER
+#endif
+#if defined(_WIN32) && defined(THROTTLE_DISABLED)
+  #undef THROTTLE_DISABLED
+#endif
+#if defined(_WIN32) && defined(THROTTLE_COMMAND)
+  #undef THROTTLE_COMMAND
+#endif
+#if defined(_WIN32) && defined(THROTTLE_REPORT)
+  #undef THROTTLE_REPORT
+#endif
+#if defined(_WIN32) && defined(STEERING_COUNTER)
+  #undef STEERING_COUNTER
+#endif
+#if defined(_WIN32) && defined(STEERING_DISABLED)
+  #undef STEERING_DISABLED
+#endif
+#if defined(_WIN32) && defined(STEERING_COMMAND)
+  #undef STEERING_COMMAND
+#endif
+#if defined(_WIN32) && defined(STEERING_REPORT)
+  #undef STEERING_REPORT
+#endif
+
   enum {
     NONE = 0u,
     OTHER_BRAKE = 1u,
@@ -111,6 +161,20 @@ ros::message_operations::Printer< ::dbw_polaris_msgs::WatchdogCounter_<Container
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator2> & rhs)
+{
+  return lhs.source == rhs.source;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace dbw_polaris_msgs
 
 namespace ros
@@ -120,23 +184,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> const>
-  : TrueType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> >
@@ -145,6 +193,16 @@ struct IsMessage< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> >
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> const>
   : TrueType
   { };
 
@@ -188,25 +246,25 @@ struct Definition< ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "uint8 source\n\
-\n\
-uint8 NONE=0               # No source for watchdog counter fault\n\
-uint8 OTHER_BRAKE=1        # Fault determined by brake controller\n\
-uint8 OTHER_THROTTLE=2     # Fault determined by throttle controller\n\
-uint8 OTHER_STEERING=3     # Fault determined by steering controller\n\
-uint8 BRAKE_COUNTER=4      # Brake command counter failed to increment\n\
-uint8 BRAKE_DISABLED=5     # Brake transition to disabled while in gear or moving\n\
-uint8 BRAKE_COMMAND=6      # Brake command timeout after 100ms\n\
-uint8 BRAKE_REPORT=7       # Brake report timeout after 100ms\n\
-uint8 THROTTLE_COUNTER=8   # Throttle command counter failed to increment\n\
-uint8 THROTTLE_DISABLED=9  # Throttle transition to disabled while in gear or moving\n\
-uint8 THROTTLE_COMMAND=10  # Throttle command timeout after 100ms\n\
-uint8 THROTTLE_REPORT=11   # Throttle report timeout after 100ms\n\
-uint8 STEERING_COUNTER=12  # Steering command counter failed to increment\n\
-uint8 STEERING_DISABLED=13 # Steering transition to disabled while in gear or moving\n\
-uint8 STEERING_COMMAND=14  # Steering command timeout after 100ms\n\
-uint8 STEERING_REPORT=15   # Steering report timeout after 100ms\n\
-";
+    return "uint8 source\n"
+"\n"
+"uint8 NONE=0               # No source for watchdog counter fault\n"
+"uint8 OTHER_BRAKE=1        # Fault determined by brake controller\n"
+"uint8 OTHER_THROTTLE=2     # Fault determined by throttle controller\n"
+"uint8 OTHER_STEERING=3     # Fault determined by steering controller\n"
+"uint8 BRAKE_COUNTER=4      # Brake command counter failed to increment\n"
+"uint8 BRAKE_DISABLED=5     # Brake transition to disabled while in gear or moving\n"
+"uint8 BRAKE_COMMAND=6      # Brake command timeout after 100ms\n"
+"uint8 BRAKE_REPORT=7       # Brake report timeout after 100ms\n"
+"uint8 THROTTLE_COUNTER=8   # Throttle command counter failed to increment\n"
+"uint8 THROTTLE_DISABLED=9  # Throttle transition to disabled while in gear or moving\n"
+"uint8 THROTTLE_COMMAND=10  # Throttle command timeout after 100ms\n"
+"uint8 THROTTLE_REPORT=11   # Throttle report timeout after 100ms\n"
+"uint8 STEERING_COUNTER=12  # Steering command counter failed to increment\n"
+"uint8 STEERING_DISABLED=13 # Steering transition to disabled while in gear or moving\n"
+"uint8 STEERING_COMMAND=14  # Steering command timeout after 100ms\n"
+"uint8 STEERING_REPORT=15   # Steering report timeout after 100ms\n"
+;
   }
 
   static const char* value(const ::dbw_polaris_msgs::WatchdogCounter_<ContainerAllocator>&) { return value(); }

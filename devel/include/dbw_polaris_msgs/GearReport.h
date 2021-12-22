@@ -90,6 +90,25 @@ ros::message_operations::Printer< ::dbw_polaris_msgs::GearReport_<ContainerAlloc
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::dbw_polaris_msgs::GearReport_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::GearReport_<ContainerAllocator2> & rhs)
+{
+  return lhs.header == rhs.header &&
+    lhs.state == rhs.state &&
+    lhs.cmd == rhs.cmd &&
+    lhs.reject == rhs.reject &&
+    lhs.override == rhs.override &&
+    lhs.fault_bus == rhs.fault_bus;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::dbw_polaris_msgs::GearReport_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::GearReport_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace dbw_polaris_msgs
 
 namespace ros
@@ -99,23 +118,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> >
@@ -125,6 +128,16 @@ struct IsMessage< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -167,64 +180,62 @@ struct Definition< ::dbw_polaris_msgs::GearReport_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "Header header\n\
-\n\
-# Current gear enumeration\n\
-Gear state\n\
-\n\
-# Gear command enumeration\n\
-Gear cmd\n\
-\n\
-# Gear reject enumeration\n\
-GearReject reject\n\
-\n\
-# Status\n\
-bool override\n\
-\n\
-# Faults\n\
-bool fault_bus\n\
-\n\
-================================================================================\n\
-MSG: std_msgs/Header\n\
-# Standard metadata for higher-level stamped data types.\n\
-# This is generally used to communicate timestamped data \n\
-# in a particular coordinate frame.\n\
-# \n\
-# sequence ID: consecutively increasing ID \n\
-uint32 seq\n\
-#Two-integer timestamp that is expressed as:\n\
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n\
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n\
-# time-handling sugar is provided by the client library\n\
-time stamp\n\
-#Frame this data is associated with\n\
-# 0: no frame\n\
-# 1: global frame\n\
-string frame_id\n\
-\n\
-================================================================================\n\
-MSG: dbw_polaris_msgs/Gear\n\
-uint8 gear\n\
-\n\
-uint8 NONE=0\n\
-uint8 PARK=1\n\
-uint8 REVERSE=2\n\
-uint8 NEUTRAL=3\n\
-uint8 DRIVE=4\n\
-uint8 LOW=5\n\
-\n\
-================================================================================\n\
-MSG: dbw_polaris_msgs/GearReject\n\
-uint8 value\n\
-\n\
-uint8 NONE=0              # Not rejected\n\
-uint8 SHIFT_IN_PROGRESS=1 # Shift in progress\n\
-uint8 OVERRIDE=2          # Override on brake, throttle, or steering\n\
-uint8 NEUTRAL=3           # Manually shift to neutral before auto-shift\n\
-uint8 VEHICLE=5           # Rejected by vehicle (try pressing the brakes)\n\
-uint8 UNSUPPORTED=6       # Unsupported gear command\n\
-uint8 FAULT=7             # System in fault state\n\
-";
+    return "Header header\n"
+"\n"
+"# Current gear enumeration\n"
+"Gear state\n"
+"\n"
+"# Gear command enumeration\n"
+"Gear cmd\n"
+"\n"
+"# Gear reject enumeration\n"
+"GearReject reject\n"
+"\n"
+"# Status\n"
+"bool override\n"
+"\n"
+"# Faults\n"
+"bool fault_bus\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
+"\n"
+"================================================================================\n"
+"MSG: dbw_polaris_msgs/Gear\n"
+"uint8 gear\n"
+"\n"
+"uint8 NONE=0\n"
+"uint8 PARK=1\n"
+"uint8 REVERSE=2\n"
+"uint8 NEUTRAL=3\n"
+"uint8 DRIVE=4\n"
+"uint8 LOW=5\n"
+"\n"
+"================================================================================\n"
+"MSG: dbw_polaris_msgs/GearReject\n"
+"uint8 value\n"
+"\n"
+"uint8 NONE=0              # Not rejected\n"
+"uint8 SHIFT_IN_PROGRESS=1 # Shift in progress\n"
+"uint8 OVERRIDE=2          # Override on brake, throttle, or steering\n"
+"uint8 NEUTRAL=3           # Manually shift to neutral before auto-shift\n"
+"uint8 VEHICLE=5           # Rejected by vehicle (try pressing the brakes)\n"
+"uint8 UNSUPPORTED=6       # Unsupported gear command\n"
+"uint8 FAULT=7             # System in fault state\n"
+;
   }
 
   static const char* value(const ::dbw_polaris_msgs::GearReport_<ContainerAllocator>&) { return value(); }

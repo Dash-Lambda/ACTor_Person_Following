@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Software License Agreement (BSD License)
@@ -62,7 +62,7 @@ ENV_VAR_SUBFOLDERS = {
     'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os.path.join('lib', 'x86_64-linux-gnu')],
     'PATH': PATH_TO_ADD_SUFFIX,
     'PKG_CONFIG_PATH': [os.path.join('lib', 'pkgconfig'), os.path.join('lib', 'x86_64-linux-gnu', 'pkgconfig')],
-    'PYTHONPATH': 'lib/python2.7/dist-packages',
+    'PYTHONPATH': 'lib/python3/dist-packages',
 }
 
 
@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = r'/home/mpleune/lfa_ws/ACTor_Person_Following/devel;/home/mpleune/LTU-Actor/devel_isolated/sign_detection;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_vehicle_gem;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_gpio;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_estop_loop;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_obstacle;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_blob;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_inputprocess_camadjust;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_graph;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_estop;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_core;/home/mpleune/LTU-Actor/devel_isolated/image_proc;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_example;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_controller;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_joystick_demo;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_can;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_msgs;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem;/home/mpleune/LTU-Actor/devel_isolated/camera_calibration;/home/mpleune/LTU-Actor/devel_isolated/avt_vimba_camera;/home/mpleune/LTU-Actor/devel_isolated/adap_parameter;/opt/ros/kinetic'.split(';')
+            CMAKE_PREFIX_PATH = r'/home/actor1/ACTor_Person_Following/devel;/home/actor1/actor_ws/devel;/opt/ros/noetic'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

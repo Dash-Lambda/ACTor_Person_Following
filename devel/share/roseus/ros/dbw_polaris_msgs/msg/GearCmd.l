@@ -34,8 +34,8 @@
        (if __cmd (setq _cmd (car __cmd)))
        _cmd)))
   (:clear
-   (&optional __clear)
-   (if __clear (setq _clear __clear)) _clear)
+   (&optional (__clear :null))
+   (if (not (eq __clear :null)) (setq _clear __clear)) _clear)
   (:serialization-length
    ()
    (+

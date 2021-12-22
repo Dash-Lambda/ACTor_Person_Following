@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs
+# Install script for directory: /home/actor1/ACTor_Person_Following/src/robot_component_srvs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
+  set(CMAKE_INSTALL_PREFIX "/home/actor1/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,54 +32,59 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs/srv" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs/cmake" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvs-msg-paths.cmake")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs/srv" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/include/robot_component_srvs")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs/cmake" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvs-msg-paths.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/roseus/ros/robot_component_srvs")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/include/robot_component_srvs")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/common-lisp/ros/robot_component_srvs")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/share/roseus/ros/robot_component_srvs")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/robot_component_srvs")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/share/common-lisp/ros/robot_component_srvs")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/robot_component_srvs")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/share/gennodejs/ros/robot_component_srvs")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/robot_component_srvs")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/actor1/ACTor_Person_Following/devel/lib/python3/dist-packages/robot_component_srvs")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvs.pc")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/devel/lib/python3/dist-packages/robot_component_srvs")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs/cmake" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvs-msg-extras.cmake")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvs.pc")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs/cmake" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvs-msg-extras.cmake")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs/cmake" TYPE FILE FILES
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvsConfig.cmake"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvsConfig-version.cmake"
+    "/home/actor1/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvsConfig.cmake"
+    "/home/actor1/ACTor_Person_Following/build/robot_component_srvs/catkin_generated/installspace/robot_component_srvsConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_component_srvs" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/package.xml")
 endif()
 

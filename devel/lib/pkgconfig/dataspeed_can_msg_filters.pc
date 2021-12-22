@@ -1,8 +1,8 @@
-prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/devel
+prefix=/home/actor1/ACTor_Person_Following/devel
 
 Name: dataspeed_can_msg_filters
 Description: Description of dataspeed_can_msg_filters
 Version: 1.0.16
-Cflags: -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_msg_filters/include
+Cflags: -I/home/actor1/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_msg_filters/include
 Libs: -L${prefix}/lib 
 Requires: roscpp can_msgs

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/actor1/ACTor_Person_Following/devel/lib/dbw_polaris_can/dbw_polaris_can_test_platform_map"
+  "/home/actor1/ACTor_Person_Following/devel/lib/dbw_polaris_can/dbw_polaris_can_test_platform_map.pdb"
   "CMakeFiles/dbw_polaris_can_test_platform_map.dir/test_platform_map.cpp.o"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dbw_polaris_can/dbw_polaris_can_test_platform_map.pdb"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dbw_polaris_can/dbw_polaris_can_test_platform_map"
 )
 
 # Per-language clean rules from dependency scanning.

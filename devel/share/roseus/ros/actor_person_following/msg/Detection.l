@@ -16,7 +16,7 @@
 
 (defclass actor_person_following::Detection
   :super ros::object
-  :slots (_width _height _center _close_overlap _aruco_overlap _close_dist _aruco_dist _aruco_strength _r _g _b _box _lidar_point ))
+  :slots (_width _height _center _close_overlap _aruco_overlap _close_dist _aruco_dist _aruco_strength _r _g _b _gesture _pose_points _box _lidar_point ))
 
 (defmethod actor_person_following::Detection
   (:init
@@ -32,6 +32,8 @@
     ((:r __r) 0.0)
     ((:g __g) 0.0)
     ((:b __b) 0.0)
+    ((:gesture __gesture) "")
+    ((:pose_points __pose_points) (instance actor_person_following::Pose_Points :init))
     ((:box __box) (instance darknet_ros_msgs::BoundingBox :init))
     ((:lidar_point __lidar_point) (instance actor_person_following::Lidar_Point :init))
     )
@@ -47,6 +49,8 @@
    (setq _r (float __r))
    (setq _g (float __g))
    (setq _b (float __b))
+   (setq _gesture (string __gesture))
+   (setq _pose_points __pose_points)
    (setq _box __box)
    (setq _lidar_point __lidar_point)
    self)
@@ -83,6 +87,16 @@
   (:b
    (&optional __b)
    (if __b (setq _b __b)) _b)
+  (:gesture
+   (&optional __gesture)
+   (if __gesture (setq _gesture __gesture)) _gesture)
+  (:pose_points
+   (&rest __pose_points)
+   (if (keywordp (car __pose_points))
+       (send* _pose_points __pose_points)
+     (progn
+       (if __pose_points (setq _pose_points (car __pose_points)))
+       _pose_points)))
   (:box
    (&rest __box)
    (if (keywordp (car __box))
@@ -122,6 +136,10 @@
     4
     ;; float32 _b
     4
+    ;; string _gesture
+    4 (length _gesture)
+    ;; actor_person_following/Pose_Points _pose_points
+    (send _pose_points :serialization-length)
     ;; darknet_ros_msgs/BoundingBox _box
     (send _box :serialization-length)
     ;; actor_person_following/Lidar_Point _lidar_point
@@ -153,6 +171,10 @@
        (sys::poke _g (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _b
        (sys::poke _b (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; string _gesture
+       (write-long (length _gesture) s) (princ _gesture s)
+     ;; actor_person_following/Pose_Points _pose_points
+       (send _pose_points :serialize s)
      ;; darknet_ros_msgs/BoundingBox _box
        (send _box :serialize s)
      ;; actor_person_following/Lidar_Point _lidar_point
@@ -183,6 +205,10 @@
      (setq _g (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _b
      (setq _b (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; string _gesture
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _gesture (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; actor_person_following/Pose_Points _pose_points
+     (send _pose_points :deserialize buf ptr-) (incf ptr- (send _pose_points :serialization-length))
    ;; darknet_ros_msgs/BoundingBox _box
      (send _box :deserialize buf ptr-) (incf ptr- (send _box :serialization-length))
    ;; actor_person_following/Lidar_Point _lidar_point
@@ -191,7 +217,7 @@
    self)
   )
 
-(setf (get actor_person_following::Detection :md5sum-) "5e399b4ad5ae6de8338e645f4db8e5a4")
+(setf (get actor_person_following::Detection :md5sum-) "83582f4681826792410c545e6580f1c0")
 (setf (get actor_person_following::Detection :datatype-) "actor_person_following/Detection")
 (setf (get actor_person_following::Detection :definition-)
       "float64 width
@@ -210,8 +236,22 @@ float32 r
 float32 g
 float32 b
 
+string gesture
+actor_person_following/Pose_Points pose_points
+
 darknet_ros_msgs/BoundingBox box
 actor_person_following/Lidar_Point lidar_point
+
+================================================================================
+MSG: actor_person_following/Pose_Points
+actor_person_following/Pose_Point[] points
+
+================================================================================
+MSG: actor_person_following/Pose_Point
+float64 x
+float64 y
+int32 frame_x
+int32 frame_y
 
 ================================================================================
 MSG: darknet_ros_msgs/BoundingBox
@@ -240,6 +280,6 @@ float64 frame_y
 
 
 
-(provide :actor_person_following/Detection "5e399b4ad5ae6de8338e645f4db8e5a4")
+(provide :actor_person_following/Detection "83582f4681826792410c545e6580f1c0")
 
 

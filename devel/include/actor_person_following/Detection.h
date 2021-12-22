@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <actor_person_following/Pose_Points.h>
 #include <darknet_ros_msgs/BoundingBox.h>
 #include <actor_person_following/Lidar_Point.h>
 
@@ -37,6 +38,8 @@ struct Detection_
     , r(0.0)
     , g(0.0)
     , b(0.0)
+    , gesture()
+    , pose_points()
     , box()
     , lidar_point()  {
     }
@@ -52,6 +55,8 @@ struct Detection_
     , r(0.0)
     , g(0.0)
     , b(0.0)
+    , gesture(_alloc)
+    , pose_points(_alloc)
     , box(_alloc)
     , lidar_point(_alloc)  {
   (void)_alloc;
@@ -92,6 +97,12 @@ struct Detection_
    typedef float _b_type;
   _b_type b;
 
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _gesture_type;
+  _gesture_type gesture;
+
+   typedef  ::actor_person_following::Pose_Points_<ContainerAllocator>  _pose_points_type;
+  _pose_points_type pose_points;
+
    typedef  ::darknet_ros_msgs::BoundingBox_<ContainerAllocator>  _box_type;
   _box_type box;
 
@@ -123,6 +134,34 @@ ros::message_operations::Printer< ::actor_person_following::Detection_<Container
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::actor_person_following::Detection_<ContainerAllocator1> & lhs, const ::actor_person_following::Detection_<ContainerAllocator2> & rhs)
+{
+  return lhs.width == rhs.width &&
+    lhs.height == rhs.height &&
+    lhs.center == rhs.center &&
+    lhs.close_overlap == rhs.close_overlap &&
+    lhs.aruco_overlap == rhs.aruco_overlap &&
+    lhs.close_dist == rhs.close_dist &&
+    lhs.aruco_dist == rhs.aruco_dist &&
+    lhs.aruco_strength == rhs.aruco_strength &&
+    lhs.r == rhs.r &&
+    lhs.g == rhs.g &&
+    lhs.b == rhs.b &&
+    lhs.gesture == rhs.gesture &&
+    lhs.pose_points == rhs.pose_points &&
+    lhs.box == rhs.box &&
+    lhs.lidar_point == rhs.lidar_point;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::actor_person_following::Detection_<ContainerAllocator1> & lhs, const ::actor_person_following::Detection_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace actor_person_following
 
 namespace ros
@@ -132,23 +171,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'actor_person_following': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'perception_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg'], 'darknet_ros_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg', '/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/darknet_ros_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::actor_person_following::Detection_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::actor_person_following::Detection_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::actor_person_following::Detection_<ContainerAllocator> >
@@ -158,6 +181,16 @@ struct IsMessage< ::actor_person_following::Detection_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::actor_person_following::Detection_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::actor_person_following::Detection_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::actor_person_following::Detection_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -176,12 +209,12 @@ struct MD5Sum< ::actor_person_following::Detection_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5e399b4ad5ae6de8338e645f4db8e5a4";
+    return "83582f4681826792410c545e6580f1c0";
   }
 
   static const char* value(const ::actor_person_following::Detection_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5e399b4ad5ae6de8ULL;
-  static const uint64_t static_value2 = 0x338e645f4db8e5a4ULL;
+  static const uint64_t static_value1 = 0x83582f4681826792ULL;
+  static const uint64_t static_value2 = 0x410c545e6580f1c0ULL;
 };
 
 template<class ContainerAllocator>
@@ -200,48 +233,62 @@ struct Definition< ::actor_person_following::Detection_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 width\n\
-float64 height\n\
-float64 center\n\
-\n\
-float64 close_overlap\n\
-float64 aruco_overlap\n\
-\n\
-float64 close_dist\n\
-float64 aruco_dist\n\
-\n\
-float64 aruco_strength\n\
-\n\
-float32 r\n\
-float32 g\n\
-float32 b\n\
-\n\
-darknet_ros_msgs/BoundingBox box\n\
-actor_person_following/Lidar_Point lidar_point\n\
-\n\
-================================================================================\n\
-MSG: darknet_ros_msgs/BoundingBox\n\
-float64 probability\n\
-int64 xmin\n\
-int64 ymin\n\
-int64 xmax\n\
-int64 ymax\n\
-int16 id\n\
-string Class\n\
-\n\
-================================================================================\n\
-MSG: actor_person_following/Lidar_Point\n\
-float64 x\n\
-float64 y\n\
-float64 z\n\
-\n\
-float64 distance\n\
-float64 pitch\n\
-float64 yaw\n\
-\n\
-float64 frame_x\n\
-float64 frame_y\n\
-";
+    return "float64 width\n"
+"float64 height\n"
+"float64 center\n"
+"\n"
+"float64 close_overlap\n"
+"float64 aruco_overlap\n"
+"\n"
+"float64 close_dist\n"
+"float64 aruco_dist\n"
+"\n"
+"float64 aruco_strength\n"
+"\n"
+"float32 r\n"
+"float32 g\n"
+"float32 b\n"
+"\n"
+"string gesture\n"
+"actor_person_following/Pose_Points pose_points\n"
+"\n"
+"darknet_ros_msgs/BoundingBox box\n"
+"actor_person_following/Lidar_Point lidar_point\n"
+"\n"
+"================================================================================\n"
+"MSG: actor_person_following/Pose_Points\n"
+"actor_person_following/Pose_Point[] points\n"
+"\n"
+"================================================================================\n"
+"MSG: actor_person_following/Pose_Point\n"
+"float64 x\n"
+"float64 y\n"
+"int32 frame_x\n"
+"int32 frame_y\n"
+"\n"
+"================================================================================\n"
+"MSG: darknet_ros_msgs/BoundingBox\n"
+"float64 probability\n"
+"int64 xmin\n"
+"int64 ymin\n"
+"int64 xmax\n"
+"int64 ymax\n"
+"int16 id\n"
+"string Class\n"
+"\n"
+"================================================================================\n"
+"MSG: actor_person_following/Lidar_Point\n"
+"float64 x\n"
+"float64 y\n"
+"float64 z\n"
+"\n"
+"float64 distance\n"
+"float64 pitch\n"
+"float64 yaw\n"
+"\n"
+"float64 frame_x\n"
+"float64 frame_y\n"
+;
   }
 
   static const char* value(const ::actor_person_following::Detection_<ContainerAllocator>&) { return value(); }
@@ -270,6 +317,8 @@ namespace serialization
       stream.next(m.r);
       stream.next(m.g);
       stream.next(m.b);
+      stream.next(m.gesture);
+      stream.next(m.pose_points);
       stream.next(m.box);
       stream.next(m.lidar_point);
     }
@@ -312,6 +361,11 @@ struct Printer< ::actor_person_following::Detection_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.g);
     s << indent << "b: ";
     Printer<float>::stream(s, indent + "  ", v.b);
+    s << indent << "gesture: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.gesture);
+    s << indent << "pose_points: ";
+    s << std::endl;
+    Printer< ::actor_person_following::Pose_Points_<ContainerAllocator> >::stream(s, indent + "  ", v.pose_points);
     s << indent << "box: ";
     s << std::endl;
     Printer< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> >::stream(s, indent + "  ", v.box);

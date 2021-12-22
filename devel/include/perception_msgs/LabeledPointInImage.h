@@ -67,6 +67,21 @@ ros::message_operations::Printer< ::perception_msgs::LabeledPointInImage_<Contai
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::perception_msgs::LabeledPointInImage_<ContainerAllocator1> & lhs, const ::perception_msgs::LabeledPointInImage_<ContainerAllocator2> & rhs)
+{
+  return lhs.value == rhs.value &&
+    lhs.pointsInImage == rhs.pointsInImage;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::perception_msgs::LabeledPointInImage_<ContainerAllocator1> & lhs, const ::perception_msgs::LabeledPointInImage_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace perception_msgs
 
 namespace ros
@@ -76,23 +91,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'perception_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> >
@@ -102,6 +101,16 @@ struct IsMessage< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -144,18 +153,18 @@ struct Definition< ::perception_msgs::LabeledPointInImage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "# string value. Empty if there is no label\n\
-string value\n\
-# Point with x,y coordinates of the point in the image\n\
-PointInImage pointsInImage\n\
-\n\
-================================================================================\n\
-MSG: perception_msgs/PointInImage\n\
-# x coordinate of the point in the image\n\
-float32 x\n\
-# y coordinate of the poitn in the image\n\
-float32 y\n\
-";
+    return "# string value. Empty if there is no label\n"
+"string value\n"
+"# Point with x,y coordinates of the point in the image\n"
+"PointInImage pointsInImage\n"
+"\n"
+"================================================================================\n"
+"MSG: perception_msgs/PointInImage\n"
+"# x coordinate of the point in the image\n"
+"float32 x\n"
+"# y coordinate of the poitn in the image\n"
+"float32 y\n"
+;
   }
 
   static const char* value(const ::perception_msgs::LabeledPointInImage_<ContainerAllocator>&) { return value(); }

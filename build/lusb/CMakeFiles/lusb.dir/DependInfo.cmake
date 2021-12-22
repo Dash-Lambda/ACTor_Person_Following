@@ -4,18 +4,23 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/src/UsbDevice.cpp" "/home/mpleune/lfa_ws/ACTor_Person_Following/build/lusb/CMakeFiles/lusb.dir/src/UsbDevice.cpp.o"
+  "/home/actor1/ACTor_Person_Following/src/lusb/src/UsbDevice.cpp" "/home/actor1/ACTor_Person_Following/build/lusb/CMakeFiles/lusb.dir/src/UsbDevice.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "BOOST_ALL_NO_LIB"
+  "BOOST_ATOMIC_DYN_LINK"
+  "BOOST_SYSTEM_DYN_LINK"
+  "BOOST_THREAD_DYN_LINK"
   "ROS_BUILD_SHARED_LIBS=1"
+  "lusb_EXPORTS"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include"
+  "/home/actor1/ACTor_Person_Following/src/lusb/include"
   )
 
 # Targets to which this target links.

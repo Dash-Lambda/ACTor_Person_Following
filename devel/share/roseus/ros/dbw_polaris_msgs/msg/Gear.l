@@ -30,6 +30,17 @@
 (intern "*LOW*" (find-package "DBW_POLARIS_MSGS::GEAR"))
 (shadow '*LOW* (find-package "DBW_POLARIS_MSGS::GEAR"))
 (defconstant dbw_polaris_msgs::Gear::*LOW* 5)
+
+(defun dbw_polaris_msgs::Gear-to-symbol (const)
+  (cond
+        ((= const 0) 'dbw_polaris_msgs::Gear::*NONE*)
+        ((= const 1) 'dbw_polaris_msgs::Gear::*PARK*)
+        ((= const 2) 'dbw_polaris_msgs::Gear::*REVERSE*)
+        ((= const 3) 'dbw_polaris_msgs::Gear::*NEUTRAL*)
+        ((= const 4) 'dbw_polaris_msgs::Gear::*DRIVE*)
+        ((= const 5) 'dbw_polaris_msgs::Gear::*LOW*)
+        (t nil)))
+
 (defclass dbw_polaris_msgs::Gear
   :super ros::object
   :slots (_gear ))

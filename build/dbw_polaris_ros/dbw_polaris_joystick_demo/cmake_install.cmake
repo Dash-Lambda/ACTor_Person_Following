@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_joystick_demo
+# Install script for directory: /home/actor1/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_joystick_demo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
+  set(CMAKE_INSTALL_PREFIX "/home/actor1/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,34 +32,39 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/catkin_generated/installspace/dbw_polaris_joystick_demo.pc")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/catkin_generated/installspace/dbw_polaris_joystick_demo.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_joystick_demo/cmake" TYPE FILE FILES
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/catkin_generated/installspace/dbw_polaris_joystick_demoConfig.cmake"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/catkin_generated/installspace/dbw_polaris_joystick_demoConfig-version.cmake"
+    "/home/actor1/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/catkin_generated/installspace/dbw_polaris_joystick_demoConfig.cmake"
+    "/home/actor1/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/catkin_generated/installspace/dbw_polaris_joystick_demoConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_joystick_demo" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_joystick_demo/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_joystick_demo" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_joystick_demo/package.xml")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo/joystick_demo" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo/joystick_demo")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo/joystick_demo"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo" TYPE EXECUTABLE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dbw_polaris_joystick_demo/joystick_demo")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo" TYPE EXECUTABLE FILES "/home/actor1/ACTor_Person_Following/devel/lib/dbw_polaris_joystick_demo/joystick_demo")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo/joystick_demo" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo/joystick_demo")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo/joystick_demo"
-         OLD_RPATH "/opt/ros/kinetic/lib:"
+         OLD_RPATH "/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dbw_polaris_joystick_demo/joystick_demo")
@@ -67,13 +72,13 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_joystick_demo" TYPE DIRECTORY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_joystick_demo/launch")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbw_polaris_joystick_demo" TYPE DIRECTORY FILES "/home/actor1/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_joystick_demo/launch")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/mpleune/lfa_ws/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/tests/cmake_install.cmake")
+  include("/home/actor1/ACTor_Person_Following/build/dbw_polaris_ros/dbw_polaris_joystick_demo/tests/cmake_install.cmake")
 
 endif()
 

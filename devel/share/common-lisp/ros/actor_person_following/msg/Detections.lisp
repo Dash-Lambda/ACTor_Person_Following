@@ -17,6 +17,11 @@
     :initarg :image_header
     :type std_msgs-msg:Header
     :initform (cl:make-instance 'std_msgs-msg:Header))
+   (image
+    :reader image
+    :initarg :image
+    :type sensor_msgs-msg:Image
+    :initform (cl:make-instance 'sensor_msgs-msg:Image))
    (num_detects
     :reader num_detects
     :initarg :num_detects
@@ -76,7 +81,17 @@
     :reader aruco_points
     :initarg :aruco_points
     :type (cl:vector perception_msgs-msg:PointInImage)
-   :initform (cl:make-array 0 :element-type 'perception_msgs-msg:PointInImage :initial-element (cl:make-instance 'perception_msgs-msg:PointInImage))))
+   :initform (cl:make-array 0 :element-type 'perception_msgs-msg:PointInImage :initial-element (cl:make-instance 'perception_msgs-msg:PointInImage)))
+   (start
+    :reader start
+    :initarg :start
+    :type cl:boolean
+    :initform cl:nil)
+   (stop
+    :reader stop
+    :initarg :stop
+    :type cl:boolean
+    :initform cl:nil))
 )
 
 (cl:defclass Detections (<Detections>)
@@ -96,6 +111,11 @@
 (cl:defmethod image_header-val ((m <Detections>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:image_header-val is deprecated.  Use actor_person_following-msg:image_header instead.")
   (image_header m))
+
+(cl:ensure-generic-function 'image-val :lambda-list '(m))
+(cl:defmethod image-val ((m <Detections>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:image-val is deprecated.  Use actor_person_following-msg:image instead.")
+  (image m))
 
 (cl:ensure-generic-function 'num_detects-val :lambda-list '(m))
 (cl:defmethod num_detects-val ((m <Detections>))
@@ -156,10 +176,21 @@
 (cl:defmethod aruco_points-val ((m <Detections>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:aruco_points-val is deprecated.  Use actor_person_following-msg:aruco_points instead.")
   (aruco_points m))
+
+(cl:ensure-generic-function 'start-val :lambda-list '(m))
+(cl:defmethod start-val ((m <Detections>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:start-val is deprecated.  Use actor_person_following-msg:start instead.")
+  (start m))
+
+(cl:ensure-generic-function 'stop-val :lambda-list '(m))
+(cl:defmethod stop-val ((m <Detections>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:stop-val is deprecated.  Use actor_person_following-msg:stop instead.")
+  (stop m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <Detections>) ostream)
   "Serializes a message object of type '<Detections>"
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'header) ostream)
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'image_header) ostream)
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'image) ostream)
   (cl:let* ((signed (cl:slot-value msg 'num_detects)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
     (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
@@ -235,11 +266,14 @@
     (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_arr_len) ostream))
   (cl:map cl:nil #'(cl:lambda (ele) (roslisp-msg-protocol:serialize ele ostream))
    (cl:slot-value msg 'aruco_points))
+  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'start) 1 0)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'stop) 1 0)) ostream)
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <Detections>) istream)
   "Deserializes a message object of type '<Detections>"
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'header) istream)
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'image_header) istream)
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'image) istream)
     (cl:let ((unsigned 0))
       (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
@@ -323,6 +357,8 @@
     (cl:dotimes (i __ros_arr_len)
     (cl:setf (cl:aref vals i) (cl:make-instance 'perception_msgs-msg:PointInImage))
   (roslisp-msg-protocol:deserialize (cl:aref vals i) istream))))
+    (cl:setf (cl:slot-value msg 'start) (cl:not (cl:zerop (cl:read-byte istream))))
+    (cl:setf (cl:slot-value msg 'stop) (cl:not (cl:zerop (cl:read-byte istream))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Detections>)))
@@ -333,20 +369,21 @@
   "actor_person_following/Detections")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Detections>)))
   "Returns md5sum for a message object of type '<Detections>"
-  "19fe65d07f7d0b5259da8a0b7e475e88")
+  "89334e354050dfb15aacf14eca62859b")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Detections)))
   "Returns md5sum for a message object of type 'Detections"
-  "19fe65d07f7d0b5259da8a0b7e475e88")
+  "89334e354050dfb15aacf14eca62859b")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Detections>)))
   "Returns full string definition for message of type '<Detections>"
-  (cl:format cl:nil "Header header~%Header image_header~%int32 num_detects~%Detection[] detections~%~%int32 closest~%int32 close_target~%int32 aruco_target~%int32 color_target~%~%int32 xres~%int32 yres~%~%bool aruco_visible~%float64 aruco_x~%float64 aruco_y~%perception_msgs/PointInImage[] aruco_points~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%================================================================================~%MSG: actor_person_following/Detection~%float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%================================================================================~%MSG: perception_msgs/PointInImage~%# x coordinate of the point in the image~%float32 x~%# y coordinate of the poitn in the image~%float32 y~%~%~%"))
+  (cl:format cl:nil "Header header~%Header image_header~%sensor_msgs/Image image~%int32 num_detects~%Detection[] detections~%~%int32 closest~%int32 close_target~%int32 aruco_target~%int32 color_target~%~%int32 xres~%int32 yres~%~%bool aruco_visible~%float64 aruco_x~%float64 aruco_y~%perception_msgs/PointInImage[] aruco_points~%~%bool start~%bool stop~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: sensor_msgs/Image~%# This message contains an uncompressed image~%# (0, 0) is at top-left corner of image~%#~%~%Header header        # Header timestamp should be acquisition time of image~%                     # Header frame_id should be optical frame of camera~%                     # origin of frame should be optical center of camera~%                     # +x should point to the right in the image~%                     # +y should point down in the image~%                     # +z should point into to plane of the image~%                     # If the frame_id here and the frame_id of the CameraInfo~%                     # message associated with the image conflict~%                     # the behavior is undefined~%~%uint32 height         # image height, that is, number of rows~%uint32 width          # image width, that is, number of columns~%~%# The legal values for encoding are in file src/image_encodings.cpp~%# If you want to standardize a new string format, join~%# ros-users@lists.sourceforge.net and send an email proposing a new encoding.~%~%string encoding       # Encoding of pixels -- channel meaning, ordering, size~%                      # taken from the list of strings in include/sensor_msgs/image_encodings.h~%~%uint8 is_bigendian    # is this data bigendian?~%uint32 step           # Full row length in bytes~%uint8[] data          # actual matrix data, size is (step * rows)~%~%================================================================================~%MSG: actor_person_following/Detection~%float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%string gesture~%actor_person_following/Pose_Points pose_points~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: actor_person_following/Pose_Points~%actor_person_following/Pose_Point[] points~%~%================================================================================~%MSG: actor_person_following/Pose_Point~%float64 x~%float64 y~%int32 frame_x~%int32 frame_y~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%================================================================================~%MSG: perception_msgs/PointInImage~%# x coordinate of the point in the image~%float32 x~%# y coordinate of the poitn in the image~%float32 y~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Detections)))
   "Returns full string definition for message of type 'Detections"
-  (cl:format cl:nil "Header header~%Header image_header~%int32 num_detects~%Detection[] detections~%~%int32 closest~%int32 close_target~%int32 aruco_target~%int32 color_target~%~%int32 xres~%int32 yres~%~%bool aruco_visible~%float64 aruco_x~%float64 aruco_y~%perception_msgs/PointInImage[] aruco_points~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%================================================================================~%MSG: actor_person_following/Detection~%float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%================================================================================~%MSG: perception_msgs/PointInImage~%# x coordinate of the point in the image~%float32 x~%# y coordinate of the poitn in the image~%float32 y~%~%~%"))
+  (cl:format cl:nil "Header header~%Header image_header~%sensor_msgs/Image image~%int32 num_detects~%Detection[] detections~%~%int32 closest~%int32 close_target~%int32 aruco_target~%int32 color_target~%~%int32 xres~%int32 yres~%~%bool aruco_visible~%float64 aruco_x~%float64 aruco_y~%perception_msgs/PointInImage[] aruco_points~%~%bool start~%bool stop~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: sensor_msgs/Image~%# This message contains an uncompressed image~%# (0, 0) is at top-left corner of image~%#~%~%Header header        # Header timestamp should be acquisition time of image~%                     # Header frame_id should be optical frame of camera~%                     # origin of frame should be optical center of camera~%                     # +x should point to the right in the image~%                     # +y should point down in the image~%                     # +z should point into to plane of the image~%                     # If the frame_id here and the frame_id of the CameraInfo~%                     # message associated with the image conflict~%                     # the behavior is undefined~%~%uint32 height         # image height, that is, number of rows~%uint32 width          # image width, that is, number of columns~%~%# The legal values for encoding are in file src/image_encodings.cpp~%# If you want to standardize a new string format, join~%# ros-users@lists.sourceforge.net and send an email proposing a new encoding.~%~%string encoding       # Encoding of pixels -- channel meaning, ordering, size~%                      # taken from the list of strings in include/sensor_msgs/image_encodings.h~%~%uint8 is_bigendian    # is this data bigendian?~%uint32 step           # Full row length in bytes~%uint8[] data          # actual matrix data, size is (step * rows)~%~%================================================================================~%MSG: actor_person_following/Detection~%float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%string gesture~%actor_person_following/Pose_Points pose_points~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: actor_person_following/Pose_Points~%actor_person_following/Pose_Point[] points~%~%================================================================================~%MSG: actor_person_following/Pose_Point~%float64 x~%float64 y~%int32 frame_x~%int32 frame_y~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%================================================================================~%MSG: perception_msgs/PointInImage~%# x coordinate of the point in the image~%float32 x~%# y coordinate of the poitn in the image~%float32 y~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Detections>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'image_header))
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'image))
      4
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'detections) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ (roslisp-msg-protocol:serialization-length ele))))
      4
@@ -359,12 +396,15 @@
      8
      8
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'aruco_points) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ (roslisp-msg-protocol:serialization-length ele))))
+     1
+     1
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <Detections>))
   "Converts a ROS message object to a list"
   (cl:list 'Detections
     (cl:cons ':header (header msg))
     (cl:cons ':image_header (image_header msg))
+    (cl:cons ':image (image msg))
     (cl:cons ':num_detects (num_detects msg))
     (cl:cons ':detections (detections msg))
     (cl:cons ':closest (closest msg))
@@ -377,4 +417,6 @@
     (cl:cons ':aruco_x (aruco_x msg))
     (cl:cons ':aruco_y (aruco_y msg))
     (cl:cons ':aruco_points (aruco_points msg))
+    (cl:cons ':start (start msg))
+    (cl:cons ':stop (stop msg))
 ))

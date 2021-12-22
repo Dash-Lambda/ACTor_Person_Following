@@ -62,6 +62,16 @@
     :initarg :b
     :type cl:float
     :initform 0.0)
+   (gesture
+    :reader gesture
+    :initarg :gesture
+    :type cl:string
+    :initform "")
+   (pose_points
+    :reader pose_points
+    :initarg :pose_points
+    :type actor_person_following-msg:Pose_Points
+    :initform (cl:make-instance 'actor_person_following-msg:Pose_Points))
    (box
     :reader box
     :initarg :box
@@ -136,6 +146,16 @@
 (cl:defmethod b-val ((m <Detection>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:b-val is deprecated.  Use actor_person_following-msg:b instead.")
   (b m))
+
+(cl:ensure-generic-function 'gesture-val :lambda-list '(m))
+(cl:defmethod gesture-val ((m <Detection>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:gesture-val is deprecated.  Use actor_person_following-msg:gesture instead.")
+  (gesture m))
+
+(cl:ensure-generic-function 'pose_points-val :lambda-list '(m))
+(cl:defmethod pose_points-val ((m <Detection>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader actor_person_following-msg:pose_points-val is deprecated.  Use actor_person_following-msg:pose_points instead.")
+  (pose_points m))
 
 (cl:ensure-generic-function 'box-val :lambda-list '(m))
 (cl:defmethod box-val ((m <Detection>))
@@ -235,6 +255,13 @@
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'gesture))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
+  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'gesture))
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'pose_points) ostream)
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'box) ostream)
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'lidar_point) ostream)
 )
@@ -338,6 +365,15 @@
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'b) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((__ros_str_len 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'gesture) (cl:make-string __ros_str_len))
+      (cl:dotimes (__ros_str_idx __ros_str_len msg)
+        (cl:setf (cl:char (cl:slot-value msg 'gesture) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'pose_points) istream)
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'box) istream)
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'lidar_point) istream)
   msg
@@ -350,16 +386,16 @@
   "actor_person_following/Detection")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Detection>)))
   "Returns md5sum for a message object of type '<Detection>"
-  "5e399b4ad5ae6de8338e645f4db8e5a4")
+  "83582f4681826792410c545e6580f1c0")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Detection)))
   "Returns md5sum for a message object of type 'Detection"
-  "5e399b4ad5ae6de8338e645f4db8e5a4")
+  "83582f4681826792410c545e6580f1c0")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Detection>)))
   "Returns full string definition for message of type '<Detection>"
-  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%~%"))
+  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%string gesture~%actor_person_following/Pose_Points pose_points~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: actor_person_following/Pose_Points~%actor_person_following/Pose_Point[] points~%~%================================================================================~%MSG: actor_person_following/Pose_Point~%float64 x~%float64 y~%int32 frame_x~%int32 frame_y~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Detection)))
   "Returns full string definition for message of type 'Detection"
-  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%~%"))
+  (cl:format cl:nil "float64 width~%float64 height~%float64 center~%~%float64 close_overlap~%float64 aruco_overlap~%~%float64 close_dist~%float64 aruco_dist~%~%float64 aruco_strength~%~%float32 r~%float32 g~%float32 b~%~%string gesture~%actor_person_following/Pose_Points pose_points~%~%darknet_ros_msgs/BoundingBox box~%actor_person_following/Lidar_Point lidar_point~%~%================================================================================~%MSG: actor_person_following/Pose_Points~%actor_person_following/Pose_Point[] points~%~%================================================================================~%MSG: actor_person_following/Pose_Point~%float64 x~%float64 y~%int32 frame_x~%int32 frame_y~%~%================================================================================~%MSG: darknet_ros_msgs/BoundingBox~%float64 probability~%int64 xmin~%int64 ymin~%int64 xmax~%int64 ymax~%int16 id~%string Class~%~%================================================================================~%MSG: actor_person_following/Lidar_Point~%float64 x~%float64 y~%float64 z~%~%float64 distance~%float64 pitch~%float64 yaw~%~%float64 frame_x~%float64 frame_y~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Detection>))
   (cl:+ 0
      8
@@ -373,6 +409,8 @@
      4
      4
      4
+     4 (cl:length (cl:slot-value msg 'gesture))
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'pose_points))
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'box))
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'lidar_point))
 ))
@@ -390,6 +428,8 @@
     (cl:cons ':r (r msg))
     (cl:cons ':g (g msg))
     (cl:cons ':b (b msg))
+    (cl:cons ':gesture (gesture msg))
+    (cl:cons ':pose_points (pose_points msg))
     (cl:cons ':box (box msg))
     (cl:cons ':lidar_point (lidar_point msg))
 ))

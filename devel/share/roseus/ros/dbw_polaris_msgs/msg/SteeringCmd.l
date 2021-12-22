@@ -27,6 +27,13 @@
 (intern "*TORQUE_MAX*" (find-package "DBW_POLARIS_MSGS::STEERINGCMD"))
 (shadow '*TORQUE_MAX* (find-package "DBW_POLARIS_MSGS::STEERINGCMD"))
 (defconstant dbw_polaris_msgs::SteeringCmd::*TORQUE_MAX* 60.0)
+
+(defun dbw_polaris_msgs::SteeringCmd-to-symbol (const)
+  (cond
+        ((= const 0) 'dbw_polaris_msgs::SteeringCmd::*CMD_ANGLE*)
+        ((= const 1) 'dbw_polaris_msgs::SteeringCmd::*CMD_TORQUE*)
+        (t nil)))
+
 (defclass dbw_polaris_msgs::SteeringCmd
   :super ros::object
   :slots (_steering_wheel_angle_cmd _steering_wheel_angle_velocity _steering_wheel_torque_cmd _cmd_type _enable _clear _ignore _calibrate _quiet _count ))
@@ -70,20 +77,20 @@
    (&optional __cmd_type)
    (if __cmd_type (setq _cmd_type __cmd_type)) _cmd_type)
   (:enable
-   (&optional __enable)
-   (if __enable (setq _enable __enable)) _enable)
+   (&optional (__enable :null))
+   (if (not (eq __enable :null)) (setq _enable __enable)) _enable)
   (:clear
-   (&optional __clear)
-   (if __clear (setq _clear __clear)) _clear)
+   (&optional (__clear :null))
+   (if (not (eq __clear :null)) (setq _clear __clear)) _clear)
   (:ignore
-   (&optional __ignore)
-   (if __ignore (setq _ignore __ignore)) _ignore)
+   (&optional (__ignore :null))
+   (if (not (eq __ignore :null)) (setq _ignore __ignore)) _ignore)
   (:calibrate
-   (&optional __calibrate)
-   (if __calibrate (setq _calibrate __calibrate)) _calibrate)
+   (&optional (__calibrate :null))
+   (if (not (eq __calibrate :null)) (setq _calibrate __calibrate)) _calibrate)
   (:quiet
-   (&optional __quiet)
-   (if __quiet (setq _quiet __quiet)) _quiet)
+   (&optional (__quiet :null))
+   (if (not (eq __quiet :null)) (setq _quiet __quiet)) _quiet)
   (:count
    (&optional __count)
    (if __count (setq _count __count)) _count)

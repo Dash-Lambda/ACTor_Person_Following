@@ -11,6 +11,7 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let Pose_Points = require('./Pose_Points.js');
 let Lidar_Point = require('./Lidar_Point.js');
 let darknet_ros_msgs = _finder('darknet_ros_msgs');
 
@@ -31,6 +32,8 @@ class Detection {
       this.r = null;
       this.g = null;
       this.b = null;
+      this.gesture = null;
+      this.pose_points = null;
       this.box = null;
       this.lidar_point = null;
     }
@@ -101,6 +104,18 @@ class Detection {
       else {
         this.b = 0.0;
       }
+      if (initObj.hasOwnProperty('gesture')) {
+        this.gesture = initObj.gesture
+      }
+      else {
+        this.gesture = '';
+      }
+      if (initObj.hasOwnProperty('pose_points')) {
+        this.pose_points = initObj.pose_points
+      }
+      else {
+        this.pose_points = new Pose_Points();
+      }
       if (initObj.hasOwnProperty('box')) {
         this.box = initObj.box
       }
@@ -140,6 +155,10 @@ class Detection {
     bufferOffset = _serializer.float32(obj.g, buffer, bufferOffset);
     // Serialize message field [b]
     bufferOffset = _serializer.float32(obj.b, buffer, bufferOffset);
+    // Serialize message field [gesture]
+    bufferOffset = _serializer.string(obj.gesture, buffer, bufferOffset);
+    // Serialize message field [pose_points]
+    bufferOffset = Pose_Points.serialize(obj.pose_points, buffer, bufferOffset);
     // Serialize message field [box]
     bufferOffset = darknet_ros_msgs.msg.BoundingBox.serialize(obj.box, buffer, bufferOffset);
     // Serialize message field [lidar_point]
@@ -173,6 +192,10 @@ class Detection {
     data.g = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [b]
     data.b = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [gesture]
+    data.gesture = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [pose_points]
+    data.pose_points = Pose_Points.deserialize(buffer, bufferOffset);
     // Deserialize message field [box]
     data.box = darknet_ros_msgs.msg.BoundingBox.deserialize(buffer, bufferOffset);
     // Deserialize message field [lidar_point]
@@ -182,8 +205,10 @@ class Detection {
 
   static getMessageSize(object) {
     let length = 0;
+    length += _getByteLength(object.gesture);
+    length += Pose_Points.getMessageSize(object.pose_points);
     length += darknet_ros_msgs.msg.BoundingBox.getMessageSize(object.box);
-    return length + 140;
+    return length + 144;
   }
 
   static datatype() {
@@ -193,7 +218,7 @@ class Detection {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '5e399b4ad5ae6de8338e645f4db8e5a4';
+    return '83582f4681826792410c545e6580f1c0';
   }
 
   static messageDefinition() {
@@ -215,8 +240,22 @@ class Detection {
     float32 g
     float32 b
     
+    string gesture
+    actor_person_following/Pose_Points pose_points
+    
     darknet_ros_msgs/BoundingBox box
     actor_person_following/Lidar_Point lidar_point
+    
+    ================================================================================
+    MSG: actor_person_following/Pose_Points
+    actor_person_following/Pose_Point[] points
+    
+    ================================================================================
+    MSG: actor_person_following/Pose_Point
+    float64 x
+    float64 y
+    int32 frame_x
+    int32 frame_y
     
     ================================================================================
     MSG: darknet_ros_msgs/BoundingBox
@@ -325,6 +364,20 @@ class Detection {
     }
     else {
       resolved.b = 0.0
+    }
+
+    if (msg.gesture !== undefined) {
+      resolved.gesture = msg.gesture;
+    }
+    else {
+      resolved.gesture = ''
+    }
+
+    if (msg.pose_points !== undefined) {
+      resolved.pose_points = Pose_Points.Resolve(msg.pose_points)
+    }
+    else {
+      resolved.pose_points = new Pose_Points()
     }
 
     if (msg.box !== undefined) {

@@ -96,6 +96,12 @@ void box_callback(const actor_person_following::Detections::ConstPtr& boxes_msg)
 		last_update = ros::Time::now();
 	}
 	aruco_visible = boxes_msg->aruco_visible;
+	if(boxes_msg->start){
+		active = true;
+	}
+	if(boxes_msg->stop){
+		active = false;
+	}
 }
 
 void start_callback(const std_msgs::Empty::ConstPtr& start){

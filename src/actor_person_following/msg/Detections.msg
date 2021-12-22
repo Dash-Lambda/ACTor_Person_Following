@@ -1,5 +1,6 @@
 Header header
 Header image_header
+sensor_msgs/Image image
 int32 num_detects
 Detection[] detections
 
@@ -15,3 +16,6 @@ bool aruco_visible
 float64 aruco_x
 float64 aruco_y
 perception_msgs/PointInImage[] aruco_points
+
+bool start
+bool stop

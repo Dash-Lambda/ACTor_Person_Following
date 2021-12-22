@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include/lusb/UsbDevice.h
+/home/actor1/ACTor_Person_Following/src/lusb/include/lusb/UsbDevice.h
 stdexcept
 -
 string
@@ -16,9 +16,9 @@ boost/function.hpp
 boost/thread.hpp
 -
 
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/src/UsbDevice.cpp
+/home/actor1/ACTor_Person_Following/src/lusb/src/UsbDevice.cpp
 lusb/UsbDevice.h
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/src/lusb/UsbDevice.h
+/home/actor1/ACTor_Person_Following/src/lusb/src/lusb/UsbDevice.h
 libusb-1.0/libusb.h
 -
 

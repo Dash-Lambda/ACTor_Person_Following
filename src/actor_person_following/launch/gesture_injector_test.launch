@@ -1,0 +1,15 @@
+<launch>
+	<node pkg="actor_person_following" type="gesture_injection_node.py" name="gesture_injection_node" output="screen" />
+	<node name="detection_image_viewer_node" pkg="actor_person_following" type="detection_image_viewer_node" >
+		<param name="show_image" type="boolean" value="false" />
+		<param name="flip_image" type="boolean" value="false" />
+		<param name="detection_image_topic" type="string" value="/camera/image_raw" />
+		<param name="detection_topic" type="string" value="/follower/gesture/detects" />
+
+		<param name="enable_aruco" type="boolean" value="true" />
+		<param name="enable_color" type="boolean" value="false" />
+		<param name="enable_closest" type="boolean" value="false" />
+
+		<param name="buffer_size" type="int" value="100" />
+	</node>
+</launch>

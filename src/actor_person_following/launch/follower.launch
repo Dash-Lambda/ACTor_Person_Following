@@ -1,9 +1,9 @@
 <launch>
 	<!-- ARGS -->
   <arg name="cam_source_topic" default="/camera/image_raw" />
-  <arg name="enable_aruco" default="true" />
+  <arg name="enable_aruco" default="false" />
   <arg name="enable_color" default="false" />
-  <arg name="enable_closest" default="false" />
+  <arg name="enable_closest" default="true" />
 
 	<!-- DARKNET YOLO -->
 

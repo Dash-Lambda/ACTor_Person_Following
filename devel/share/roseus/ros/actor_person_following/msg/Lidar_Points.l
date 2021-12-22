@@ -22,7 +22,7 @@
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:points __points) (let (r) (dotimes (i 0) (push (instance actor_person_following::Lidar_Point :init) r)) r))
+    ((:points __points) ())
     ((:max_distance __max_distance) 0.0)
     ((:xmin __xmin) 0.0)
     ((:xmax __xmax) 0.0)
@@ -183,8 +183,6 @@ uint32 seq
 # time-handling sugar is provided by the client library
 time stamp
 #Frame this data is associated with
-# 0: no frame
-# 1: global frame
 string frame_id
 
 ================================================================================

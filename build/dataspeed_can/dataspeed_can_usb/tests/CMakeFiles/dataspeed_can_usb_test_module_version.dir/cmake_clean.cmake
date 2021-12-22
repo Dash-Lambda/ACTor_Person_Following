@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/actor1/ACTor_Person_Following/devel/lib/dataspeed_can_usb/dataspeed_can_usb_test_module_version"
+  "/home/actor1/ACTor_Person_Following/devel/lib/dataspeed_can_usb/dataspeed_can_usb_test_module_version.pdb"
   "CMakeFiles/dataspeed_can_usb_test_module_version.dir/test_module_version.cpp.o"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dataspeed_can_usb/dataspeed_can_usb_test_module_version.pdb"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dataspeed_can_usb/dataspeed_can_usb_test_module_version"
 )
 
 # Per-language clean rules from dependency scanning.

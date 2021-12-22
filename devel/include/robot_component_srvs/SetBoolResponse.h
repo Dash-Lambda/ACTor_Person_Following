@@ -66,6 +66,21 @@ ros::message_operations::Printer< ::robot_component_srvs::SetBoolResponse_<Conta
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::robot_component_srvs::SetBoolResponse_<ContainerAllocator1> & lhs, const ::robot_component_srvs::SetBoolResponse_<ContainerAllocator2> & rhs)
+{
+  return lhs.success == rhs.success &&
+    lhs.message == rhs.message;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::robot_component_srvs::SetBoolResponse_<ContainerAllocator1> & lhs, const ::robot_component_srvs::SetBoolResponse_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace robot_component_srvs
 
 namespace ros
@@ -75,23 +90,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> >
@@ -101,6 +100,16 @@ struct IsMessage< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -143,11 +152,11 @@ struct Definition< ::robot_component_srvs::SetBoolResponse_<ContainerAllocator> 
 {
   static const char* value()
   {
-    return "bool success\n\
-string message\n\
-\n\
-\n\
-";
+    return "bool success   # indicate successful run of triggered service\n"
+"string message # informational, e.g. for error messages\n"
+"\n"
+"\n"
+;
   }
 
   static const char* value(const ::robot_component_srvs::SetBoolResponse_<ContainerAllocator>&) { return value(); }

@@ -9,5 +9,9 @@
    "LIDAR_POINT"
    "<LIDAR_POINTS>"
    "LIDAR_POINTS"
+   "<POSE_POINT>"
+   "POSE_POINT"
+   "<POSE_POINTS>"
+   "POSE_POINTS"
   ))
 

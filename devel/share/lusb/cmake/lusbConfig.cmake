@@ -67,14 +67,14 @@ set(lusb_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(lusb_SOURCE_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb)
-  set(lusb_DEVEL_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/devel)
+  set(lusb_SOURCE_PREFIX /home/actor1/ACTor_Person_Following/src/lusb)
+  set(lusb_DEVEL_PREFIX /home/actor1/ACTor_Person_Following/devel)
   set(lusb_INSTALL_PREFIX "")
   set(lusb_PREFIX ${lusb_DEVEL_PREFIX})
 else()
   set(lusb_SOURCE_PREFIX "")
   set(lusb_DEVEL_PREFIX "")
-  set(lusb_INSTALL_PREFIX /home/mpleune/lfa_ws/ACTor_Person_Following/install)
+  set(lusb_INSTALL_PREFIX /home/actor1/ACTor_Person_Following/install)
   set(lusb_PREFIX ${lusb_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(lusb_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include;/usr/include " STREQUAL " ")
+if(NOT "/home/actor1/ACTor_Person_Following/src/lusb/include;/usr/include " STREQUAL " ")
   set(lusb_INCLUDE_DIRS "")
-  set(_include_dirs "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include;/usr/include")
+  set(_include_dirs "/home/actor1/ACTor_Person_Following/src/lusb/include;/usr/include")
   if(NOT "https://bitbucket.org/dataspeedinc/lusb/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://bitbucket.org/dataspeedinc/lusb/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://dataspeedinc.com " STREQUAL " ")
@@ -110,13 +110,13 @@ if(NOT "/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/include;/usr/includ
         message(FATAL_ERROR "Project 'lusb' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'lusb' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/mpleune/lfa_ws/ACTor_Person_Following/src/lusb/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'lusb' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/actor1/ACTor_Person_Following/src/lusb/${idir}'.  ${_report}")
     endif()
     _list_append_unique(lusb_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "lusb;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libpthread.so")
+set(libraries "lusb;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib;/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib;/home/mpleune/LTU-Actor/devel_isolated/sign_detection/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_vehicle_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_gpio/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_rpi_estop_loop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_obstacle/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_route_blob/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_inputprocess_camadjust/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_graph/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_estop/lib;/home/mpleune/LTU-Actor/devel_isolated/ltu_actor_core/lib;/home/mpleune/LTU-Actor/devel_isolated/image_proc/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_example/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_twist_controller/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_joystick_demo/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_can/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem_msgs/lib;/home/mpleune/LTU-Actor/devel_isolated/dbw_gem/lib;/home/mpleune/LTU-Actor/devel_isolated/camera_calibration/lib;/home/mpleune/LTU-Actor/devel_isolated/avt_vimba_camera/lib;/home/mpleune/LTU-Actor/devel_isolated/adap_parameter/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/actor1/ACTor_Person_Following/devel/lib;/home/actor1/ACTor_Person_Following/devel/lib;/home/actor1/actor_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(lusb_LIBRARIES ${lusb_LIBRARIES})
 
   _list_append_unique(lusb_LIBRARY_DIRS ${${lusb_dep}_LIBRARY_DIRS})
-  list(APPEND lusb_EXPORTED_TARGETS ${${lusb_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(lusb_EXPORTED_TARGETS ${${lusb_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

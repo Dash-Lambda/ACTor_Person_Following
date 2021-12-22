@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/actor1/ACTor_Person_Following/devel/lib/python3/dist-packages/robot_component_srvs/srv/_SetBool.py"
+  "/home/actor1/ACTor_Person_Following/devel/lib/python3/dist-packages/robot_component_srvs/srv/__init__.py"
   "CMakeFiles/robot_component_srvs_generate_messages_py"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/robot_component_srvs/srv/_SetBool.py"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/python2.7/dist-packages/robot_component_srvs/srv/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -49,10 +49,10 @@
   "09fb03525b03e7ea1fd3992bafd87e16")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<SetBool-request>)))
   "Returns full string definition for message of type '<SetBool-request>"
-  (cl:format cl:nil "bool data~%~%~%"))
+  (cl:format cl:nil "bool data # e.g. for hardware enabling / disabling~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'SetBool-request)))
   "Returns full string definition for message of type 'SetBool-request"
-  (cl:format cl:nil "bool data~%~%~%"))
+  (cl:format cl:nil "bool data # e.g. for hardware enabling / disabling~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <SetBool-request>))
   (cl:+ 0
      1
@@ -131,10 +131,10 @@
   "09fb03525b03e7ea1fd3992bafd87e16")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<SetBool-response>)))
   "Returns full string definition for message of type '<SetBool-response>"
-  (cl:format cl:nil "bool success~%string message~%~%~%~%~%"))
+  (cl:format cl:nil "bool success   # indicate successful run of triggered service~%string message # informational, e.g. for error messages~%~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'SetBool-response)))
   "Returns full string definition for message of type 'SetBool-response"
-  (cl:format cl:nil "bool success~%string message~%~%~%~%~%"))
+  (cl:format cl:nil "bool success   # indicate successful run of triggered service~%string message # informational, e.g. for error messages~%~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <SetBool-response>))
   (cl:+ 0
      1

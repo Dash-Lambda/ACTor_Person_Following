@@ -14,5 +14,8 @@ float32 r
 float32 g
 float32 b
 
+string gesture
+actor_person_following/Pose_Points pose_points
+
 darknet_ros_msgs/BoundingBox box
 actor_person_following/Lidar_Point lidar_point

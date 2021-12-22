@@ -21,6 +21,10 @@
           G
           B-VAL
           B
+          GESTURE-VAL
+          GESTURE
+          POSE_POINTS-VAL
+          POSE_POINTS
           BOX-VAL
           BOX
           LIDAR_POINT-VAL

@@ -1,4 +1,4 @@
-prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/install
+prefix=/home/actor1/ACTor_Person_Following/install
 
 Name: dataspeed_can_tools
 Description: Description of dataspeed_can_tools

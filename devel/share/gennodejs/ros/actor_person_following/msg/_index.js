@@ -1,14 +1,18 @@
 
 "use strict";
 
-let Lidar_Points = require('./Lidar_Points.js');
 let Lidar_Point = require('./Lidar_Point.js');
-let Detection = require('./Detection.js');
+let Lidar_Points = require('./Lidar_Points.js');
 let Detections = require('./Detections.js');
+let Pose_Point = require('./Pose_Point.js');
+let Pose_Points = require('./Pose_Points.js');
+let Detection = require('./Detection.js');
 
 module.exports = {
-  Lidar_Points: Lidar_Points,
   Lidar_Point: Lidar_Point,
-  Detection: Detection,
+  Lidar_Points: Lidar_Points,
   Detections: Detections,
+  Pose_Point: Pose_Point,
+  Pose_Points: Pose_Points,
+  Detection: Detection,
 };

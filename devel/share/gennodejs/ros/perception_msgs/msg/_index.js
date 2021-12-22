@@ -1,14 +1,14 @@
 
 "use strict";
 
-let PointInImage = require('./PointInImage.js');
+let Marker = require('./Marker.js');
 let MarkerList = require('./MarkerList.js');
 let LabeledPointInImage = require('./LabeledPointInImage.js');
-let Marker = require('./Marker.js');
+let PointInImage = require('./PointInImage.js');
 
 module.exports = {
-  PointInImage: PointInImage,
+  Marker: Marker,
   MarkerList: MarkerList,
   LabeledPointInImage: LabeledPointInImage,
-  Marker: Marker,
+  PointInImage: PointInImage,
 };

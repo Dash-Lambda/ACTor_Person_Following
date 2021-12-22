@@ -31,8 +31,8 @@
    (setq _data __data)
    self)
   (:data
-   (&optional __data)
-   (if __data (setq _data __data)) _data)
+   (&optional (__data :null))
+   (if (not (eq __data :null)) (setq _data __data)) _data)
   (:serialization-length
    ()
    (+
@@ -70,8 +70,8 @@
    (setq _message (string __message))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:message
    (&optional __message)
    (if __message (setq _message __message)) _message)
@@ -118,10 +118,10 @@
 (setf (get robot_component_srvs::SetBoolRequest :md5sum-) "09fb03525b03e7ea1fd3992bafd87e16")
 (setf (get robot_component_srvs::SetBoolRequest :datatype-) "robot_component_srvs/SetBoolRequest")
 (setf (get robot_component_srvs::SetBoolRequest :definition-)
-      "bool data
+      "bool data # e.g. for hardware enabling / disabling
 ---
-bool success
-string message
+bool success   # indicate successful run of triggered service
+string message # informational, e.g. for error messages
 
 
 ")
@@ -129,10 +129,10 @@ string message
 (setf (get robot_component_srvs::SetBoolResponse :md5sum-) "09fb03525b03e7ea1fd3992bafd87e16")
 (setf (get robot_component_srvs::SetBoolResponse :datatype-) "robot_component_srvs/SetBoolResponse")
 (setf (get robot_component_srvs::SetBoolResponse :definition-)
-      "bool data
+      "bool data # e.g. for hardware enabling / disabling
 ---
-bool success
-string message
+bool success   # indicate successful run of triggered service
+string message # informational, e.g. for error messages
 
 
 ")

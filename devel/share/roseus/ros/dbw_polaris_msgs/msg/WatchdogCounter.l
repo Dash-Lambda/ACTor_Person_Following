@@ -60,6 +60,27 @@
 (intern "*STEERING_REPORT*" (find-package "DBW_POLARIS_MSGS::WATCHDOGCOUNTER"))
 (shadow '*STEERING_REPORT* (find-package "DBW_POLARIS_MSGS::WATCHDOGCOUNTER"))
 (defconstant dbw_polaris_msgs::WatchdogCounter::*STEERING_REPORT* 15)
+
+(defun dbw_polaris_msgs::WatchdogCounter-to-symbol (const)
+  (cond
+        ((= const 0) 'dbw_polaris_msgs::WatchdogCounter::*NONE*)
+        ((= const 1) 'dbw_polaris_msgs::WatchdogCounter::*OTHER_BRAKE*)
+        ((= const 2) 'dbw_polaris_msgs::WatchdogCounter::*OTHER_THROTTLE*)
+        ((= const 3) 'dbw_polaris_msgs::WatchdogCounter::*OTHER_STEERING*)
+        ((= const 4) 'dbw_polaris_msgs::WatchdogCounter::*BRAKE_COUNTER*)
+        ((= const 5) 'dbw_polaris_msgs::WatchdogCounter::*BRAKE_DISABLED*)
+        ((= const 6) 'dbw_polaris_msgs::WatchdogCounter::*BRAKE_COMMAND*)
+        ((= const 7) 'dbw_polaris_msgs::WatchdogCounter::*BRAKE_REPORT*)
+        ((= const 8) 'dbw_polaris_msgs::WatchdogCounter::*THROTTLE_COUNTER*)
+        ((= const 9) 'dbw_polaris_msgs::WatchdogCounter::*THROTTLE_DISABLED*)
+        ((= const 10) 'dbw_polaris_msgs::WatchdogCounter::*THROTTLE_COMMAND*)
+        ((= const 11) 'dbw_polaris_msgs::WatchdogCounter::*THROTTLE_REPORT*)
+        ((= const 12) 'dbw_polaris_msgs::WatchdogCounter::*STEERING_COUNTER*)
+        ((= const 13) 'dbw_polaris_msgs::WatchdogCounter::*STEERING_DISABLED*)
+        ((= const 14) 'dbw_polaris_msgs::WatchdogCounter::*STEERING_COMMAND*)
+        ((= const 15) 'dbw_polaris_msgs::WatchdogCounter::*STEERING_REPORT*)
+        (t nil)))
+
 (defclass dbw_polaris_msgs::WatchdogCounter
   :super ros::object
   :slots (_source ))

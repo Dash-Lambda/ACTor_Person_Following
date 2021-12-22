@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib
+# Install script for directory: /home/actor1/ACTor_Person_Following/src/aruco_eye/aruco_lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
+  set(CMAKE_INSTALL_PREFIX "/home/actor1/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,18 +32,23 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib/catkin_generated/installspace/aruco_lib.pc")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/aruco_eye/aruco_lib/catkin_generated/installspace/aruco_lib.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_lib/cmake" TYPE FILE FILES
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib/catkin_generated/installspace/aruco_libConfig.cmake"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/aruco_eye/aruco_lib/catkin_generated/installspace/aruco_libConfig-version.cmake"
+    "/home/actor1/ACTor_Person_Following/build/aruco_eye/aruco_lib/catkin_generated/installspace/aruco_libConfig.cmake"
+    "/home/actor1/ACTor_Person_Following/build/aruco_eye/aruco_lib/catkin_generated/installspace/aruco_libConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_lib" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_lib" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/src/aruco_eye/aruco_lib/package.xml")
 endif()
 

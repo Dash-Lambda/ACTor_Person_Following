@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/actor1/ACTor_Person_Following/devel/share/gennodejs/ros/robot_component_srvs/srv/SetBool.js"
   "CMakeFiles/robot_component_srvs_generate_messages_nodejs"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/gennodejs/ros/robot_component_srvs/srv/SetBool.js"
 )
 
 # Per-language clean rules from dependency scanning.

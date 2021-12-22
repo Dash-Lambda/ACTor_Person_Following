@@ -1,8 +1,8 @@
-prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/devel
+prefix=/home/actor1/ACTor_Person_Following/devel
 
 Name: pugixml
 Description: Description of pugixml
 Version: 1.7.1
-Cflags: -I/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include
+Cflags: -I/home/actor1/ACTor_Person_Following/src/pugixml/src/include
 Libs: -L${prefix}/lib -lpugixml
 Requires: 

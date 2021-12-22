@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugiconfig.hpp
+/home/actor1/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugiconfig.hpp
 
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugixml.hpp
+/home/actor1/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugixml.hpp
 pugiconfig.hpp
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugiconfig.hpp
+/home/actor1/ACTor_Person_Following/src/pugixml/src/include/pugixml/pugiconfig.hpp
 stddef.h
 -
 exception
@@ -22,9 +22,9 @@ iosfwd
 string
 -
 
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/sources/pugixml.cpp
+/home/actor1/ACTor_Person_Following/src/pugixml/src/sources/pugixml.cpp
 pugixml.hpp
-/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/sources/pugixml.hpp
+/home/actor1/ACTor_Person_Following/src/pugixml/src/sources/pugixml.hpp
 stdlib.h
 -
 stdio.h

@@ -60,7 +60,7 @@ class LabeledPointInImage {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.value.length;
+    length += _getByteLength(object.value);
     return length + 12;
   }
 

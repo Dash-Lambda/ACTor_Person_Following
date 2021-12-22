@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/home/mpleune/lfa_ws/ACTor_Person_Following/src/pugixml/src/include;/home/mpleune/lfa_ws/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include;/opt/ros/kinetic/include/opencv-3.3.1-dev;/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv")
+set(ORDERED_PATHS "/home/actor1/ACTor_Person_Following/src/pugixml/src/include;/home/actor1/ACTor_Person_Following/src/aruco_eye/aruco_lib/src/include;/usr/include/opencv4")

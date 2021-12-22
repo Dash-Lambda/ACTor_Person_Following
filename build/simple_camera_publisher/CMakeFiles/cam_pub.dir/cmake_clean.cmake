@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/actor1/ACTor_Person_Following/devel/lib/simple_camera_publisher/cam_pub"
+  "/home/actor1/ACTor_Person_Following/devel/lib/simple_camera_publisher/cam_pub.pdb"
   "CMakeFiles/cam_pub.dir/src/cam_pub.cpp.o"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/simple_camera_publisher/cam_pub.pdb"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/simple_camera_publisher/cam_pub"
 )
 
 # Per-language clean rules from dependency scanning.

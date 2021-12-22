@@ -83,6 +83,23 @@ struct SteeringCmd_
 
 
 
+// reducing the odds to have name collisions with Windows.h 
+#if defined(_WIN32) && defined(CMD_ANGLE)
+  #undef CMD_ANGLE
+#endif
+#if defined(_WIN32) && defined(CMD_TORQUE)
+  #undef CMD_TORQUE
+#endif
+#if defined(_WIN32) && defined(ANGLE_MAX)
+  #undef ANGLE_MAX
+#endif
+#if defined(_WIN32) && defined(VELOCITY_MAX)
+  #undef VELOCITY_MAX
+#endif
+#if defined(_WIN32) && defined(TORQUE_MAX)
+  #undef TORQUE_MAX
+#endif
+
   enum {
     CMD_ANGLE = 0u,
     CMD_TORQUE = 1u,
@@ -144,6 +161,29 @@ ros::message_operations::Printer< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllo
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator2> & rhs)
+{
+  return lhs.steering_wheel_angle_cmd == rhs.steering_wheel_angle_cmd &&
+    lhs.steering_wheel_angle_velocity == rhs.steering_wheel_angle_velocity &&
+    lhs.steering_wheel_torque_cmd == rhs.steering_wheel_torque_cmd &&
+    lhs.cmd_type == rhs.cmd_type &&
+    lhs.enable == rhs.enable &&
+    lhs.clear == rhs.clear &&
+    lhs.ignore == rhs.ignore &&
+    lhs.calibrate == rhs.calibrate &&
+    lhs.quiet == rhs.quiet &&
+    lhs.count == rhs.count;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace dbw_polaris_msgs
 
 namespace ros
@@ -153,23 +193,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> const>
-  : TrueType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> >
@@ -178,6 +202,16 @@ struct IsMessage< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> >
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> const>
   : TrueType
   { };
 
@@ -221,39 +255,39 @@ struct Definition< ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "# Steering Wheel\n\
-float32 steering_wheel_angle_cmd        # rad, range -10.5 to 10.5\n\
-float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = default\n\
-float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0\n\
-uint8 cmd_type\n\
-\n\
-# Enable\n\
-bool enable\n\
-\n\
-# Clear driver overrides\n\
-bool clear\n\
-\n\
-# Ignore driver overrides\n\
-bool ignore\n\
-\n\
-# Sets current steering wheel angle to value in steering_wheel_angle_cmd\n\
-bool calibrate\n\
-\n\
-# Disable the driver override audible warning\n\
-bool quiet\n\
-\n\
-# Watchdog counter (optional)\n\
-uint8 count\n\
-\n\
-# Command types\n\
-uint8 CMD_ANGLE=0\n\
-uint8 CMD_TORQUE=1\n\
-\n\
-# Maximum values\n\
-float32 ANGLE_MAX=10.5    # rad, maximum angle\n\
-float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity\n\
-float32 TORQUE_MAX=60.0   # Nm, maximum torque\n\
-";
+    return "# Steering Wheel\n"
+"float32 steering_wheel_angle_cmd        # rad, range -10.5 to 10.5\n"
+"float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = default\n"
+"float32 steering_wheel_torque_cmd       # Nm, range -60.0 to 60.0\n"
+"uint8 cmd_type\n"
+"\n"
+"# Enable\n"
+"bool enable\n"
+"\n"
+"# Clear driver overrides\n"
+"bool clear\n"
+"\n"
+"# Ignore driver overrides\n"
+"bool ignore\n"
+"\n"
+"# Sets current steering wheel angle to value in steering_wheel_angle_cmd\n"
+"bool calibrate\n"
+"\n"
+"# Disable the driver override audible warning\n"
+"bool quiet\n"
+"\n"
+"# Watchdog counter (optional)\n"
+"uint8 count\n"
+"\n"
+"# Command types\n"
+"uint8 CMD_ANGLE=0\n"
+"uint8 CMD_TORQUE=1\n"
+"\n"
+"# Maximum values\n"
+"float32 ANGLE_MAX=10.5    # rad, maximum angle\n"
+"float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity\n"
+"float32 TORQUE_MAX=60.0   # Nm, maximum torque\n"
+;
   }
 
   static const char* value(const ::dbw_polaris_msgs::SteeringCmd_<ContainerAllocator>&) { return value(); }

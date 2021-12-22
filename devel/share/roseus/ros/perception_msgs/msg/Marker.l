@@ -26,7 +26,7 @@
     ((:header __header) (instance std_msgs::Header :init))
     ((:id __id) "")
     ((:size __size) (make-array 0 :initial-element 0.0 :element-type :float))
-    ((:labeledPointsInImage __labeledPointsInImage) (let (r) (dotimes (i 0) (push (instance perception_msgs::LabeledPointInImage :init) r)) r))
+    ((:labeledPointsInImage __labeledPointsInImage) ())
     ((:is3dReconstructed __is3dReconstructed) nil)
     ((:pose __pose) (instance geometry_msgs::PoseWithCovariance :init))
     ((:confidence __confidence) 0.0)
@@ -61,8 +61,8 @@
        (if __labeledPointsInImage (setq _labeledPointsInImage (car __labeledPointsInImage)))
        _labeledPointsInImage)))
   (:is3dReconstructed
-   (&optional __is3dReconstructed)
-   (if __is3dReconstructed (setq _is3dReconstructed __is3dReconstructed)) _is3dReconstructed)
+   (&optional (__is3dReconstructed :null))
+   (if (not (eq __is3dReconstructed :null)) (setq _is3dReconstructed __is3dReconstructed)) _is3dReconstructed)
   (:pose
    (&rest __pose)
    (if (keywordp (car __pose))
@@ -185,8 +185,6 @@ uint32 seq
 # time-handling sugar is provided by the client library
 time stamp
 #Frame this data is associated with
-# 0: no frame
-# 1: global frame
 string frame_id
 
 ================================================================================

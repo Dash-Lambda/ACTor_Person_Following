@@ -67,17 +67,17 @@
    (&optional __pedal_output)
    (if __pedal_output (setq _pedal_output __pedal_output)) _pedal_output)
   (:enabled
-   (&optional __enabled)
-   (if __enabled (setq _enabled __enabled)) _enabled)
+   (&optional (__enabled :null))
+   (if (not (eq __enabled :null)) (setq _enabled __enabled)) _enabled)
   (:override
-   (&optional __override)
-   (if __override (setq _override __override)) _override)
+   (&optional (__override :null))
+   (if (not (eq __override :null)) (setq _override __override)) _override)
   (:driver
-   (&optional __driver)
-   (if __driver (setq _driver __driver)) _driver)
+   (&optional (__driver :null))
+   (if (not (eq __driver :null)) (setq _driver __driver)) _driver)
   (:timeout
-   (&optional __timeout)
-   (if __timeout (setq _timeout __timeout)) _timeout)
+   (&optional (__timeout :null))
+   (if (not (eq __timeout :null)) (setq _timeout __timeout)) _timeout)
   (:watchdog_counter
    (&rest __watchdog_counter)
    (if (keywordp (car __watchdog_counter))
@@ -86,17 +86,17 @@
        (if __watchdog_counter (setq _watchdog_counter (car __watchdog_counter)))
        _watchdog_counter)))
   (:fault_wdc
-   (&optional __fault_wdc)
-   (if __fault_wdc (setq _fault_wdc __fault_wdc)) _fault_wdc)
+   (&optional (__fault_wdc :null))
+   (if (not (eq __fault_wdc :null)) (setq _fault_wdc __fault_wdc)) _fault_wdc)
   (:fault_ch1
-   (&optional __fault_ch1)
-   (if __fault_ch1 (setq _fault_ch1 __fault_ch1)) _fault_ch1)
+   (&optional (__fault_ch1 :null))
+   (if (not (eq __fault_ch1 :null)) (setq _fault_ch1 __fault_ch1)) _fault_ch1)
   (:fault_ch2
-   (&optional __fault_ch2)
-   (if __fault_ch2 (setq _fault_ch2 __fault_ch2)) _fault_ch2)
+   (&optional (__fault_ch2 :null))
+   (if (not (eq __fault_ch2 :null)) (setq _fault_ch2 __fault_ch2)) _fault_ch2)
   (:fault_power
-   (&optional __fault_power)
-   (if __fault_power (setq _fault_power __fault_power)) _fault_power)
+   (&optional (__fault_power :null))
+   (if (not (eq __fault_power :null)) (setq _fault_power __fault_power)) _fault_power)
   (:serialization-length
    ()
    (+
@@ -231,8 +231,6 @@ uint32 seq
 # time-handling sugar is provided by the client library
 time stamp
 #Frame this data is associated with
-# 0: no frame
-# 1: global frame
 string frame_id
 
 ================================================================================

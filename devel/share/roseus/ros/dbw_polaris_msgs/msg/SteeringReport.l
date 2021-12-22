@@ -20,6 +20,13 @@
 (intern "*CMD_TORQUE*" (find-package "DBW_POLARIS_MSGS::STEERINGREPORT"))
 (shadow '*CMD_TORQUE* (find-package "DBW_POLARIS_MSGS::STEERINGREPORT"))
 (defconstant dbw_polaris_msgs::SteeringReport::*CMD_TORQUE* 1)
+
+(defun dbw_polaris_msgs::SteeringReport-to-symbol (const)
+  (cond
+        ((= const 0) 'dbw_polaris_msgs::SteeringReport::*CMD_ANGLE*)
+        ((= const 1) 'dbw_polaris_msgs::SteeringReport::*CMD_TORQUE*)
+        (t nil)))
+
 (defclass dbw_polaris_msgs::SteeringReport
   :super ros::object
   :slots (_header _steering_wheel_angle _steering_wheel_cmd _steering_wheel_torque _steering_wheel_cmd_type _speed _enabled _override _timeout _fault_wdc _fault_bus1 _fault_bus2 _fault_calibration _fault_power ))
@@ -81,29 +88,29 @@
    (&optional __speed)
    (if __speed (setq _speed __speed)) _speed)
   (:enabled
-   (&optional __enabled)
-   (if __enabled (setq _enabled __enabled)) _enabled)
+   (&optional (__enabled :null))
+   (if (not (eq __enabled :null)) (setq _enabled __enabled)) _enabled)
   (:override
-   (&optional __override)
-   (if __override (setq _override __override)) _override)
+   (&optional (__override :null))
+   (if (not (eq __override :null)) (setq _override __override)) _override)
   (:timeout
-   (&optional __timeout)
-   (if __timeout (setq _timeout __timeout)) _timeout)
+   (&optional (__timeout :null))
+   (if (not (eq __timeout :null)) (setq _timeout __timeout)) _timeout)
   (:fault_wdc
-   (&optional __fault_wdc)
-   (if __fault_wdc (setq _fault_wdc __fault_wdc)) _fault_wdc)
+   (&optional (__fault_wdc :null))
+   (if (not (eq __fault_wdc :null)) (setq _fault_wdc __fault_wdc)) _fault_wdc)
   (:fault_bus1
-   (&optional __fault_bus1)
-   (if __fault_bus1 (setq _fault_bus1 __fault_bus1)) _fault_bus1)
+   (&optional (__fault_bus1 :null))
+   (if (not (eq __fault_bus1 :null)) (setq _fault_bus1 __fault_bus1)) _fault_bus1)
   (:fault_bus2
-   (&optional __fault_bus2)
-   (if __fault_bus2 (setq _fault_bus2 __fault_bus2)) _fault_bus2)
+   (&optional (__fault_bus2 :null))
+   (if (not (eq __fault_bus2 :null)) (setq _fault_bus2 __fault_bus2)) _fault_bus2)
   (:fault_calibration
-   (&optional __fault_calibration)
-   (if __fault_calibration (setq _fault_calibration __fault_calibration)) _fault_calibration)
+   (&optional (__fault_calibration :null))
+   (if (not (eq __fault_calibration :null)) (setq _fault_calibration __fault_calibration)) _fault_calibration)
   (:fault_power
-   (&optional __fault_power)
-   (if __fault_power (setq _fault_power __fault_power)) _fault_power)
+   (&optional (__fault_power :null))
+   (if (not (eq __fault_power :null)) (setq _fault_power __fault_power)) _fault_power)
   (:serialization-length
    ()
    (+
@@ -250,8 +257,6 @@ uint32 seq
 # time-handling sugar is provided by the client library
 time stamp
 #Frame this data is associated with
-# 0: no frame
-# 1: global frame
 string frame_id
 
 ")

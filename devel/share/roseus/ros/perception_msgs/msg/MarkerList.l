@@ -23,7 +23,7 @@
    (&key
     ((:header __header) (instance std_msgs::Header :init))
     ((:imageTopicName __imageTopicName) "")
-    ((:markers __markers) (let (r) (dotimes (i 0) (push (instance perception_msgs::Marker :init) r)) r))
+    ((:markers __markers) ())
     )
    (send-super :init)
    (setq _header __header)
@@ -115,8 +115,6 @@ uint32 seq
 # time-handling sugar is provided by the client library
 time stamp
 #Frame this data is associated with
-# 0: no frame
-# 1: global frame
 string frame_id
 
 ================================================================================

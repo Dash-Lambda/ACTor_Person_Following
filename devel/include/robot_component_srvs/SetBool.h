@@ -57,8 +57,8 @@ struct DataType< ::robot_component_srvs::SetBool > {
 };
 
 
-// service_traits::MD5Sum< ::robot_component_srvs::SetBoolRequest> should match 
-// service_traits::MD5Sum< ::robot_component_srvs::SetBool > 
+// service_traits::MD5Sum< ::robot_component_srvs::SetBoolRequest> should match
+// service_traits::MD5Sum< ::robot_component_srvs::SetBool >
 template<>
 struct MD5Sum< ::robot_component_srvs::SetBoolRequest>
 {
@@ -72,8 +72,8 @@ struct MD5Sum< ::robot_component_srvs::SetBoolRequest>
   }
 };
 
-// service_traits::DataType< ::robot_component_srvs::SetBoolRequest> should match 
-// service_traits::DataType< ::robot_component_srvs::SetBool > 
+// service_traits::DataType< ::robot_component_srvs::SetBoolRequest> should match
+// service_traits::DataType< ::robot_component_srvs::SetBool >
 template<>
 struct DataType< ::robot_component_srvs::SetBoolRequest>
 {
@@ -87,8 +87,8 @@ struct DataType< ::robot_component_srvs::SetBoolRequest>
   }
 };
 
-// service_traits::MD5Sum< ::robot_component_srvs::SetBoolResponse> should match 
-// service_traits::MD5Sum< ::robot_component_srvs::SetBool > 
+// service_traits::MD5Sum< ::robot_component_srvs::SetBoolResponse> should match
+// service_traits::MD5Sum< ::robot_component_srvs::SetBool >
 template<>
 struct MD5Sum< ::robot_component_srvs::SetBoolResponse>
 {
@@ -102,8 +102,8 @@ struct MD5Sum< ::robot_component_srvs::SetBoolResponse>
   }
 };
 
-// service_traits::DataType< ::robot_component_srvs::SetBoolResponse> should match 
-// service_traits::DataType< ::robot_component_srvs::SetBool > 
+// service_traits::DataType< ::robot_component_srvs::SetBoolResponse> should match
+// service_traits::DataType< ::robot_component_srvs::SetBool >
 template<>
 struct DataType< ::robot_component_srvs::SetBoolResponse>
 {

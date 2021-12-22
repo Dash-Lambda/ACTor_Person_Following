@@ -1,8 +1,8 @@
-# Install script for directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_tools
+# Install script for directory: /home/actor1/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_tools
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mpleune/lfa_ws/ACTor_Person_Following/install")
+  set(CMAKE_INSTALL_PREFIX "/home/actor1/ACTor_Person_Following/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,34 +32,39 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/catkin_generated/installspace/dataspeed_can_tools.pc")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/catkin_generated/installspace/dataspeed_can_tools.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_tools/cmake" TYPE FILE FILES
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/catkin_generated/installspace/dataspeed_can_toolsConfig.cmake"
-    "/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/catkin_generated/installspace/dataspeed_can_toolsConfig-version.cmake"
+    "/home/actor1/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/catkin_generated/installspace/dataspeed_can_toolsConfig.cmake"
+    "/home/actor1/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/catkin_generated/installspace/dataspeed_can_toolsConfig-version.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_tools" TYPE FILE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_tools/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dataspeed_can_tools" TYPE FILE FILES "/home/actor1/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_tools/package.xml")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_tools.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_tools.so")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_tools.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/libdataspeed_can_tools.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/actor1/ACTor_Person_Following/devel/lib/libdataspeed_can_tools.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_tools.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_tools.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_tools.so"
-         OLD_RPATH "/opt/ros/kinetic/lib:"
+         OLD_RPATH "/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdataspeed_can_tools.so")
@@ -67,19 +72,22 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_node")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools" TYPE EXECUTABLE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dataspeed_can_tools/dbc_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools" TYPE EXECUTABLE FILES "/home/actor1/ACTor_Person_Following/devel/lib/dataspeed_can_tools/dbc_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_node"
-         OLD_RPATH "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib:/opt/ros/kinetic/lib:"
+         OLD_RPATH "/home/actor1/ACTor_Person_Following/devel/lib:/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_node")
@@ -87,19 +95,19 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_bag" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_bag")
     file(RPATH_CHECK
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_bag"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools" TYPE EXECUTABLE FILES "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dataspeed_can_tools/dbc_bag")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools" TYPE EXECUTABLE FILES "/home/actor1/ACTor_Person_Following/devel/lib/dataspeed_can_tools/dbc_bag")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_bag" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_bag")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_bag"
-         OLD_RPATH "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib:/opt/ros/kinetic/lib:"
+         OLD_RPATH "/home/actor1/ACTor_Person_Following/devel/lib:/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/dataspeed_can_tools/dbc_bag")
@@ -109,7 +117,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/tests/cmake_install.cmake")
+  include("/home/actor1/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools/tests/cmake_install.cmake")
 
 endif()
 

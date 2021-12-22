@@ -63,6 +63,17 @@ struct ThrottleCmd_
 
 
 
+// reducing the odds to have name collisions with Windows.h 
+#if defined(_WIN32) && defined(CMD_NONE)
+  #undef CMD_NONE
+#endif
+#if defined(_WIN32) && defined(CMD_PEDAL)
+  #undef CMD_PEDAL
+#endif
+#if defined(_WIN32) && defined(CMD_PERCENT)
+  #undef CMD_PERCENT
+#endif
+
   enum {
     CMD_NONE = 0u,
     CMD_PEDAL = 1u,
@@ -97,6 +108,25 @@ ros::message_operations::Printer< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllo
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator2> & rhs)
+{
+  return lhs.pedal_cmd == rhs.pedal_cmd &&
+    lhs.pedal_cmd_type == rhs.pedal_cmd_type &&
+    lhs.enable == rhs.enable &&
+    lhs.clear == rhs.clear &&
+    lhs.ignore == rhs.ignore &&
+    lhs.count == rhs.count;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace dbw_polaris_msgs
 
 namespace ros
@@ -106,23 +136,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> const>
-  : TrueType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> >
@@ -131,6 +145,16 @@ struct IsMessage< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> >
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> const>
   : TrueType
   { };
 
@@ -174,27 +198,27 @@ struct Definition< ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "# Throttle pedal\n\
-# Options defined below\n\
-float32 pedal_cmd\n\
-uint8 pedal_cmd_type\n\
-\n\
-# Enable\n\
-bool enable\n\
-\n\
-# Clear driver overrides\n\
-bool clear\n\
-\n\
-# Ignore driver overrides\n\
-bool ignore\n\
-\n\
-# Watchdog counter (optional)\n\
-uint8 count\n\
-\n\
-uint8 CMD_NONE=0\n\
-uint8 CMD_PEDAL=1   # Unitless, range 0.20 to 0.80\n\
-uint8 CMD_PERCENT=2 # Percent of maximum throttle, range 0 to 1\n\
-";
+    return "# Throttle pedal\n"
+"# Options defined below\n"
+"float32 pedal_cmd\n"
+"uint8 pedal_cmd_type\n"
+"\n"
+"# Enable\n"
+"bool enable\n"
+"\n"
+"# Clear driver overrides\n"
+"bool clear\n"
+"\n"
+"# Ignore driver overrides\n"
+"bool ignore\n"
+"\n"
+"# Watchdog counter (optional)\n"
+"uint8 count\n"
+"\n"
+"uint8 CMD_NONE=0\n"
+"uint8 CMD_PEDAL=1   # Unitless, range 0.20 to 0.80\n"
+"uint8 CMD_PERCENT=2 # Percent of maximum throttle, range 0 to 1\n"
+;
   }
 
   static const char* value(const ::dbw_polaris_msgs::ThrottleCmd_<ContainerAllocator>&) { return value(); }

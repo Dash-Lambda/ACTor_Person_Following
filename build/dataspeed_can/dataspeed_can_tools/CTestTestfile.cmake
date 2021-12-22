@@ -1,7 +1,7 @@
 # CMake generated Testfile for 
-# Source directory: /home/mpleune/lfa_ws/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_tools
-# Build directory: /home/mpleune/lfa_ws/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools
+# Source directory: /home/actor1/ACTor_Person_Following/src/dataspeed_can/dataspeed_can_tools
+# Build directory: /home/actor1/ACTor_Person_Following/build/dataspeed_can/dataspeed_can_tools
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-subdirs(tests)
+subdirs("tests")

@@ -114,7 +114,7 @@ class BoundingBox {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.Class.length;
+    length += _getByteLength(object.Class);
     return length + 46;
   }
 

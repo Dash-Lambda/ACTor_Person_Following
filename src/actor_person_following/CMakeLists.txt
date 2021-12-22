@@ -23,6 +23,8 @@ add_message_files(
   Detections.msg
   Lidar_Point.msg
   Lidar_Points.msg
+  Pose_Point.msg
+  Pose_Points.msg
 )
 
 generate_messages(

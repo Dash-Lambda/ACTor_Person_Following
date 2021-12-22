@@ -94,6 +94,26 @@ ros::message_operations::Printer< ::perception_msgs::Marker_<ContainerAllocator>
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::perception_msgs::Marker_<ContainerAllocator1> & lhs, const ::perception_msgs::Marker_<ContainerAllocator2> & rhs)
+{
+  return lhs.header == rhs.header &&
+    lhs.id == rhs.id &&
+    lhs.size == rhs.size &&
+    lhs.labeledPointsInImage == rhs.labeledPointsInImage &&
+    lhs.is3dReconstructed == rhs.is3dReconstructed &&
+    lhs.pose == rhs.pose &&
+    lhs.confidence == rhs.confidence;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::perception_msgs::Marker_<ContainerAllocator1> & lhs, const ::perception_msgs::Marker_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace perception_msgs
 
 namespace ros
@@ -103,23 +123,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'perception_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::perception_msgs::Marker_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::perception_msgs::Marker_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::perception_msgs::Marker_<ContainerAllocator> >
@@ -129,6 +133,16 @@ struct IsMessage< ::perception_msgs::Marker_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::perception_msgs::Marker_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::perception_msgs::Marker_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::perception_msgs::Marker_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -171,93 +185,91 @@ struct Definition< ::perception_msgs::Marker_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "# Header. Needed for the frame_id\n\
-Header header\n\
-\n\
-# Id of the visual marker\n\
-string id\n\
-\n\
-# Size of the visual marker if available\n\
-float32[] size\n\
-\n\
-# Points of the visual marker in the Image\n\
-perception_msgs/LabeledPointInImage[] labeledPointsInImage\n\
-\n\
-# Flag for the 3D reconstruction\n\
-bool is3dReconstructed\n\
-\n\
-# Pose of the Visual Marker wrt Camera if calibration file is available\n\
-geometry_msgs/PoseWithCovariance pose\n\
-\n\
-# Confidence in the detection. TODO\n\
-float64 confidence\n\
-\n\
-================================================================================\n\
-MSG: std_msgs/Header\n\
-# Standard metadata for higher-level stamped data types.\n\
-# This is generally used to communicate timestamped data \n\
-# in a particular coordinate frame.\n\
-# \n\
-# sequence ID: consecutively increasing ID \n\
-uint32 seq\n\
-#Two-integer timestamp that is expressed as:\n\
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n\
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n\
-# time-handling sugar is provided by the client library\n\
-time stamp\n\
-#Frame this data is associated with\n\
-# 0: no frame\n\
-# 1: global frame\n\
-string frame_id\n\
-\n\
-================================================================================\n\
-MSG: perception_msgs/LabeledPointInImage\n\
-# string value. Empty if there is no label\n\
-string value\n\
-# Point with x,y coordinates of the point in the image\n\
-PointInImage pointsInImage\n\
-\n\
-================================================================================\n\
-MSG: perception_msgs/PointInImage\n\
-# x coordinate of the point in the image\n\
-float32 x\n\
-# y coordinate of the poitn in the image\n\
-float32 y\n\
-\n\
-================================================================================\n\
-MSG: geometry_msgs/PoseWithCovariance\n\
-# This represents a pose in free space with uncertainty.\n\
-\n\
-Pose pose\n\
-\n\
-# Row-major representation of the 6x6 covariance matrix\n\
-# The orientation parameters use a fixed-axis representation.\n\
-# In order, the parameters are:\n\
-# (x, y, z, rotation about X axis, rotation about Y axis, rotation about Z axis)\n\
-float64[36] covariance\n\
-\n\
-================================================================================\n\
-MSG: geometry_msgs/Pose\n\
-# A representation of pose in free space, composed of position and orientation. \n\
-Point position\n\
-Quaternion orientation\n\
-\n\
-================================================================================\n\
-MSG: geometry_msgs/Point\n\
-# This contains the position of a point in free space\n\
-float64 x\n\
-float64 y\n\
-float64 z\n\
-\n\
-================================================================================\n\
-MSG: geometry_msgs/Quaternion\n\
-# This represents an orientation in free space in quaternion form.\n\
-\n\
-float64 x\n\
-float64 y\n\
-float64 z\n\
-float64 w\n\
-";
+    return "# Header. Needed for the frame_id\n"
+"Header header\n"
+"\n"
+"# Id of the visual marker\n"
+"string id\n"
+"\n"
+"# Size of the visual marker if available\n"
+"float32[] size\n"
+"\n"
+"# Points of the visual marker in the Image\n"
+"perception_msgs/LabeledPointInImage[] labeledPointsInImage\n"
+"\n"
+"# Flag for the 3D reconstruction\n"
+"bool is3dReconstructed\n"
+"\n"
+"# Pose of the Visual Marker wrt Camera if calibration file is available\n"
+"geometry_msgs/PoseWithCovariance pose\n"
+"\n"
+"# Confidence in the detection. TODO\n"
+"float64 confidence\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
+"\n"
+"================================================================================\n"
+"MSG: perception_msgs/LabeledPointInImage\n"
+"# string value. Empty if there is no label\n"
+"string value\n"
+"# Point with x,y coordinates of the point in the image\n"
+"PointInImage pointsInImage\n"
+"\n"
+"================================================================================\n"
+"MSG: perception_msgs/PointInImage\n"
+"# x coordinate of the point in the image\n"
+"float32 x\n"
+"# y coordinate of the poitn in the image\n"
+"float32 y\n"
+"\n"
+"================================================================================\n"
+"MSG: geometry_msgs/PoseWithCovariance\n"
+"# This represents a pose in free space with uncertainty.\n"
+"\n"
+"Pose pose\n"
+"\n"
+"# Row-major representation of the 6x6 covariance matrix\n"
+"# The orientation parameters use a fixed-axis representation.\n"
+"# In order, the parameters are:\n"
+"# (x, y, z, rotation about X axis, rotation about Y axis, rotation about Z axis)\n"
+"float64[36] covariance\n"
+"\n"
+"================================================================================\n"
+"MSG: geometry_msgs/Pose\n"
+"# A representation of pose in free space, composed of position and orientation. \n"
+"Point position\n"
+"Quaternion orientation\n"
+"\n"
+"================================================================================\n"
+"MSG: geometry_msgs/Point\n"
+"# This contains the position of a point in free space\n"
+"float64 x\n"
+"float64 y\n"
+"float64 z\n"
+"\n"
+"================================================================================\n"
+"MSG: geometry_msgs/Quaternion\n"
+"# This represents an orientation in free space in quaternion form.\n"
+"\n"
+"float64 x\n"
+"float64 y\n"
+"float64 z\n"
+"float64 w\n"
+;
   }
 
   static const char* value(const ::perception_msgs::Marker_<ContainerAllocator>&) { return value(); }

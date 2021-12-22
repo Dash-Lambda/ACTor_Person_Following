@@ -1,4 +1,4 @@
-prefix=/home/mpleune/lfa_ws/ACTor_Person_Following/devel
+prefix=/home/actor1/ACTor_Person_Following/devel
 
 Name: simple_camera_publisher
 Description: Description of simple_camera_publisher

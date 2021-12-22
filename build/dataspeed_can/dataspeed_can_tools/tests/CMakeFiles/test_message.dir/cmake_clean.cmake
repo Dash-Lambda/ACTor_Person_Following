@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/actor1/ACTor_Person_Following/devel/lib/dataspeed_can_tools/test_message"
+  "/home/actor1/ACTor_Person_Following/devel/lib/dataspeed_can_tools/test_message.pdb"
   "CMakeFiles/test_message.dir/test_message.cpp.o"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dataspeed_can_tools/test_message.pdb"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/dataspeed_can_tools/test_message"
 )
 
 # Per-language clean rules from dependency scanning.

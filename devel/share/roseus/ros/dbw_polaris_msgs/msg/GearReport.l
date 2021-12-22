@@ -65,11 +65,11 @@
        (if __reject (setq _reject (car __reject)))
        _reject)))
   (:override
-   (&optional __override)
-   (if __override (setq _override __override)) _override)
+   (&optional (__override :null))
+   (if (not (eq __override :null)) (setq _override __override)) _override)
   (:fault_bus
-   (&optional __fault_bus)
-   (if __fault_bus (setq _fault_bus __fault_bus)) _fault_bus)
+   (&optional (__fault_bus :null))
+   (if (not (eq __fault_bus :null)) (setq _fault_bus __fault_bus)) _fault_bus)
   (:serialization-length
    ()
    (+
@@ -156,8 +156,6 @@ uint32 seq
 # time-handling sugar is provided by the client library
 time stamp
 #Frame this data is associated with
-# 0: no frame
-# 1: global frame
 string frame_id
 
 ================================================================================

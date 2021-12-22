@@ -38,6 +38,26 @@ struct Gear_
 
 
 
+// reducing the odds to have name collisions with Windows.h 
+#if defined(_WIN32) && defined(NONE)
+  #undef NONE
+#endif
+#if defined(_WIN32) && defined(PARK)
+  #undef PARK
+#endif
+#if defined(_WIN32) && defined(REVERSE)
+  #undef REVERSE
+#endif
+#if defined(_WIN32) && defined(NEUTRAL)
+  #undef NEUTRAL
+#endif
+#if defined(_WIN32) && defined(DRIVE)
+  #undef DRIVE
+#endif
+#if defined(_WIN32) && defined(LOW)
+  #undef LOW
+#endif
+
   enum {
     NONE = 0u,
     PARK = 1u,
@@ -81,6 +101,20 @@ ros::message_operations::Printer< ::dbw_polaris_msgs::Gear_<ContainerAllocator> 
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::dbw_polaris_msgs::Gear_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::Gear_<ContainerAllocator2> & rhs)
+{
+  return lhs.gear == rhs.gear;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::dbw_polaris_msgs::Gear_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::Gear_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace dbw_polaris_msgs
 
 namespace ros
@@ -90,23 +124,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::Gear_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::Gear_<ContainerAllocator> const>
-  : TrueType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::Gear_<ContainerAllocator> >
@@ -115,6 +133,16 @@ struct IsMessage< ::dbw_polaris_msgs::Gear_<ContainerAllocator> >
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::Gear_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::Gear_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::Gear_<ContainerAllocator> const>
   : TrueType
   { };
 
@@ -158,15 +186,15 @@ struct Definition< ::dbw_polaris_msgs::Gear_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "uint8 gear\n\
-\n\
-uint8 NONE=0\n\
-uint8 PARK=1\n\
-uint8 REVERSE=2\n\
-uint8 NEUTRAL=3\n\
-uint8 DRIVE=4\n\
-uint8 LOW=5\n\
-";
+    return "uint8 gear\n"
+"\n"
+"uint8 NONE=0\n"
+"uint8 PARK=1\n"
+"uint8 REVERSE=2\n"
+"uint8 NEUTRAL=3\n"
+"uint8 DRIVE=4\n"
+"uint8 LOW=5\n"
+;
   }
 
   static const char* value(const ::dbw_polaris_msgs::Gear_<ContainerAllocator>&) { return value(); }

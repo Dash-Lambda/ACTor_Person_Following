@@ -3,6 +3,8 @@
           HEADER
           IMAGE_HEADER-VAL
           IMAGE_HEADER
+          IMAGE-VAL
+          IMAGE
           NUM_DETECTS-VAL
           NUM_DETECTS
           DETECTIONS-VAL
@@ -27,4 +29,8 @@
           ARUCO_Y
           ARUCO_POINTS-VAL
           ARUCO_POINTS
+          START-VAL
+          START
+          STOP-VAL
+          STOP
 ))

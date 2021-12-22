@@ -7,6 +7,8 @@
 #include <actor_person_following/Detections.h>
 #include <actor_person_following/Lidar_Point.h>
 #include <actor_person_following/Lidar_Points.h>
+#include <actor_person_following/Pose_Point.h>
+#include <actor_person_following/Pose_Points.h>
 #include <string>
 #include <vector>
 
@@ -24,7 +26,7 @@ using namespace std;
 ros::Subscriber detection_image_sub, detection_sub, status_sub, lidar_sub;
 image_transport::Publisher image_pub;
 const int text_font = cv::FONT_HERSHEY_PLAIN;
-const double text_scale = 0.8;
+const double text_scale = 2;
 
 //Config Parameters
 string detection_image_topic, detection_topic, lidar_topic, window_name;
@@ -35,7 +37,6 @@ int waitkey_delay, line_spacing, buffer_size;
 //cv_bridge::CvImageConstPtr cur_img_ptr;
 std_msgs::Header target_header;
 cv::Mat src_image, image;
-vector<actor_person_following::Detections> detection_buffer;
 actor_person_following::Detections detections;
 bool stale_image, made_image, image_exists, image_found, in_sync, detections_found;
 string cur_status;
@@ -55,32 +56,13 @@ int write_line(cv::Mat& img, const string& str, cv::Point pos, cv::Scalar color)
 	return size.height;
 }
 
-void set_image(){
-	long min_diff = -1;
-	int min_ind = -1;
-	for(int i = 0; i < image_buffer.size(); i++){
-		long diff = abs((image_buffer[i]->header.stamp - target_header.stamp).toNSec());
-		if(diff < min_diff || min_diff < 0){
-			min_diff = diff;
-			min_ind = i;
-		}
-	}
-	if(min_ind >= 0){
-		src_image = cv_bridge::toCvShare(image_buffer[min_ind], sensor_msgs::image_encodings::BGR8)->image;
-		in_sync = false;
-		image_diff = min_diff;
-		image_found = true;
-		return;
-	}else{
-		image_found = false;
-	}
-}
-
 void set_lidar(){
 	long min_diff = -1;
 	int min_ind = -1;
+	//ros::Time stamp = target_header.stamp;
+	ros::Time stamp = ros::Time::now();
 	for(int i = 0; i < lidar_buffer.size(); i++){
-		long diff = abs((lidar_buffer[i].header.stamp - target_header.stamp).toNSec());
+		long diff = abs((lidar_buffer[i].header.stamp - stamp).toNSec());
 		if(diff < min_diff || min_diff < 0){
 			min_diff = diff;
 			min_ind = i;
@@ -92,25 +74,6 @@ void set_lidar(){
 		return;
 	}else{
 		lidar_found = false;
-	}
-}
-
-void set_detections(){
-	long min_diff = -1;
-	int min_ind = -1;
-	for(int i = 0; i < detection_buffer.size(); i++){
-		long diff = abs((detection_buffer[i].header.stamp - target_header.stamp).toNSec());
-		if(diff < min_diff || min_diff < 0){
-			min_diff = diff;
-			min_ind = i;
-		}
-	}
-	if(min_ind >= 0){
-		detections = detection_buffer[min_ind];
-		detections_found = true;
-		return;
-	}else{
-		detections_found = false;
 	}
 }
 
@@ -140,22 +103,30 @@ void render_image(){
 			cv::Point label_pos = cv::Point(det.box.xmin, det.box.ymin);
 
 			cv::rectangle(image, c1, c2, cv::Scalar(255, 0, 255));
+			
+			for(actor_person_following::Pose_Point point : det.pose_points.points){
+				cv::Point tmp_point(point.frame_y, point.frame_x);
+				cv::circle(image, tmp_point, 5, cv::Scalar(0, 0, 255), cv::FILLED);
+			}
 
 			line_height = write_line(image, to_string(i), label_pos, cv::Scalar(255, 255, 0));
 			label_pos = label_pos + cv::Point(0, line_height + line_spacing);
 
 			line_height = write_line(image, to_string(det.lidar_point.distance), label_pos, cv::Scalar(0, 255, 0));
 			label_pos = label_pos + cv::Point(0, line_height + line_spacing);
+
+			line_height = write_line(image, det.gesture, label_pos, cv::Scalar(255, 0, 0));
+			label_pos = label_pos + cv::Point(0, line_height + line_spacing);
 			
-			cv::Point lidar_circle_center(det.lidar_point.frame_x*(image.cols - 1), det.lidar_point.frame_y*(image.rows - 1));
-			cv::circle(image, lidar_circle_center, 5*(1 - sqrt(det.lidar_point.distance/lidar_points.max_distance)), cv::Scalar(0, 255, 0), cv::FILLED);
+			//cv::Point lidar_circle_center(det.lidar_point.frame_x*(image.cols - 1), det.lidar_point.frame_y*(image.rows - 1));
+			//cv::circle(image, lidar_circle_center, 5*(1 - sqrt(det.lidar_point.distance/lidar_points.max_distance)), cv::Scalar(0, 255, 0), cv::FILLED);
 
 			if(enable_closest && detections.close_target == i){
 				line_height = write_line(image, "CLOSE_TARGET", label_pos, cv::Scalar(0, 0, 255));
 				label_pos = label_pos + cv::Point(0, line_height + line_spacing);
 			}
 			if(enable_aruco && detections.aruco_target == i){
-				line_height = write_line(image, "ARUCO_TARGET", label_pos, cv::Scalar(0, 255, 0));
+				line_height = write_line(image, "POSE_TARGET", label_pos, cv::Scalar(0, 255, 0));
 				label_pos = label_pos + cv::Point(0, line_height + line_spacing);
 			}
 		}
@@ -163,15 +134,15 @@ void render_image(){
 		//imshow(window_name, image);
 		//cv::waitKey(waitkey_delay);
 	}
-	if(enable_aruco && detections_found){
-		if(detections.aruco_visible){
-			for(int i = 0; i < detections.aruco_points.size(); i++){
-				perception_msgs::PointInImage p1 = detections.aruco_points[i];
-				perception_msgs::PointInImage p2 = detections.aruco_points[(i + 1)%detections.aruco_points.size()];
-				cv::line(image, cv::Point(p1.x, p1.y), cv::Point(p2.x, p2.y), cv::Scalar(255, 0, 0));
-			}
-		}
-	}
+	//if(enable_aruco && detections_found){
+	//	if(detections.aruco_visible){
+	//		for(int i = 0; i < detections.aruco_points.size(); i++){
+	//			perception_msgs::PointInImage p1 = detections.aruco_points[i];
+	//			perception_msgs::PointInImage p2 = detections.aruco_points[(i + 1)%detections.aruco_points.size()];
+	//			cv::line(image, cv::Point(p1.x, p1.y), cv::Point(p2.x, p2.y), cv::Scalar(255, 0, 0));
+	//		}
+	//	}
+	//}
 
 	if(flip_image){ cv::flip(image, image, 1); }
 	cv::rectangle(image, cv::Point(0, 0), cv::Point(status_size.width, status_size.height), cv::Scalar(0, 0, 0), cv::FILLED);
@@ -191,11 +162,14 @@ void send_image(){
 	}
 }
 
-void detection_report_callback(const actor_person_following::Detections& detections_msg){
-	//detections = detections_msg;
-	//stale_image = true;
-	detection_buffer.insert(detection_buffer.begin(), detections_msg);
-	if(detection_buffer.size() > buffer_size){ detection_buffer.resize(buffer_size); }
+void detection_report_callback(const actor_person_following::Detections::ConstPtr& detections_msg){
+	cv_bridge::CvImagePtr target_img_ptr = cv_bridge::toCvCopy(detections_msg->image, sensor_msgs::image_encodings::BGR8);
+	target_header = detections_msg->image.header;
+	src_image = target_img_ptr->image;
+	detections = *detections_msg;
+	image_found = true;
+	stale_image = true;
+	detections_found = true;
 }
 
 void lidar_callback(const actor_person_following::Lidar_Points& lidar_msg){
@@ -259,7 +233,7 @@ int main(int argc, char* argv[]) //Make this work with a constant rate loop, det
 	nh.getParam("/detection_image_viewer_node/show_image", show_image);
 	nh.getParam("/detection_image_viewer_node/lidar_topic", lidar_topic);
 
-	detection_image_sub = nh.subscribe(detection_image_topic, 10, detection_image_callback);
+	//detection_image_sub = nh.subscribe(detection_image_topic, 10, detection_image_callback);
 	detection_sub = nh.subscribe(detection_topic, 10, detection_report_callback);
 	status_sub = nh.subscribe("/display/text/msg", 10, status_callback);
 	lidar_sub = nh.subscribe(lidar_topic, 10, lidar_callback);
@@ -271,7 +245,7 @@ int main(int argc, char* argv[]) //Make this work with a constant rate loop, det
 	ros::Rate r(30);
 	while(ros::ok()){
 		//set_image();
-		set_detections();
+		//set_detections();
 		set_lidar();
 		if(stale_image && image_found){ render_image(); }
 		if(made_image){ send_image(); }

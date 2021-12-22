@@ -66,7 +66,7 @@ class SetBoolRequest {
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    bool data
+    bool data # e.g. for hardware enabling / disabling
     
     `;
   }
@@ -133,7 +133,7 @@ class SetBoolResponse {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.message.length;
+    length += _getByteLength(object.message);
     return length + 5;
   }
 
@@ -150,8 +150,8 @@ class SetBoolResponse {
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    bool success
-    string message
+    bool success   # indicate successful run of triggered service
+    string message # informational, e.g. for error messages
     
     
     

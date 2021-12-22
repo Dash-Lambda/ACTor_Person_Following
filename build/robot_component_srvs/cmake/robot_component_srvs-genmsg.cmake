@@ -2,7 +2,7 @@
 
 message(STATUS "robot_component_srvs: 0 messages, 1 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(robot_component_srvs_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
+get_filename_component(_filename "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
 add_custom_target(_robot_component_srvs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_component_srvs" "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_component_srvs" "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" ""
 )
 
 #
@@ -31,7 +31,7 @@ add_custom_target(_robot_component_srvs_generate_messages_check_deps_${_filename
 
 ### Generating Services
 _generate_srv_cpp(robot_component_srvs
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
+  "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/robot_component_srvs
@@ -49,7 +49,7 @@ add_custom_target(robot_component_srvs_generate_messages_cpp
 add_dependencies(robot_component_srvs_generate_messages robot_component_srvs_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
+get_filename_component(_filename "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
 add_dependencies(robot_component_srvs_generate_messages_cpp _robot_component_srvs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -64,7 +64,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_component_srvs_generate_messa
 
 ### Generating Services
 _generate_srv_eus(robot_component_srvs
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
+  "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/robot_component_srvs
@@ -82,7 +82,7 @@ add_custom_target(robot_component_srvs_generate_messages_eus
 add_dependencies(robot_component_srvs_generate_messages robot_component_srvs_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
+get_filename_component(_filename "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
 add_dependencies(robot_component_srvs_generate_messages_eus _robot_component_srvs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -97,7 +97,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_component_srvs_generate_messa
 
 ### Generating Services
 _generate_srv_lisp(robot_component_srvs
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
+  "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/robot_component_srvs
@@ -115,7 +115,7 @@ add_custom_target(robot_component_srvs_generate_messages_lisp
 add_dependencies(robot_component_srvs_generate_messages robot_component_srvs_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
+get_filename_component(_filename "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
 add_dependencies(robot_component_srvs_generate_messages_lisp _robot_component_srvs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -130,7 +130,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_component_srvs_generate_messa
 
 ### Generating Services
 _generate_srv_nodejs(robot_component_srvs
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
+  "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/robot_component_srvs
@@ -148,7 +148,7 @@ add_custom_target(robot_component_srvs_generate_messages_nodejs
 add_dependencies(robot_component_srvs_generate_messages robot_component_srvs_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
+get_filename_component(_filename "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
 add_dependencies(robot_component_srvs_generate_messages_nodejs _robot_component_srvs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -163,7 +163,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_component_srvs_generate_messa
 
 ### Generating Services
 _generate_srv_py(robot_component_srvs
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
+  "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_component_srvs
@@ -181,7 +181,7 @@ add_custom_target(robot_component_srvs_generate_messages_py
 add_dependencies(robot_component_srvs_generate_messages robot_component_srvs_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/mpleune/lfa_ws/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
+get_filename_component(_filename "/home/actor1/ACTor_Person_Following/src/robot_component_srvs/srv/SetBool.srv" NAME_WE)
 add_dependencies(robot_component_srvs_generate_messages_py _robot_component_srvs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -238,7 +238,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_component_srvs)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python2\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_component_srvs\")")
+  install(CODE "execute_process(COMMAND \"/usr/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_component_srvs\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_component_srvs

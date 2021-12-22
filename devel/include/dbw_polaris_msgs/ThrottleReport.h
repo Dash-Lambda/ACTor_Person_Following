@@ -123,6 +123,32 @@ ros::message_operations::Printer< ::dbw_polaris_msgs::ThrottleReport_<ContainerA
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator2> & rhs)
+{
+  return lhs.header == rhs.header &&
+    lhs.pedal_input == rhs.pedal_input &&
+    lhs.pedal_cmd == rhs.pedal_cmd &&
+    lhs.pedal_output == rhs.pedal_output &&
+    lhs.enabled == rhs.enabled &&
+    lhs.override == rhs.override &&
+    lhs.driver == rhs.driver &&
+    lhs.timeout == rhs.timeout &&
+    lhs.watchdog_counter == rhs.watchdog_counter &&
+    lhs.fault_wdc == rhs.fault_wdc &&
+    lhs.fault_ch1 == rhs.fault_ch1 &&
+    lhs.fault_ch2 == rhs.fault_ch2 &&
+    lhs.fault_power == rhs.fault_power;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator1> & lhs, const ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace dbw_polaris_msgs
 
 namespace ros
@@ -132,23 +158,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'dbw_polaris_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/dbw_polaris_ros/dbw_polaris_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> >
@@ -158,6 +168,16 @@ struct IsMessage< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -200,68 +220,66 @@ struct Definition< ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "Header header\n\
-\n\
-# Throttle pedal\n\
-# Unitless, range 0.20 to 0.80\n\
-float32 pedal_input\n\
-float32 pedal_cmd\n\
-float32 pedal_output\n\
-\n\
-# Status\n\
-bool enabled  # Enabled\n\
-bool override # Driver override\n\
-bool driver   # Driver activity\n\
-bool timeout  # Command timeout\n\
-\n\
-# Watchdog Counter\n\
-WatchdogCounter watchdog_counter\n\
-bool fault_wdc\n\
-\n\
-# Faults\n\
-bool fault_ch1\n\
-bool fault_ch2\n\
-bool fault_power\n\
-\n\
-================================================================================\n\
-MSG: std_msgs/Header\n\
-# Standard metadata for higher-level stamped data types.\n\
-# This is generally used to communicate timestamped data \n\
-# in a particular coordinate frame.\n\
-# \n\
-# sequence ID: consecutively increasing ID \n\
-uint32 seq\n\
-#Two-integer timestamp that is expressed as:\n\
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n\
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n\
-# time-handling sugar is provided by the client library\n\
-time stamp\n\
-#Frame this data is associated with\n\
-# 0: no frame\n\
-# 1: global frame\n\
-string frame_id\n\
-\n\
-================================================================================\n\
-MSG: dbw_polaris_msgs/WatchdogCounter\n\
-uint8 source\n\
-\n\
-uint8 NONE=0               # No source for watchdog counter fault\n\
-uint8 OTHER_BRAKE=1        # Fault determined by brake controller\n\
-uint8 OTHER_THROTTLE=2     # Fault determined by throttle controller\n\
-uint8 OTHER_STEERING=3     # Fault determined by steering controller\n\
-uint8 BRAKE_COUNTER=4      # Brake command counter failed to increment\n\
-uint8 BRAKE_DISABLED=5     # Brake transition to disabled while in gear or moving\n\
-uint8 BRAKE_COMMAND=6      # Brake command timeout after 100ms\n\
-uint8 BRAKE_REPORT=7       # Brake report timeout after 100ms\n\
-uint8 THROTTLE_COUNTER=8   # Throttle command counter failed to increment\n\
-uint8 THROTTLE_DISABLED=9  # Throttle transition to disabled while in gear or moving\n\
-uint8 THROTTLE_COMMAND=10  # Throttle command timeout after 100ms\n\
-uint8 THROTTLE_REPORT=11   # Throttle report timeout after 100ms\n\
-uint8 STEERING_COUNTER=12  # Steering command counter failed to increment\n\
-uint8 STEERING_DISABLED=13 # Steering transition to disabled while in gear or moving\n\
-uint8 STEERING_COMMAND=14  # Steering command timeout after 100ms\n\
-uint8 STEERING_REPORT=15   # Steering report timeout after 100ms\n\
-";
+    return "Header header\n"
+"\n"
+"# Throttle pedal\n"
+"# Unitless, range 0.20 to 0.80\n"
+"float32 pedal_input\n"
+"float32 pedal_cmd\n"
+"float32 pedal_output\n"
+"\n"
+"# Status\n"
+"bool enabled  # Enabled\n"
+"bool override # Driver override\n"
+"bool driver   # Driver activity\n"
+"bool timeout  # Command timeout\n"
+"\n"
+"# Watchdog Counter\n"
+"WatchdogCounter watchdog_counter\n"
+"bool fault_wdc\n"
+"\n"
+"# Faults\n"
+"bool fault_ch1\n"
+"bool fault_ch2\n"
+"bool fault_power\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
+"\n"
+"================================================================================\n"
+"MSG: dbw_polaris_msgs/WatchdogCounter\n"
+"uint8 source\n"
+"\n"
+"uint8 NONE=0               # No source for watchdog counter fault\n"
+"uint8 OTHER_BRAKE=1        # Fault determined by brake controller\n"
+"uint8 OTHER_THROTTLE=2     # Fault determined by throttle controller\n"
+"uint8 OTHER_STEERING=3     # Fault determined by steering controller\n"
+"uint8 BRAKE_COUNTER=4      # Brake command counter failed to increment\n"
+"uint8 BRAKE_DISABLED=5     # Brake transition to disabled while in gear or moving\n"
+"uint8 BRAKE_COMMAND=6      # Brake command timeout after 100ms\n"
+"uint8 BRAKE_REPORT=7       # Brake report timeout after 100ms\n"
+"uint8 THROTTLE_COUNTER=8   # Throttle command counter failed to increment\n"
+"uint8 THROTTLE_DISABLED=9  # Throttle transition to disabled while in gear or moving\n"
+"uint8 THROTTLE_COMMAND=10  # Throttle command timeout after 100ms\n"
+"uint8 THROTTLE_REPORT=11   # Throttle report timeout after 100ms\n"
+"uint8 STEERING_COUNTER=12  # Steering command counter failed to increment\n"
+"uint8 STEERING_DISABLED=13 # Steering transition to disabled while in gear or moving\n"
+"uint8 STEERING_COMMAND=14  # Steering command timeout after 100ms\n"
+"uint8 STEERING_REPORT=15   # Steering report timeout after 100ms\n"
+;
   }
 
   static const char* value(const ::dbw_polaris_msgs::ThrottleReport_<ContainerAllocator>&) { return value(); }

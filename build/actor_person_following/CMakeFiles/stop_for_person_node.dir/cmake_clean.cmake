@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/actor1/ACTor_Person_Following/devel/lib/actor_person_following/stop_for_person_node"
+  "/home/actor1/ACTor_Person_Following/devel/lib/actor_person_following/stop_for_person_node.pdb"
   "CMakeFiles/stop_for_person_node.dir/src/stop_for_person_node.cpp.o"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/actor_person_following/stop_for_person_node.pdb"
-  "/home/mpleune/lfa_ws/ACTor_Person_Following/devel/lib/actor_person_following/stop_for_person_node"
 )
 
 # Per-language clean rules from dependency scanning.

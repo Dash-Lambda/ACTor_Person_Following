@@ -33,6 +33,18 @@
 (intern "*FAULT*" (find-package "DBW_POLARIS_MSGS::GEARREJECT"))
 (shadow '*FAULT* (find-package "DBW_POLARIS_MSGS::GEARREJECT"))
 (defconstant dbw_polaris_msgs::GearReject::*FAULT* 7)
+
+(defun dbw_polaris_msgs::GearReject-to-symbol (const)
+  (cond
+        ((= const 0) 'dbw_polaris_msgs::GearReject::*NONE*)
+        ((= const 1) 'dbw_polaris_msgs::GearReject::*SHIFT_IN_PROGRESS*)
+        ((= const 2) 'dbw_polaris_msgs::GearReject::*OVERRIDE*)
+        ((= const 3) 'dbw_polaris_msgs::GearReject::*NEUTRAL*)
+        ((= const 5) 'dbw_polaris_msgs::GearReject::*VEHICLE*)
+        ((= const 6) 'dbw_polaris_msgs::GearReject::*UNSUPPORTED*)
+        ((= const 7) 'dbw_polaris_msgs::GearReject::*FAULT*)
+        (t nil)))
+
 (defclass dbw_polaris_msgs::GearReject
   :super ros::object
   :slots (_value ))

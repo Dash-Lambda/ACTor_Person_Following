@@ -17,6 +17,7 @@
 
 #include <std_msgs/Header.h>
 #include <std_msgs/Header.h>
+#include <sensor_msgs/Image.h>
 #include <actor_person_following/Detection.h>
 #include <perception_msgs/PointInImage.h>
 
@@ -30,6 +31,7 @@ struct Detections_
   Detections_()
     : header()
     , image_header()
+    , image()
     , num_detects(0)
     , detections()
     , closest(0)
@@ -41,11 +43,14 @@ struct Detections_
     , aruco_visible(false)
     , aruco_x(0.0)
     , aruco_y(0.0)
-    , aruco_points()  {
+    , aruco_points()
+    , start(false)
+    , stop(false)  {
     }
   Detections_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , image_header(_alloc)
+    , image(_alloc)
     , num_detects(0)
     , detections(_alloc)
     , closest(0)
@@ -57,7 +62,9 @@ struct Detections_
     , aruco_visible(false)
     , aruco_x(0.0)
     , aruco_y(0.0)
-    , aruco_points(_alloc)  {
+    , aruco_points(_alloc)
+    , start(false)
+    , stop(false)  {
   (void)_alloc;
     }
 
@@ -68,6 +75,9 @@ struct Detections_
 
    typedef  ::std_msgs::Header_<ContainerAllocator>  _image_header_type;
   _image_header_type image_header;
+
+   typedef  ::sensor_msgs::Image_<ContainerAllocator>  _image_type;
+  _image_type image;
 
    typedef int32_t _num_detects_type;
   _num_detects_type num_detects;
@@ -105,6 +115,12 @@ struct Detections_
    typedef std::vector< ::perception_msgs::PointInImage_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::perception_msgs::PointInImage_<ContainerAllocator> >::other >  _aruco_points_type;
   _aruco_points_type aruco_points;
 
+   typedef uint8_t _start_type;
+  _start_type start;
+
+   typedef uint8_t _stop_type;
+  _stop_type stop;
+
 
 
 
@@ -130,6 +146,36 @@ ros::message_operations::Printer< ::actor_person_following::Detections_<Containe
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::actor_person_following::Detections_<ContainerAllocator1> & lhs, const ::actor_person_following::Detections_<ContainerAllocator2> & rhs)
+{
+  return lhs.header == rhs.header &&
+    lhs.image_header == rhs.image_header &&
+    lhs.image == rhs.image &&
+    lhs.num_detects == rhs.num_detects &&
+    lhs.detections == rhs.detections &&
+    lhs.closest == rhs.closest &&
+    lhs.close_target == rhs.close_target &&
+    lhs.aruco_target == rhs.aruco_target &&
+    lhs.color_target == rhs.color_target &&
+    lhs.xres == rhs.xres &&
+    lhs.yres == rhs.yres &&
+    lhs.aruco_visible == rhs.aruco_visible &&
+    lhs.aruco_x == rhs.aruco_x &&
+    lhs.aruco_y == rhs.aruco_y &&
+    lhs.aruco_points == rhs.aruco_points &&
+    lhs.start == rhs.start &&
+    lhs.stop == rhs.stop;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::actor_person_following::Detections_<ContainerAllocator1> & lhs, const ::actor_person_following::Detections_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace actor_person_following
 
 namespace ros
@@ -139,23 +185,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': True}
-// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'actor_person_following': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/actor_person_following/msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'perception_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/perception_msgs/msg'], 'darknet_ros_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg', '/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/darknet_ros_msgs/msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::actor_person_following::Detections_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::actor_person_following::Detections_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::actor_person_following::Detections_<ContainerAllocator> >
@@ -165,6 +195,16 @@ struct IsMessage< ::actor_person_following::Detections_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::actor_person_following::Detections_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::actor_person_following::Detections_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::actor_person_following::Detections_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -183,12 +223,12 @@ struct MD5Sum< ::actor_person_following::Detections_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "19fe65d07f7d0b5259da8a0b7e475e88";
+    return "89334e354050dfb15aacf14eca62859b";
   }
 
   static const char* value(const ::actor_person_following::Detections_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x19fe65d07f7d0b52ULL;
-  static const uint64_t static_value2 = 0x59da8a0b7e475e88ULL;
+  static const uint64_t static_value1 = 0x89334e354050dfb1ULL;
+  static const uint64_t static_value2 = 0x5aacf14eca62859bULL;
 };
 
 template<class ContainerAllocator>
@@ -207,93 +247,139 @@ struct Definition< ::actor_person_following::Detections_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "Header header\n\
-Header image_header\n\
-int32 num_detects\n\
-Detection[] detections\n\
-\n\
-int32 closest\n\
-int32 close_target\n\
-int32 aruco_target\n\
-int32 color_target\n\
-\n\
-int32 xres\n\
-int32 yres\n\
-\n\
-bool aruco_visible\n\
-float64 aruco_x\n\
-float64 aruco_y\n\
-perception_msgs/PointInImage[] aruco_points\n\
-\n\
-================================================================================\n\
-MSG: std_msgs/Header\n\
-# Standard metadata for higher-level stamped data types.\n\
-# This is generally used to communicate timestamped data \n\
-# in a particular coordinate frame.\n\
-# \n\
-# sequence ID: consecutively increasing ID \n\
-uint32 seq\n\
-#Two-integer timestamp that is expressed as:\n\
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n\
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n\
-# time-handling sugar is provided by the client library\n\
-time stamp\n\
-#Frame this data is associated with\n\
-# 0: no frame\n\
-# 1: global frame\n\
-string frame_id\n\
-\n\
-================================================================================\n\
-MSG: actor_person_following/Detection\n\
-float64 width\n\
-float64 height\n\
-float64 center\n\
-\n\
-float64 close_overlap\n\
-float64 aruco_overlap\n\
-\n\
-float64 close_dist\n\
-float64 aruco_dist\n\
-\n\
-float64 aruco_strength\n\
-\n\
-float32 r\n\
-float32 g\n\
-float32 b\n\
-\n\
-darknet_ros_msgs/BoundingBox box\n\
-actor_person_following/Lidar_Point lidar_point\n\
-\n\
-================================================================================\n\
-MSG: darknet_ros_msgs/BoundingBox\n\
-float64 probability\n\
-int64 xmin\n\
-int64 ymin\n\
-int64 xmax\n\
-int64 ymax\n\
-int16 id\n\
-string Class\n\
-\n\
-================================================================================\n\
-MSG: actor_person_following/Lidar_Point\n\
-float64 x\n\
-float64 y\n\
-float64 z\n\
-\n\
-float64 distance\n\
-float64 pitch\n\
-float64 yaw\n\
-\n\
-float64 frame_x\n\
-float64 frame_y\n\
-\n\
-================================================================================\n\
-MSG: perception_msgs/PointInImage\n\
-# x coordinate of the point in the image\n\
-float32 x\n\
-# y coordinate of the poitn in the image\n\
-float32 y\n\
-";
+    return "Header header\n"
+"Header image_header\n"
+"sensor_msgs/Image image\n"
+"int32 num_detects\n"
+"Detection[] detections\n"
+"\n"
+"int32 closest\n"
+"int32 close_target\n"
+"int32 aruco_target\n"
+"int32 color_target\n"
+"\n"
+"int32 xres\n"
+"int32 yres\n"
+"\n"
+"bool aruco_visible\n"
+"float64 aruco_x\n"
+"float64 aruco_y\n"
+"perception_msgs/PointInImage[] aruco_points\n"
+"\n"
+"bool start\n"
+"bool stop\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
+"\n"
+"================================================================================\n"
+"MSG: sensor_msgs/Image\n"
+"# This message contains an uncompressed image\n"
+"# (0, 0) is at top-left corner of image\n"
+"#\n"
+"\n"
+"Header header        # Header timestamp should be acquisition time of image\n"
+"                     # Header frame_id should be optical frame of camera\n"
+"                     # origin of frame should be optical center of camera\n"
+"                     # +x should point to the right in the image\n"
+"                     # +y should point down in the image\n"
+"                     # +z should point into to plane of the image\n"
+"                     # If the frame_id here and the frame_id of the CameraInfo\n"
+"                     # message associated with the image conflict\n"
+"                     # the behavior is undefined\n"
+"\n"
+"uint32 height         # image height, that is, number of rows\n"
+"uint32 width          # image width, that is, number of columns\n"
+"\n"
+"# The legal values for encoding are in file src/image_encodings.cpp\n"
+"# If you want to standardize a new string format, join\n"
+"# ros-users@lists.sourceforge.net and send an email proposing a new encoding.\n"
+"\n"
+"string encoding       # Encoding of pixels -- channel meaning, ordering, size\n"
+"                      # taken from the list of strings in include/sensor_msgs/image_encodings.h\n"
+"\n"
+"uint8 is_bigendian    # is this data bigendian?\n"
+"uint32 step           # Full row length in bytes\n"
+"uint8[] data          # actual matrix data, size is (step * rows)\n"
+"\n"
+"================================================================================\n"
+"MSG: actor_person_following/Detection\n"
+"float64 width\n"
+"float64 height\n"
+"float64 center\n"
+"\n"
+"float64 close_overlap\n"
+"float64 aruco_overlap\n"
+"\n"
+"float64 close_dist\n"
+"float64 aruco_dist\n"
+"\n"
+"float64 aruco_strength\n"
+"\n"
+"float32 r\n"
+"float32 g\n"
+"float32 b\n"
+"\n"
+"string gesture\n"
+"actor_person_following/Pose_Points pose_points\n"
+"\n"
+"darknet_ros_msgs/BoundingBox box\n"
+"actor_person_following/Lidar_Point lidar_point\n"
+"\n"
+"================================================================================\n"
+"MSG: actor_person_following/Pose_Points\n"
+"actor_person_following/Pose_Point[] points\n"
+"\n"
+"================================================================================\n"
+"MSG: actor_person_following/Pose_Point\n"
+"float64 x\n"
+"float64 y\n"
+"int32 frame_x\n"
+"int32 frame_y\n"
+"\n"
+"================================================================================\n"
+"MSG: darknet_ros_msgs/BoundingBox\n"
+"float64 probability\n"
+"int64 xmin\n"
+"int64 ymin\n"
+"int64 xmax\n"
+"int64 ymax\n"
+"int16 id\n"
+"string Class\n"
+"\n"
+"================================================================================\n"
+"MSG: actor_person_following/Lidar_Point\n"
+"float64 x\n"
+"float64 y\n"
+"float64 z\n"
+"\n"
+"float64 distance\n"
+"float64 pitch\n"
+"float64 yaw\n"
+"\n"
+"float64 frame_x\n"
+"float64 frame_y\n"
+"\n"
+"================================================================================\n"
+"MSG: perception_msgs/PointInImage\n"
+"# x coordinate of the point in the image\n"
+"float32 x\n"
+"# y coordinate of the poitn in the image\n"
+"float32 y\n"
+;
   }
 
   static const char* value(const ::actor_person_following::Detections_<ContainerAllocator>&) { return value(); }
@@ -313,6 +399,7 @@ namespace serialization
     {
       stream.next(m.header);
       stream.next(m.image_header);
+      stream.next(m.image);
       stream.next(m.num_detects);
       stream.next(m.detections);
       stream.next(m.closest);
@@ -325,6 +412,8 @@ namespace serialization
       stream.next(m.aruco_x);
       stream.next(m.aruco_y);
       stream.next(m.aruco_points);
+      stream.next(m.start);
+      stream.next(m.stop);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -349,6 +438,9 @@ struct Printer< ::actor_person_following::Detections_<ContainerAllocator> >
     s << indent << "image_header: ";
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.image_header);
+    s << indent << "image: ";
+    s << std::endl;
+    Printer< ::sensor_msgs::Image_<ContainerAllocator> >::stream(s, indent + "  ", v.image);
     s << indent << "num_detects: ";
     Printer<int32_t>::stream(s, indent + "  ", v.num_detects);
     s << indent << "detections[]" << std::endl;
@@ -385,6 +477,10 @@ struct Printer< ::actor_person_following::Detections_<ContainerAllocator> >
       s << indent;
       Printer< ::perception_msgs::PointInImage_<ContainerAllocator> >::stream(s, indent + "    ", v.aruco_points[i]);
     }
+    s << indent << "start: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.start);
+    s << indent << "stop: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.stop);
   }
 };
 

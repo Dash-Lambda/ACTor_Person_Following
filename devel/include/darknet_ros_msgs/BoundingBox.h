@@ -91,6 +91,26 @@ ros::message_operations::Printer< ::darknet_ros_msgs::BoundingBox_<ContainerAllo
 return s;
 }
 
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::darknet_ros_msgs::BoundingBox_<ContainerAllocator1> & lhs, const ::darknet_ros_msgs::BoundingBox_<ContainerAllocator2> & rhs)
+{
+  return lhs.probability == rhs.probability &&
+    lhs.xmin == rhs.xmin &&
+    lhs.ymin == rhs.ymin &&
+    lhs.xmax == rhs.xmax &&
+    lhs.ymax == rhs.ymax &&
+    lhs.id == rhs.id &&
+    lhs.Class == rhs.Class;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::darknet_ros_msgs::BoundingBox_<ContainerAllocator1> & lhs, const ::darknet_ros_msgs::BoundingBox_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
+}
+
+
 } // namespace darknet_ros_msgs
 
 namespace ros
@@ -100,23 +120,7 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'sensor_msgs': ['/opt/ros/kinetic/share/sensor_msgs/cmake/../msg'], 'darknet_ros_msgs': ['/home/mpleune/lfa_ws/ACTor_Person_Following/src/darknet_ros/darknet_ros_msgs/msg', '/home/mpleune/lfa_ws/ACTor_Person_Following/devel/share/darknet_ros_msgs/msg'], 'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
 
-// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
-
-
-
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> const>
-  : FalseType
-  { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> >
@@ -126,6 +130,16 @@ struct IsMessage< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -168,14 +182,14 @@ struct Definition< ::darknet_ros_msgs::BoundingBox_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 probability\n\
-int64 xmin\n\
-int64 ymin\n\
-int64 xmax\n\
-int64 ymax\n\
-int16 id\n\
-string Class\n\
-";
+    return "float64 probability\n"
+"int64 xmin\n"
+"int64 ymin\n"
+"int64 xmax\n"
+"int64 ymax\n"
+"int16 id\n"
+"string Class\n"
+;
   }
 
   static const char* value(const ::darknet_ros_msgs::BoundingBox_<ContainerAllocator>&) { return value(); }
